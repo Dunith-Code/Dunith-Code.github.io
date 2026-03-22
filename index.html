@@ -3,36 +3,82 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Dunith | AI & Automation Portfolio</title>
-    <style>
-        body { font-family: Arial, sans-serif; margin: 40px auto; max-width: 800px; line-height: 1.6; color: #333; }
-        h1 { color: #2c3e50; }
-        .badge { background-color: #0078d4; color: white; padding: 5px 10px; border-radius: 5px; font-size: 14px; }
-        .project { border: 1px solid #ddd; padding: 15px; border-radius: 8px; margin-bottom: 20px; }
-    </style>
+    <title>John Doe | Automation & AI Portfolio</title>
+    <link rel="stylesheet" href="css/style.css">
+    <!-- Font Awesome for icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
 </head>
 <body>
+    <header>
+        <div class="container">
+            <h1>John Doe</h1>
+            <p class="tagline">
+                Instrumentation & Automation Engineering Technologist | IT Undergraduate | AI/ML Enthusiast
+            </p>
+            <p class="bridge">
+                Bridging the gap between industrial hardware and intelligent software.
+            </p>
+            <div class="social-links">
+                <a href="https://github.com/yourusername" target="_blank"><i class="fab fa-github"></i> GitHub</a>
+                <a href="https://linkedin.com/in/yourusername" target="_blank"><i class="fab fa-linkedin"></i> LinkedIn</a>
+                <a href="https://medium.com/@yourusername" target="_blank"><i class="fab fa-medium"></i> Medium</a>
+            </div>
+        </div>
+    </header>
 
-    <h1>Hi, I'm Dunith 👋</h1>
-    <p><b>4th-Year Instrumentation & Automation Undergraduate</b></p>
-    
-    
-    <p>I bridge the gap between AI algorithms and physical hardware. I specialize in Python, machine learning, and embedded systems like Raspberry Pi and ESP32.</p>
+    <main class="container">
+        <section id="about">
+            <h2>About Me</h2>
+            <p>
+                I combine hands-on experience in PLCs, SCADA, and industrial sensors with a strong foundation in IT and artificial intelligence. 
+                My goal is to develop smart, connected systems that drive Industry 4.0 — from predictive maintenance to digital twins.
+            </p>
+        </section>
 
-    <h2>Featured Work</h2>
+        <section id="featured-project">
+            <h2>Featured Project: Predictive Maintenance Dashboard</h2>
+            <div class="project-card">
+                <img src="assets/project-thumbnails/predictive-maintenance.png" alt="Dashboard screenshot" class="project-img">
+                <div class="project-info">
+                    <p>
+                        A real-time web app that simulates sensor data from a conveyor belt, detects anomalies using an isolation forest model, 
+                        and alerts operators before failure. Built with Python, scikit-learn, and Streamlit.
+                    </p>
+                    <div class="project-links">
+                        <a href="https://your-streamlit-app.streamlit.app" target="_blank" class="btn"><i class="fas fa-eye"></i> Live Demo</a>
+                        <a href="https://github.com/yourusername/predictive-maintenance" target="_blank" class="btn"><i class="fab fa-github"></i> Source Code</a>
+                        <a href="https://medium.com/@yourusername/building-a-predictive-maintenance-dashboard-for-industry-4-0" target="_blank" class="btn"><i class="fab fa-medium"></i> Read the Article</a>
+                    </div>
+                </div>
+            </div>
+        </section>
 
-    <div class="project">
-        <h3>🌱 GreenHeavenDAQ</h3>
-        <p>A smart home garden monitoring system for real-time environmental data acquisition.</p>
-        <p><b>Tech:</b> ESP32, C++, IoT Sensors</p>
-    </div>
+        <section id="projects">
+            <h2>Other Projects</h2>
+            <div class="project-grid">
+                <div class="project-card">
+                    <h3>Digital Twin of a Tank Level System</h3>
+                    <p>Simulated a water tank in Python with a PID controller. Integrated OPC-UA to stream data to a dashboard.</p>
+                    <a href="https://github.com/yourusername/digital-twin-tank" target="_blank">GitHub Repo →</a>
+                </div>
+                <div class="project-card">
+                    <h3>Industrial Safety Computer Vision</h3>
+                    <p>YOLOv8 model to detect missing PPE in factory images. Deployed as a FastAPI endpoint.</p>
+                    <a href="https://github.com/yourusername/ppe-detection" target="_blank">GitHub Repo →</a>
+                </div>
+                <div class="project-card">
+                    <h3>SCADA Data Pipeline</h3>
+                    <p>Python scripts to poll Modbus TCP devices, store data in InfluxDB, and visualize with Grafana.</p>
+                    <a href="https://github.com/yourusername/scada-pipeline" target="_blank">GitHub Repo →</a>
+                </div>
+            </div>
+        </section>
+    </main>
 
-    <h2>Let's Connect</h2>
-    <p>
-        <a href="https://github.com/Dunith-Code">GitHub</a> | 
-        <a href="#">LinkedIn</a> | 
-        <a href="dunithofficial@gmail.com">Email Me</a>
-    </p>
-
+    <footer>
+        <div class="container">
+            <p>© 2025 John Doe | Built with <i class="fas fa-heart"></i> on GitHub Pages</p>
+        </div>
+    </footer>
 </body>
 </html>
