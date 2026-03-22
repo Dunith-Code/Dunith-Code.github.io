@@ -3,12 +3,13 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Dunith | Instrumentation & Automation | AI/ML | Information Technology Portfolio</title>
-    <!-- Font Awesome 6 (free icons) -->
+    <title>Your Name | Automation & AI Portfolio</title>
+    <!-- Font Awesome 6 -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
     <!-- Google Fonts -->
     <link href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,300;14..32,400;14..32,600;14..32,700&display=swap" rel="stylesheet">
     <style>
+        /* Same CSS as before – keep it unchanged */
         * {
             margin: 0;
             padding: 0;
@@ -23,14 +24,12 @@
             scroll-behavior: smooth;
         }
 
-        /* Container */
         .container {
             max-width: 1200px;
             margin: 0 auto;
             padding: 0 24px;
         }
 
-        /* Header / Hero */
         .hero {
             min-height: 100vh;
             display: flex;
@@ -73,7 +72,7 @@
 
         .typing-wrapper {
             font-size: 1.8rem;
-            min-height: 4rem;
+            min-height: 5rem;
             margin: 1.5rem 0;
         }
 
@@ -131,12 +130,10 @@
             transform: translateY(-3px);
         }
 
-        /* Main Content */
         .main-content {
             padding: 4rem 0;
         }
 
-        /* Tabs */
         .tabs {
             display: flex;
             justify-content: center;
@@ -170,7 +167,6 @@
             background: #e2e8f0;
         }
 
-        /* Tab Content */
         .tab-pane {
             display: none;
             animation: fadeIn 0.4s ease;
@@ -185,7 +181,6 @@
             to { opacity: 1; transform: translateY(0); }
         }
 
-        /* Project Cards */
         .project-grid, .skill-grid, .article-grid {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
@@ -245,7 +240,6 @@
             transition: gap 0.2s;
         }
 
-        /* Skill Tags */
         .skill-tag {
             display: inline-block;
             background: #e2e8f0;
@@ -255,14 +249,12 @@
             margin: 0.25rem;
         }
 
-        /* Article Card */
         .article-meta {
             font-size: 0.85rem;
             color: #718096;
             margin-bottom: 0.5rem;
         }
 
-        /* Footer */
         footer {
             text-align: center;
             padding: 2rem;
@@ -272,7 +264,7 @@
 
         @media (max-width: 768px) {
             .hero h1 { font-size: 2.5rem; }
-            .typing-wrapper { font-size: 1.2rem; }
+            .typing-wrapper { font-size: 1.2rem; min-height: 4rem; }
             .tab-btn { padding: 0.5rem 1rem; font-size: 0.9rem; }
         }
     </style>
@@ -281,13 +273,12 @@
 
 <section class="hero">
     <div class="hero-content">
-        <h1>Dunith Desitha Athukorala</h1>
+        <h1>Your Name</h1>
         <div class="typing-wrapper">
             <span class="typed-text"></span><span class="cursor">|</span>
         </div>
         <p class="subtitle">
-            Instrumentation & Automation Engineering Undergraduate | IT Undergraduate | AI/ML Enthusiast
-            <br>Bridging industrial hardware with intelligent software.
+            Bridging industrial hardware with intelligent software.
         </p>
         <div class="social-links">
             <a href="https://github.com/yourusername" target="_blank"><i class="fab fa-github"></i> GitHub</a>
@@ -445,17 +436,17 @@
 </div>
 
 <footer>
-    <p>© 2025 John Doe | Built with <i class="fas fa-heart" style="color: #ff6b6b;"></i> on GitHub Pages</p>
+    <p>© 2025 Your Name | Built with <i class="fas fa-heart" style="color: #ff6b6b;"></i> on GitHub Pages</p>
 </footer>
 
 <script>
-    // TYPING ANIMATION
+    // TYPING ANIMATION – updated to show your actual degrees and roles
     const typedTextSpan = document.querySelector('.typed-text');
     const textArray = [
-        'Instrumentation & Automation Engineer',
+        'Instrumentation & Automation Engineering Technology Undergraduate',
+        'Information Technology Undergraduate',
         'AI/ML Enthusiast',
-        'Industry 4.0 Builder',
-        'Full-Stack Developer'
+        'Industry 4.0 Developer'
     ];
     let textArrayIndex = 0;
     let charIndex = 0;
@@ -489,14 +480,9 @@
 
     tabBtns.forEach(btn => {
         btn.addEventListener('click', () => {
-            // Remove active class from all buttons
             tabBtns.forEach(b => b.classList.remove('active'));
             btn.classList.add('active');
-
-            // Hide all panes
             panes.forEach(pane => pane.classList.remove('active-pane'));
-
-            // Show the selected pane
             const tabId = btn.getAttribute('data-tab');
             document.getElementById(tabId).classList.add('active-pane');
         });
