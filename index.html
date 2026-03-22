@@ -4,81 +4,503 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>John Doe | Automation & AI Portfolio</title>
-    <link rel="stylesheet" href="css/style.css">
-    <!-- Font Awesome for icons -->
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <!-- Font Awesome 6 (free icons) -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,300;14..32,400;14..32,600;14..32,700&display=swap" rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Inter', sans-serif;
+            background: linear-gradient(135deg, #f5f7fa 0%, #e9eef5 100%);
+            color: #1e2a3a;
+            line-height: 1.5;
+            scroll-behavior: smooth;
+        }
+
+        /* Container */
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 24px;
+        }
+
+        /* Header / Hero */
+        .hero {
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            background: linear-gradient(135deg, #0f2027, #203a43, #2c5364);
+            color: white;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .hero::before {
+            content: '';
+            position: absolute;
+            width: 200%;
+            height: 200%;
+            background: radial-gradient(circle, rgba(255,255,255,0.1) 0%, rgba(0,0,0,0) 70%);
+            top: -50%;
+            left: -50%;
+            animation: rotate 20s linear infinite;
+        }
+
+        @keyframes rotate {
+            from { transform: rotate(0deg); }
+            to { transform: rotate(360deg); }
+        }
+
+        .hero-content {
+            position: relative;
+            z-index: 2;
+            max-width: 800px;
+        }
+
+        .hero h1 {
+            font-size: 3.5rem;
+            margin-bottom: 1rem;
+            font-weight: 700;
+        }
+
+        .typing-wrapper {
+            font-size: 1.8rem;
+            min-height: 4rem;
+            margin: 1.5rem 0;
+        }
+
+        .typed-text {
+            font-weight: 600;
+            background: linear-gradient(120deg, #a1c4fd, #c2e9fb);
+            background-clip: text;
+            -webkit-background-clip: text;
+            color: transparent;
+        }
+
+        .cursor {
+            display: inline-block;
+            width: 3px;
+            background-color: white;
+            margin-left: 4px;
+            animation: blink 0.7s infinite;
+        }
+
+        @keyframes blink {
+            0%, 100% { opacity: 1; }
+            50% { opacity: 0; }
+        }
+
+        .subtitle {
+            font-size: 1.2rem;
+            opacity: 0.9;
+            margin-top: 1rem;
+        }
+
+        .social-links {
+            margin-top: 2rem;
+            display: flex;
+            gap: 1rem;
+            justify-content: center;
+            flex-wrap: wrap;
+        }
+
+        .social-links a {
+            color: white;
+            background: rgba(255,255,255,0.15);
+            backdrop-filter: blur(4px);
+            padding: 0.75rem 1.5rem;
+            border-radius: 40px;
+            text-decoration: none;
+            font-weight: 500;
+            transition: all 0.3s ease;
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .social-links a:hover {
+            background: #1abc9c;
+            transform: translateY(-3px);
+        }
+
+        /* Main Content */
+        .main-content {
+            padding: 4rem 0;
+        }
+
+        /* Tabs */
+        .tabs {
+            display: flex;
+            justify-content: center;
+            gap: 1rem;
+            flex-wrap: wrap;
+            margin-bottom: 3rem;
+            border-bottom: 1px solid rgba(0,0,0,0.1);
+            padding-bottom: 1rem;
+        }
+
+        .tab-btn {
+            background: transparent;
+            border: none;
+            padding: 0.75rem 2rem;
+            font-size: 1.1rem;
+            font-weight: 600;
+            cursor: pointer;
+            color: #4a5568;
+            transition: all 0.3s;
+            border-radius: 40px;
+            font-family: 'Inter', sans-serif;
+        }
+
+        .tab-btn.active {
+            background: #1abc9c;
+            color: white;
+            box-shadow: 0 4px 12px rgba(26,188,156,0.3);
+        }
+
+        .tab-btn:hover:not(.active) {
+            background: #e2e8f0;
+        }
+
+        /* Tab Content */
+        .tab-pane {
+            display: none;
+            animation: fadeIn 0.4s ease;
+        }
+
+        .tab-pane.active-pane {
+            display: block;
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(10px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        /* Project Cards */
+        .project-grid, .skill-grid, .article-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+        }
+
+        .card {
+            background: white;
+            border-radius: 20px;
+            overflow: hidden;
+            box-shadow: 0 10px 25px -5px rgba(0,0,0,0.05), 0 8px 10px -6px rgba(0,0,0,0.02);
+            transition: transform 0.3s, box-shadow 0.3s;
+        }
+
+        .card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 20px 30px -12px rgba(0,0,0,0.1);
+        }
+
+        .card-img {
+            width: 100%;
+            height: 180px;
+            object-fit: cover;
+            background: #2c5364;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-size: 3rem;
+        }
+
+        .card-content {
+            padding: 1.5rem;
+        }
+
+        .card-content h3 {
+            font-size: 1.3rem;
+            margin-bottom: 0.5rem;
+        }
+
+        .card-content p {
+            color: #4a5568;
+            margin-bottom: 1rem;
+        }
+
+        .card-link {
+            color: #1abc9c;
+            text-decoration: none;
+            font-weight: 600;
+            display: inline-flex;
+            align-items: center;
+            gap: 5px;
+        }
+
+        .card-link:hover {
+            gap: 10px;
+            transition: gap 0.2s;
+        }
+
+        /* Skill Tags */
+        .skill-tag {
+            display: inline-block;
+            background: #e2e8f0;
+            padding: 0.3rem 0.8rem;
+            border-radius: 20px;
+            font-size: 0.85rem;
+            margin: 0.25rem;
+        }
+
+        /* Article Card */
+        .article-meta {
+            font-size: 0.85rem;
+            color: #718096;
+            margin-bottom: 0.5rem;
+        }
+
+        /* Footer */
+        footer {
+            text-align: center;
+            padding: 2rem;
+            background: #1e2a3a;
+            color: white;
+        }
+
+        @media (max-width: 768px) {
+            .hero h1 { font-size: 2.5rem; }
+            .typing-wrapper { font-size: 1.2rem; }
+            .tab-btn { padding: 0.5rem 1rem; font-size: 0.9rem; }
+        }
+    </style>
 </head>
 <body>
-    <header>
-        <div class="container">
-            <h1>John Doe</h1>
-            <p class="tagline">
-                Instrumentation & Automation Engineering Technologist | IT Undergraduate | AI/ML Enthusiast
-            </p>
-            <p class="bridge">
-                Bridging the gap between industrial hardware and intelligent software.
-            </p>
-            <div class="social-links">
-                <a href="https://github.com/yourusername" target="_blank"><i class="fab fa-github"></i> GitHub</a>
-                <a href="https://linkedin.com/in/yourusername" target="_blank"><i class="fab fa-linkedin"></i> LinkedIn</a>
-                <a href="https://medium.com/@yourusername" target="_blank"><i class="fab fa-medium"></i> Medium</a>
-            </div>
+
+<section class="hero">
+    <div class="hero-content">
+        <h1>John Doe</h1>
+        <div class="typing-wrapper">
+            <span class="typed-text"></span><span class="cursor">|</span>
         </div>
-    </header>
+        <p class="subtitle">
+            Instrumentation & Automation Engineering Technologist | IT Undergraduate | AI/ML Enthusiast
+            <br>Bridging industrial hardware with intelligent software.
+        </p>
+        <div class="social-links">
+            <a href="https://github.com/yourusername" target="_blank"><i class="fab fa-github"></i> GitHub</a>
+            <a href="https://linkedin.com/in/yourusername" target="_blank"><i class="fab fa-linkedin"></i> LinkedIn</a>
+            <a href="https://medium.com/@yourusername" target="_blank"><i class="fab fa-medium"></i> Medium</a>
+        </div>
+    </div>
+</section>
 
-    <main class="container">
-        <section id="about">
-            <h2>About Me</h2>
-            <p>
-                I combine hands-on experience in PLCs, SCADA, and industrial sensors with a strong foundation in IT and artificial intelligence. 
-                My goal is to develop smart, connected systems that drive Industry 4.0 — from predictive maintenance to digital twins.
-            </p>
-        </section>
+<div class="main-content">
+    <div class="container">
+        <!-- Tabs Navigation -->
+        <div class="tabs">
+            <button class="tab-btn active" data-tab="projects">🚀 Projects</button>
+            <button class="tab-btn" data-tab="skills">⚙️ Skills & Tools</button>
+            <button class="tab-btn" data-tab="articles">📝 Articles</button>
+            <button class="tab-btn" data-tab="contact">📫 Contact</button>
+        </div>
 
-        <section id="featured-project">
-            <h2>Featured Project: Predictive Maintenance Dashboard</h2>
-            <div class="project-card">
-                <img src="assets/project-thumbnails/predictive-maintenance.png" alt="Dashboard screenshot" class="project-img">
-                <div class="project-info">
-                    <p>
-                        A real-time web app that simulates sensor data from a conveyor belt, detects anomalies using an isolation forest model, 
-                        and alerts operators before failure. Built with Python, scikit-learn, and Streamlit.
-                    </p>
-                    <div class="project-links">
-                        <a href="https://your-streamlit-app.streamlit.app" target="_blank" class="btn"><i class="fas fa-eye"></i> Live Demo</a>
-                        <a href="https://github.com/yourusername/predictive-maintenance" target="_blank" class="btn"><i class="fab fa-github"></i> Source Code</a>
-                        <a href="https://medium.com/@yourusername/building-a-predictive-maintenance-dashboard-for-industry-4-0" target="_blank" class="btn"><i class="fab fa-medium"></i> Read the Article</a>
+        <!-- Tab: Projects -->
+        <div id="projects" class="tab-pane active-pane">
+            <div class="project-grid">
+                <div class="card">
+                    <div class="card-img">
+                        <i class="fas fa-chart-line"></i>
+                    </div>
+                    <div class="card-content">
+                        <h3>Predictive Maintenance Dashboard</h3>
+                        <p>Real-time sensor simulation + anomaly detection using Isolation Forest. Deployed with Streamlit.</p>
+                        <a href="#" class="card-link">Live Demo →</a> &nbsp;|&nbsp;
+                        <a href="#" class="card-link">GitHub →</a>
+                    </div>
+                </div>
+                <div class="card">
+                    <div class="card-img">
+                        <i class="fas fa-industry"></i>
+                    </div>
+                    <div class="card-content">
+                        <h3>Digital Twin of a Tank System</h3>
+                        <p>Python PID controller, OPC-UA server, real-time data streaming to a dashboard.</p>
+                        <a href="#" class="card-link">GitHub →</a>
+                    </div>
+                </div>
+                <div class="card">
+                    <div class="card-img">
+                        <i class="fas fa-eye"></i>
+                    </div>
+                    <div class="card-content">
+                        <h3>Industrial Safety CV</h3>
+                        <p>YOLOv8 model to detect missing PPE in factory images, deployed as FastAPI endpoint.</p>
+                        <a href="#" class="card-link">GitHub →</a>
+                    </div>
+                </div>
+                <div class="card">
+                    <div class="card-img">
+                        <i class="fas fa-database"></i>
+                    </div>
+                    <div class="card-content">
+                        <h3>SCADA Data Pipeline</h3>
+                        <p>Modbus TCP polling, InfluxDB storage, Grafana dashboards.</p>
+                        <a href="#" class="card-link">GitHub →</a>
                     </div>
                 </div>
             </div>
-        </section>
+        </div>
 
-        <section id="projects">
-            <h2>Other Projects</h2>
-            <div class="project-grid">
-                <div class="project-card">
-                    <h3>Digital Twin of a Tank Level System</h3>
-                    <p>Simulated a water tank in Python with a PID controller. Integrated OPC-UA to stream data to a dashboard.</p>
-                    <a href="https://github.com/yourusername/digital-twin-tank" target="_blank">GitHub Repo →</a>
+        <!-- Tab: Skills -->
+        <div id="skills" class="tab-pane">
+            <div class="skill-grid">
+                <div class="card">
+                    <div class="card-content">
+                        <h3>Industrial Automation</h3>
+                        <div>
+                            <span class="skill-tag">PLC Programming (Ladder, ST)</span>
+                            <span class="skill-tag">SCADA (Ignition, WinCC)</span>
+                            <span class="skill-tag">HMI Design</span>
+                            <span class="skill-tag">Modbus TCP/RTU</span>
+                            <span class="skill-tag">OPC-UA</span>
+                            <span class="skill-tag">Sensors & Actuators</span>
+                        </div>
+                    </div>
                 </div>
-                <div class="project-card">
-                    <h3>Industrial Safety Computer Vision</h3>
-                    <p>YOLOv8 model to detect missing PPE in factory images. Deployed as a FastAPI endpoint.</p>
-                    <a href="https://github.com/yourusername/ppe-detection" target="_blank">GitHub Repo →</a>
+                <div class="card">
+                    <div class="card-content">
+                        <h3>AI & Data Science</h3>
+                        <div>
+                            <span class="skill-tag">Python (Pandas, NumPy)</span>
+                            <span class="skill-tag">Scikit-learn</span>
+                            <span class="skill-tag">TensorFlow / PyTorch</span>
+                            <span class="skill-tag">Computer Vision (YOLO)</span>
+                            <span class="skill-tag">Time Series Analysis</span>
+                            <span class="skill-tag">MLOps basics</span>
+                        </div>
+                    </div>
                 </div>
-                <div class="project-card">
-                    <h3>SCADA Data Pipeline</h3>
-                    <p>Python scripts to poll Modbus TCP devices, store data in InfluxDB, and visualize with Grafana.</p>
-                    <a href="https://github.com/yourusername/scada-pipeline" target="_blank">GitHub Repo →</a>
+                <div class="card">
+                    <div class="card-content">
+                        <h3>IT & Full Stack</h3>
+                        <div>
+                            <span class="skill-tag">Git & GitHub</span>
+                            <span class="skill-tag">Streamlit / Flask / FastAPI</span>
+                            <span class="skill-tag">SQL / InfluxDB</span>
+                            <span class="skill-tag">Docker</span>
+                            <span class="skill-tag">REST APIs</span>
+                            <span class="skill-tag">HTML/CSS/JS</span>
+                        </div>
+                    </div>
                 </div>
             </div>
-        </section>
-    </main>
-
-    <footer>
-        <div class="container">
-            <p>© 2025 John Doe | Built with <i class="fas fa-heart"></i> on GitHub Pages</p>
         </div>
-    </footer>
+
+        <!-- Tab: Articles -->
+        <div id="articles" class="tab-pane">
+            <div class="article-grid">
+                <div class="card">
+                    <div class="card-content">
+                        <div class="article-meta"><i class="fas fa-calendar-alt"></i> March 2025</div>
+                        <h3>Building a Predictive Maintenance Dashboard for Industry 4.0</h3>
+                        <p>How I combined simulated PLC data with an Isolation Forest model and deployed it with Streamlit.</p>
+                        <a href="#" class="card-link">Read on Medium →</a>
+                    </div>
+                </div>
+                <div class="card">
+                    <div class="card-content">
+                        <div class="article-meta"><i class="fas fa-calendar-alt"></i> February 2025</div>
+                        <h3>OPC-UA vs MQTT: A Practical Guide for IIoT</h3>
+                        <p>Understanding the protocols that connect industrial devices to the cloud.</p>
+                        <a href="#" class="card-link">Read on Medium →</a>
+                    </div>
+                </div>
+                <div class="card">
+                    <div class="card-content">
+                        <div class="article-meta"><i class="fas fa-calendar-alt"></i> January 2025</div>
+                        <h3>Using YOLOv8 for PPE Detection in Manufacturing</h3>
+                        <p>End-to-end computer vision project for industrial safety.</p>
+                        <a href="#" class="card-link">Read on Medium →</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Tab: Contact -->
+        <div id="contact" class="tab-pane">
+            <div style="max-width: 600px; margin: 0 auto; text-align: center;">
+                <h2>Let's Connect</h2>
+                <p style="margin: 1rem 0;">I'm open to internship opportunities, collaboration, or just a chat about automation and AI.</p>
+                <div style="display: flex; justify-content: center; gap: 1.5rem; margin-top: 2rem;">
+                    <a href="mailto:your.email@example.com" class="card-link" style="font-size: 1.2rem;"><i class="fas fa-envelope"></i> Email</a>
+                    <a href="https://linkedin.com/in/yourusername" class="card-link" style="font-size: 1.2rem;"><i class="fab fa-linkedin"></i> LinkedIn</a>
+                    <a href="https://github.com/yourusername" class="card-link" style="font-size: 1.2rem;"><i class="fab fa-github"></i> GitHub</a>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<footer>
+    <p>© 2025 John Doe | Built with <i class="fas fa-heart" style="color: #ff6b6b;"></i> on GitHub Pages</p>
+</footer>
+
+<script>
+    // TYPING ANIMATION
+    const typedTextSpan = document.querySelector('.typed-text');
+    const textArray = [
+        'Instrumentation & Automation Engineer',
+        'AI/ML Enthusiast',
+        'Industry 4.0 Builder',
+        'Full-Stack Developer'
+    ];
+    let textArrayIndex = 0;
+    let charIndex = 0;
+    let isDeleting = false;
+
+    function typeEffect() {
+        const currentText = textArray[textArrayIndex];
+        if (!isDeleting) {
+            typedTextSpan.textContent = currentText.substring(0, charIndex + 1);
+            charIndex++;
+            if (charIndex === currentText.length) {
+                isDeleting = true;
+                setTimeout(typeEffect, 2000);
+                return;
+            }
+        } else {
+            typedTextSpan.textContent = currentText.substring(0, charIndex - 1);
+            charIndex--;
+            if (charIndex === 0) {
+                isDeleting = false;
+                textArrayIndex = (textArrayIndex + 1) % textArray.length;
+            }
+        }
+        setTimeout(typeEffect, isDeleting ? 50 : 100);
+    }
+    typeEffect();
+
+    // TAB SWITCHING
+    const tabBtns = document.querySelectorAll('.tab-btn');
+    const panes = document.querySelectorAll('.tab-pane');
+
+    tabBtns.forEach(btn => {
+        btn.addEventListener('click', () => {
+            // Remove active class from all buttons
+            tabBtns.forEach(b => b.classList.remove('active'));
+            btn.classList.add('active');
+
+            // Hide all panes
+            panes.forEach(pane => pane.classList.remove('active-pane'));
+
+            // Show the selected pane
+            const tabId = btn.getAttribute('data-tab');
+            document.getElementById(tabId).classList.add('active-pane');
+        });
+    });
+</script>
 </body>
 </html>
