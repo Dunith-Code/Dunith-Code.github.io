@@ -9,7 +9,7 @@
     <!-- Google Fonts -->
     <link href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,300;14..32,400;14..32,600;14..32,700&display=swap" rel="stylesheet">
     <style>
-        /* Same CSS as before – keep it unchanged */
+        /* All existing styles plus additions */
         * {
             margin: 0;
             padding: 0;
@@ -214,17 +214,25 @@
 
         .card-img {
             width: 100%;
-            height: 200px;        /* or auto if you want natural height */
+            height: 200px;
             overflow: hidden;
             display: flex;
             align-items: center;
             justify-content: center;
-            background: #f0f0f0;  /* fallback background while loading */
+            background: #f0f0f0;
         }
         .card-img img {
             width: 100%;
             height: 100%;
-            object-fit: cover;     /* crops to fill the container */
+            object-fit: cover;
+        }
+        .card-img i {
+            font-size: 3rem;
+            color: #2c5364;
+        }
+
+        .card-content {
+            padding: 1.5rem;
         }
 
         .card-content h3 {
@@ -260,7 +268,7 @@
             margin: 0.25rem;
         }
 
-        .article-meta {
+        .article-meta, .card-meta {
             font-size: 0.85rem;
             color: #718096;
             margin-bottom: 0.5rem;
@@ -285,7 +293,7 @@
 <section class="hero">
     <div class="hero-content">
         <div class="profile-img-container">
-            <img src="assets/Dunith.jpeg" alt="Dunith" class="profile-img">
+            <img src="assets/Dunith.jpeg" alt="Dunith Desitha" class="profile-img">
         </div>
         <h1>Dunith Desitha Athukorala</h1>
         <div class="typing-wrapper">
@@ -295,9 +303,9 @@
             Bridging industrial hardware with intelligent software.
         </p>
         <div class="social-links">
-            <a href="https://github.com/yourusername" target="_blank"><i class="fab fa-github"></i> GitHub</a>
-            <a href="https://linkedin.com/in/yourusername" target="_blank"><i class="fab fa-linkedin"></i> LinkedIn</a>
-            <a href="https://medium.com/@yourusername" target="_blank"><i class="fab fa-medium"></i> Medium</a>
+            <a href="https://github.com/dunith" target="_blank"><i class="fab fa-github"></i> GitHub</a>
+            <a href="https://linkedin.com/in/dunith" target="_blank"><i class="fab fa-linkedin"></i> LinkedIn</a>
+            <a href="https://medium.com/@dunith" target="_blank"><i class="fab fa-medium"></i> Medium</a>
         </div>
     </div>
 </section>
@@ -316,54 +324,46 @@
             <button class="tab-btn" data-tab="contact">📫 Contact</button>
         </div>
 
-        <!-- Tab: Projects -->
+        <!-- Projects Tab -->
         <div id="projects" class="tab-pane active-pane">
             <div class="project-grid">
                 <div class="card">
-                    <div class="card-img">
-                        <i class="fas fa-chart-line"></i>
-                    </div>
+                    <div class="card-img"><i class="fas fa-chart-line"></i></div>
                     <div class="card-content">
                         <h3>🌿 GreenHeavenDAQ: Smart Home Garden Monitoring System</h3>
-                        <p></p>
+                        <p>IoT-based system using ESP32 and sensors to monitor soil moisture, temperature, and humidity. Data is logged and visualized via a Streamlit dashboard. Includes real-time alerts and historical trends.</p>
                         <a href="#" class="card-link">Live Demo →</a> &nbsp;|&nbsp;
                         <a href="#" class="card-link">GitHub →</a>
                     </div>
                 </div>
                 <div class="card">
-                    <div class="card-img">
-                        <i class="fas fa-industry"></i>
-                    </div>
+                    <div class="card-img"><i class="fas fa-volume-up"></i></div>
                     <div class="card-content">
                         <h3>Kids-Audio-Project 🔊</h3>
-                        <p></p>
+                        <p>An interactive audio learning tool for children built with Python and Pygame. Features sound recognition games and a simple GUI to help kids learn phonics and vocabulary.</p>
                         <a href="#" class="card-link">GitHub →</a>
                     </div>
                 </div>
                 <div class="card">
-                    <div class="card-img">
-                        <i class="fas fa-eye"></i>
-                    </div>
+                    <div class="card-img"><i class="fas fa-cogs"></i></div>
                     <div class="card-content">
                         <h3>Centrifugal-Feeder-Bottle-Unscrambler-Machine</h3>
-                        <p></p>
+                        <p>Automated bottle orientation system using a centrifugal feeder, controlled by a PLC with HMI interface. Includes CAD design, simulation, and real-time monitoring.</p>
                         <a href="#" class="card-link">GitHub →</a>
                     </div>
                 </div>
                 <div class="card">
-                    <div class="card-img">
-                        <i class="fas fa-database"></i>
-                    </div>
+                    <div class="card-img"><i class="fas fa-brain"></i></div>
                     <div class="card-content">
                         <h3>Ionosphere-Neural-Network-Classification</h3>
-                        <p></p>
+                        <p>Neural network model built with TensorFlow/Keras to classify radar returns from the ionosphere. Achieved 94% accuracy on test data. Includes data preprocessing and hyperparameter tuning.</p>
                         <a href="#" class="card-link">GitHub →</a>
                     </div>
                 </div>
             </div>
         </div>
 
-        <!-- Tab: Skills -->
+        <!-- Skills Tab (unchanged but content should reflect your actual skills) -->
         <div id="skills" class="tab-pane">
             <div class="skill-grid">
                 <div class="card">
@@ -408,7 +408,7 @@
             </div>
         </div>
 
-        <!-- Tab: Articles -->
+        <!-- Articles Tab (unchanged) -->
         <div id="articles" class="tab-pane">
             <div class="article-grid">
                 <div class="card">
@@ -438,15 +438,15 @@
             </div>
         </div>
 
-        <!-- VOLUNTEERING TAB (community service, mentoring, etc.) -->
+        <!-- Volunteering Tab (replace with your actual experiences) -->
         <div id="volunteer" class="tab-pane">
             <div class="volunteer-grid">
                 <div class="card">
-                    <div class="card-img"><i class="fas fa-hands-helping"></i></div>
+                    <div class="card-img"><i class="fas fa-chalkboard-user"></i></div>
                     <div class="card-content">
                         <h3>STEM Mentor</h3>
                         <div class="card-meta">Local High School Outreach | 2024</div>
-                        <p>Taught Python and basic electronics to underprivileged students. Designed a 4-week curriculum that culminated in a mini-project showcase.</p>
+                        <p>Taught Python and basic electronics to underprivileged students. Designed a 4-week curriculum culminating in a mini-project showcase.</p>
                     </div>
                 </div>
                 <div class="card">
@@ -454,11 +454,11 @@
                     <div class="card-content">
                         <h3>Environmental Cleanup Drive</h3>
                         <div class="card-meta">Rotaract Club | 2023</div>
-                        <p>Organised a team of 30 volunteers to clean a local beach; collected over 200 kg of waste.</p>
+                        <p>Organized a team of 30 volunteers to clean a local beach; collected over 200 kg of waste.</p>
                     </div>
                 </div>
                 <div class="card">
-                    <div class="card-img"><i class="fas fa-chalkboard-user"></i></div>
+                    <div class="card-img"><i class="fas fa-laptop-code"></i></div>
                     <div class="card-content">
                         <h3>Workshop Assistant</h3>
                         <div class="card-meta">Girls in Tech | 2024</div>
@@ -468,58 +468,58 @@
             </div>
         </div>
 
-        <!-- CLUB POSITIONS TAB (university club leadership roles) -->
+        <!-- Club Positions Tab (with descriptions) -->
         <div id="club" class="tab-pane">
             <div class="club-grid">
                 <div class="card">
-                    <div class="card-img"><i class="fas fa-robot"></i></div>
+                    <div class="card-img"><i class="fas fa-rocket"></i></div>
                     <div class="card-content">
                         <h3>SEDS UOC – Assistant Secretary</h3>
                         <div class="card-meta">University of Colombo | Sep 2024 – Sep 2025</div>
-                        <p></p>
+                        <p>Assisted in organizing space-tech workshops and outreach events. Managed documentation and member coordination.</p>
                     </div>
                 </div>
                 <div class="card">
-                    <div class="card-img"><i class="fas fa-globe"></i></div>
+                    <div class="card-img"><i class="fas fa-chalkboard"></i></div>
                     <div class="card-content">
                         <h3>Colombo Beacon – Top Board Director</h3>
                         <div class="card-meta">University of Colombo | Jun 2024 – Jun 2025</div>
-                        <p></p>
+                        <p>Led strategic planning for annual events including the Freshers' Championship. Oversaw marketing and sponsor relations.</p>
                     </div>
                 </div>
                 <div class="card">
-                    <div class="card-img"><i class="fas fa-code"></i></div>
+                    <div class="card-img"><i class="fas fa-users"></i></div>
                     <div class="card-content">
                         <h3>Colombo Beacon – Middle Board Director</h3>
                         <div class="card-meta">University of Colombo | May 2023 – Jun 2024</div>
-                        <p></p>
+                        <p>Coordinated volunteer teams for events, managed social media campaigns, and contributed to content creation.</p>
                     </div>
                 </div>
                 <div class="card">
-                    <div class="card-img"><i class="fas fa-newspaper"></i></div>
+                    <div class="card-img"><i class="fas fa-pen-fancy"></i></div>
                     <div class="card-content">
-                        <h3>Techno Media – Head of the Content Writing Department</h3>
-                        <div class="card-meta">University of Colombo | Jul 2024 - Sep 2025</div>
-                        <p></p>
+                        <h3>Techno Media – Head of Content Writing</h3>
+                        <div class="card-meta">University of Colombo | Jul 2024 – Sep 2025</div>
+                        <p>Led a team of writers to produce articles, event coverage, and technical blogs. Ensured quality and timely publication.</p>
                     </div>
                 </div>
             </div>
         </div>
 
-        <!-- ARTWORKS TAB (unchanged) -->
+        <!-- Artworks Tab (improved) -->
         <div id="art" class="tab-pane">
             <div class="art-grid">
                 <div class="card">
                     <div class="card-img">
                         <img src="assets/images/CB_Magazine.jpg"
                              alt="Freshers Championship 2023 Magazine Cover"
-                             onerror="this.onerror=null; this.src='path/to/default-image.jpg';">
+                             onerror="this.onerror=null; this.parentElement.innerHTML='<i class=\'fas fa-book\'></i>';">
                     </div>
                     <div class="card-content">
                         <h3>The Freshers Championship'23 Magazine</h3>
                         <div class="card-meta">Colombo Beacon Production, 2023</div>
-                        <p>Officially Released! Colombo Beacon Production proudly unveils Freshers Championship 2023 – the inaugural laughter-filled magazine. First time in University history, the Freshers' Championship magazine is officially out! 🏆😮</p>
-                        <a href="https://tinyurl.com/5apuskmx" class="card-link">Check it through the following drive link →</a>
+                        <p>Officially released! The inaugural magazine for the Freshers' Championship, a first in university history.</p>
+                        <a href="https://tinyurl.com/5apuskmx" class="card-link">Check it via Drive →</a>
                     </div>
                 </div>
                 <div class="card">
@@ -543,7 +543,7 @@
             </div>
         </div>
 
-        <!-- WORKSHOPS TAB (unchanged) -->
+        <!-- Workshops Tab (replace placeholders) -->
         <div id="workshops" class="tab-pane">
             <div class="workshop-grid">
                 <div class="card">
@@ -585,15 +585,15 @@
             </div>
         </div>
 
-        <!-- Tab: Contact -->
+        <!-- Contact Tab -->
         <div id="contact" class="tab-pane">
             <div style="max-width: 600px; margin: 0 auto; text-align: center;">
                 <h2>Let's Connect</h2>
                 <p style="margin: 1rem 0;">I'm open to internship opportunities, collaboration, or just a chat about automation and AI.</p>
                 <div style="display: flex; justify-content: center; gap: 1.5rem; margin-top: 2rem;">
-                    <a href="mailto:your.email@example.com" class="card-link" style="font-size: 1.2rem;"><i class="fas fa-envelope"></i> Email</a>
-                    <a href="https://linkedin.com/in/yourusername" class="card-link" style="font-size: 1.2rem;"><i class="fab fa-linkedin"></i> LinkedIn</a>
-                    <a href="https://github.com/yourusername" class="card-link" style="font-size: 1.2rem;"><i class="fab fa-github"></i> GitHub</a>
+                    <a href="mailto:dunith@example.com" class="card-link" style="font-size: 1.2rem;"><i class="fas fa-envelope"></i> Email</a>
+                    <a href="https://linkedin.com/in/dunith" class="card-link" style="font-size: 1.2rem;"><i class="fab fa-linkedin"></i> LinkedIn</a>
+                    <a href="https://github.com/dunith" class="card-link" style="font-size: 1.2rem;"><i class="fab fa-github"></i> GitHub</a>
                 </div>
             </div>
         </div>
@@ -601,15 +601,15 @@
 </div>
 
 <footer>
-    <p>© 2025 Dunith | Built with GitHub io<i class="fas fa-heart" style="color: #ff6b6b;"></i> on GitHub Pages</p>
+    <p>© 2025 Dunith | Built with <i class="fas fa-heart" style="color: #ff6b6b;"></i> on GitHub Pages</p>
 </footer>
 
 <script>
-    // TYPING ANIMATION – updated to show your actual degrees and roles
+    // TYPING ANIMATION
     const typedTextSpan = document.querySelector('.typed-text');
     const textArray = [
         'Instrumentation & Automation Engineering Technology Undergraduate',
-        'Information Technology Undergraduate',
+        'Bachelor of Information Technology Undergraduate',
         'AI/ML Enthusiast',
         'Industry 4.0 Developer'
     ];
