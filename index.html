@@ -214,18 +214,17 @@
 
         .card-img {
             width: 100%;
-            height: 180px;
-            object-fit: cover;
-            background: #2c5364;
+            height: 200px;        /* or auto if you want natural height */
+            overflow: hidden;
             display: flex;
             align-items: center;
             justify-content: center;
-            color: white;
-            font-size: 3rem;
+            background: #f0f0f0;  /* fallback background while loading */
         }
-
-        .card-content {
-            padding: 1.5rem;
+        .card-img img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;     /* crops to fill the container */
         }
 
         .card-content h3 {
@@ -512,7 +511,7 @@
             <div class="art-grid">
                 <div class="card">
                     <div class="card-img">
-                        <img src="path/to/magazine-cover.jpg"
+                        <img src="assets/images/CB_Magazine.jpg"
                              alt="Freshers Championship 2023 Magazine Cover"
                              onerror="this.onerror=null; this.src='path/to/default-image.jpg';">
                     </div>
