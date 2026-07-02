@@ -1,15 +1,15 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Dunith | Instrumentation & Automation | AI/ML Portfolio</title>
     <!-- Font Awesome 6 -->
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" />
     <!-- Google Fonts -->
-    <link href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,300;14..32,400;14..32,600;14..32,700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,300;14..32,400;14..32,600;14..32,700;14..32,800&display=swap" rel="stylesheet" />
     <style>
-        /* All existing styles plus additions */
+        /* ── Reset & Base ── */
         * {
             margin: 0;
             padding: 0;
@@ -18,198 +18,374 @@
 
         body {
             font-family: 'Inter', sans-serif;
-            background: linear-gradient(135deg, #f5f7fa 0%, #e9eef5 100%);
-            color: #1e2a3a;
-            line-height: 1.5;
+            background: #0b0d15;
+            color: #e8edf5;
+            line-height: 1.6;
             scroll-behavior: smooth;
+            overflow-x: hidden;
+        }
+
+        ::-webkit-scrollbar {
+            width: 8px;
+        }
+        ::-webkit-scrollbar-track {
+            background: #141824;
+        }
+        ::-webkit-scrollbar-thumb {
+            background: linear-gradient(180deg, #7c3aed, #2563eb);
+            border-radius: 10px;
         }
 
         .container {
-            max-width: 1200px;
+            max-width: 1240px;
             margin: 0 auto;
             padding: 0 24px;
         }
 
+        /* ── Animated Background ── */
+        .bg-orbs {
+            position: fixed;
+            inset: 0;
+            z-index: 0;
+            pointer-events: none;
+            overflow: hidden;
+        }
+        .bg-orbs span {
+            position: absolute;
+            border-radius: 50%;
+            filter: blur(120px);
+            opacity: 0.25;
+            animation: orbFloat 25s ease-in-out infinite alternate;
+        }
+        .bg-orbs span:nth-child(1) {
+            width: 600px;
+            height: 600px;
+            background: #7c3aed;
+            top: -10%;
+            left: -10%;
+            animation-duration: 30s;
+        }
+        .bg-orbs span:nth-child(2) {
+            width: 500px;
+            height: 500px;
+            background: #2563eb;
+            bottom: -10%;
+            right: -10%;
+            animation-duration: 25s;
+            animation-delay: -5s;
+        }
+        .bg-orbs span:nth-child(3) {
+            width: 400px;
+            height: 400px;
+            background: #0d9488;
+            top: 40%;
+            left: 40%;
+            animation-duration: 35s;
+            animation-delay: -10s;
+        }
+
+        @keyframes orbFloat {
+            0% {
+                transform: translate(0, 0) scale(1);
+            }
+            33% {
+                transform: translate(60px, -40px) scale(1.1);
+            }
+            66% {
+                transform: translate(-30px, 60px) scale(0.9);
+            }
+            100% {
+                transform: translate(20px, -20px) scale(1.05);
+            }
+        }
+
+        /* ── Hero ── */
         .hero {
             min-height: 100vh;
             display: flex;
             align-items: center;
             justify-content: center;
             text-align: center;
-            background: linear-gradient(135deg, #0f2027, #203a43, #2c5364);
-            color: white;
             position: relative;
-            overflow: hidden;
-        }
-
-        .hero::before {
-            content: '';
-            position: absolute;
-            width: 200%;
-            height: 200%;
-            background: radial-gradient(circle, rgba(255,255,255,0.1) 0%, rgba(0,0,0,0) 70%);
-            top: -50%;
-            left: -50%;
-            animation: rotate 20s linear infinite;
-        }
-
-        @keyframes rotate {
-            from { transform: rotate(0deg); }
-            to { transform: rotate(360deg); }
+            z-index: 1;
+            padding: 40px 0;
         }
 
         .hero-content {
+            max-width: 900px;
+            padding: 20px;
+        }
+
+        /* ── Profile Picture with Glow Ring ── */
+        .profile-wrapper {
             position: relative;
-            z-index: 2;
-            max-width: 800px;
+            display: inline-block;
+            margin-bottom: 28px;
         }
 
-        .hero h1 {
-            font-size: 3.5rem;
-            margin-bottom: 1rem;
-            font-weight: 700;
+        .profile-ring {
+            position: absolute;
+            inset: -8px;
+            border-radius: 50%;
+            padding: 4px;
+            background: conic-gradient(from 0deg, #7c3aed, #2563eb, #0d9488, #7c3aed);
+            animation: spinRing 6s linear infinite;
+            -webkit-mask: radial-gradient(farthest-side, transparent calc(100% - 4px), #000 calc(100% - 3px));
+            mask: radial-gradient(farthest-side, transparent calc(100% - 4px), #000 calc(100% - 3px));
+        }
+        @keyframes spinRing {
+            to {
+                transform: rotate(360deg);
+            }
         }
 
-        .profile-img-container {
-            margin-bottom: 1.5rem;
+        .profile-ring-inner {
+            position: absolute;
+            inset: -2px;
+            border-radius: 50%;
+            background: radial-gradient(circle at 30% 30%, rgba(124, 58, 237, 0.15), transparent 70%);
+            filter: blur(12px);
+            animation: pulseGlow 3s ease-in-out infinite alternate;
         }
+        @keyframes pulseGlow {
+            0% {
+                opacity: 0.3;
+                transform: scale(1);
+            }
+            100% {
+                opacity: 0.8;
+                transform: scale(1.08);
+            }
+        }
+
         .profile-img {
-            width: 150px;
-            height: 150px;
+            width: 170px;
+            height: 170px;
             object-fit: cover;
             border-radius: 50%;
-            border: 3px solid white;
-            box-shadow: 0 5px 15px rgba(0,0,0,0.2);
+            border: 3px solid rgba(255, 255, 255, 0.15);
+            position: relative;
+            z-index: 2;
+            display: block;
+            transition: transform 0.5s cubic-bezier(0.34, 1.56, 0.64, 1);
+            box-shadow: 0 0 60px rgba(124, 58, 237, 0.15);
+        }
+        .profile-img:hover {
+            transform: scale(1.04);
+        }
+
+        .profile-status {
+            position: absolute;
+            bottom: 6px;
+            right: 6px;
+            z-index: 3;
+            width: 18px;
+            height: 18px;
+            background: #22c55e;
+            border-radius: 50%;
+            border: 2px solid #0b0d15;
+            box-shadow: 0 0 12px rgba(34, 197, 94, 0.5);
+            animation: statusPulse 2s ease-in-out infinite;
+        }
+        @keyframes statusPulse {
+            0%,
+            100% {
+                box-shadow: 0 0 8px rgba(34, 197, 94, 0.3);
+            }
+            50% {
+                box-shadow: 0 0 24px rgba(34, 197, 94, 0.7);
+            }
+        }
+
+        /* ── Hero Text ── */
+        .hero h1 {
+            font-size: 3.8rem;
+            font-weight: 800;
+            letter-spacing: -0.03em;
+            background: linear-gradient(135deg, #ffffff 0%, #c4b5fd 50%, #93c5fd 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            margin-bottom: 6px;
+        }
+
+        .hero-tagline {
+            font-size: 1.15rem;
+            color: #94a3b8;
+            margin-bottom: 20px;
+            letter-spacing: 0.02em;
         }
 
         .typing-wrapper {
-            font-size: 1.8rem;
-            min-height: 5rem;
-            margin: 1.5rem 0;
+            font-size: 1.5rem;
+            min-height: 4rem;
+            font-weight: 500;
+            color: #e2e8f0;
         }
-
         .typed-text {
-            font-weight: 600;
-            background: linear-gradient(120deg, #a1c4fd, #c2e9fb);
-            background-clip: text;
+            background: linear-gradient(120deg, #a78bfa, #60a5fa, #2dd4bf);
             -webkit-background-clip: text;
-            color: transparent;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            font-weight: 600;
         }
-
         .cursor {
             display: inline-block;
             width: 3px;
-            background-color: white;
+            height: 1.2em;
+            background: #a78bfa;
             margin-left: 4px;
-            animation: blink 0.7s infinite;
+            vertical-align: text-bottom;
+            animation: blink 0.7s step-end infinite;
+            border-radius: 2px;
         }
-
         @keyframes blink {
-            0%, 100% { opacity: 1; }
-            50% { opacity: 0; }
+            0%,
+            100% {
+                opacity: 1;
+            }
+            50% {
+                opacity: 0;
+            }
         }
 
-        .subtitle {
-            font-size: 1.2rem;
-            opacity: 0.9;
-            margin-top: 1rem;
+        .hero-sub {
+            margin-top: 12px;
+            font-size: 1.05rem;
+            color: #94a3b8;
+            max-width: 600px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+        .hero-sub i {
+            color: #a78bfa;
+            margin: 0 4px;
         }
 
+        /* ── Social Links ── */
         .social-links {
-            margin-top: 2rem;
+            margin-top: 32px;
             display: flex;
-            gap: 1rem;
+            gap: 14px;
             justify-content: center;
             flex-wrap: wrap;
         }
-
         .social-links a {
-            color: white;
-            background: rgba(255,255,255,0.15);
-            backdrop-filter: blur(4px);
-            padding: 0.75rem 1.5rem;
-            border-radius: 40px;
-            text-decoration: none;
-            font-weight: 500;
-            transition: all 0.3s ease;
             display: inline-flex;
             align-items: center;
-            gap: 8px;
+            gap: 10px;
+            padding: 12px 28px;
+            border-radius: 60px;
+            text-decoration: none;
+            font-weight: 600;
+            font-size: 0.95rem;
+            color: #fff;
+            background: rgba(255, 255, 255, 0.06);
+            backdrop-filter: blur(12px);
+            border: 1px solid rgba(255, 255, 255, 0.08);
+            transition: all 0.3s ease;
+            letter-spacing: 0.01em;
         }
-
         .social-links a:hover {
-            background: #1abc9c;
-            transform: translateY(-3px);
+            transform: translateY(-4px);
+            background: rgba(124, 58, 237, 0.25);
+            border-color: rgba(124, 58, 237, 0.4);
+            box-shadow: 0 12px 40px rgba(124, 58, 237, 0.15);
+        }
+        .social-links a i {
+            font-size: 1.2rem;
         }
 
+        /* ── Main Content ── */
         .main-content {
-            padding: 4rem 0;
+            position: relative;
+            z-index: 1;
+            padding: 40px 0 80px;
         }
 
+        /* ── Tabs ── */
         .tabs {
             display: flex;
             justify-content: center;
-            gap: 1rem;
+            gap: 8px;
             flex-wrap: wrap;
-            margin-bottom: 3rem;
-            border-bottom: 1px solid rgba(0,0,0,0.1);
-            padding-bottom: 1rem;
+            margin-bottom: 48px;
+            background: rgba(255, 255, 255, 0.04);
+            backdrop-filter: blur(12px);
+            border-radius: 60px;
+            padding: 6px;
+            border: 1px solid rgba(255, 255, 255, 0.06);
+            max-width: fit-content;
+            margin-left: auto;
+            margin-right: auto;
         }
-
         .tab-btn {
             background: transparent;
             border: none;
-            padding: 0.75rem 2rem;
-            font-size: 1.1rem;
+            padding: 10px 24px;
+            font-size: 0.9rem;
             font-weight: 600;
             cursor: pointer;
-            color: #4a5568;
-            transition: all 0.3s;
+            color: #94a3b8;
+            transition: all 0.3s ease;
             border-radius: 40px;
             font-family: 'Inter', sans-serif;
+            white-space: nowrap;
         }
-
+        .tab-btn:hover {
+            color: #e2e8f0;
+        }
         .tab-btn.active {
-            background: #1abc9c;
-            color: white;
-            box-shadow: 0 4px 12px rgba(26,188,156,0.3);
-        }
-
-        .tab-btn:hover:not(.active) {
-            background: #e2e8f0;
+            background: linear-gradient(135deg, #7c3aed, #2563eb);
+            color: #fff;
+            box-shadow: 0 8px 24px rgba(124, 58, 237, 0.25);
         }
 
         .tab-pane {
             display: none;
-            animation: fadeIn 0.4s ease;
+            animation: fadeSlide 0.5s ease;
         }
-
         .tab-pane.active-pane {
             display: block;
         }
 
-        @keyframes fadeIn {
-            from { opacity: 0; transform: translateY(10px); }
-            to { opacity: 1; transform: translateY(0); }
+        @keyframes fadeSlide {
+            from {
+                opacity: 0;
+                transform: translateY(18px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
         }
 
-        .project-grid, .skill-grid, .article-grid, .volunteer-grid, .club-grid, .art-grid, .workshop-grid {
+        /* ── Cards ── */
+        .project-grid,
+        .skill-grid,
+        .article-grid,
+        .volunteer-grid,
+        .club-grid,
+        .art-grid,
+        .workshop-grid {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            gap: 2rem;
+            gap: 28px;
         }
 
         .card {
-            background: white;
-            border-radius: 20px;
+            background: rgba(255, 255, 255, 0.04);
+            backdrop-filter: blur(12px);
+            border-radius: 24px;
             overflow: hidden;
-            box-shadow: 0 10px 25px -5px rgba(0,0,0,0.05), 0 8px 10px -6px rgba(0,0,0,0.02);
-            transition: transform 0.3s, box-shadow 0.3s;
+            border: 1px solid rgba(255, 255, 255, 0.06);
+            transition: all 0.4s cubic-bezier(0.34, 1.56, 0.64, 1);
+            box-shadow: 0 4px 30px rgba(0, 0, 0, 0.2);
         }
-
         .card:hover {
-            transform: translateY(-5px);
-            box-shadow: 0 20px 30px -12px rgba(0,0,0,0.1);
+            transform: translateY(-8px);
+            border-color: rgba(124, 58, 237, 0.25);
+            box-shadow: 0 20px 60px rgba(0, 0, 0, 0.4), 0 0 40px rgba(124, 58, 237, 0.05);
         }
 
         .card-img {
@@ -219,529 +395,614 @@
             display: flex;
             align-items: center;
             justify-content: center;
-            background: #f0f0f0;
+            background: rgba(0, 0, 0, 0.2);
+            position: relative;
         }
         .card-img img {
             width: 100%;
             height: 100%;
             object-fit: cover;
+            transition: transform 0.5s ease;
+        }
+        .card:hover .card-img img {
+            transform: scale(1.04);
         }
         .card-img i {
-            font-size: 3rem;
-            color: #2c5364;
+            font-size: 3.2rem;
+            color: #a78bfa;
+            opacity: 0.6;
         }
 
         .card-content {
-            padding: 1.5rem;
+            padding: 24px 26px 28px;
         }
-
         .card-content h3 {
-            font-size: 1.3rem;
-            margin-bottom: 0.5rem;
+            font-size: 1.2rem;
+            font-weight: 700;
+            margin-bottom: 8px;
+            color: #f1f5f9;
+            line-height: 1.3;
         }
-
         .card-content p {
-            color: #4a5568;
-            margin-bottom: 1rem;
+            color: #94a3b8;
+            font-size: 0.95rem;
+            margin-bottom: 14px;
+        }
+        .card-meta {
+            font-size: 0.8rem;
+            color: #64748b;
+            margin-bottom: 8px;
+            letter-spacing: 0.02em;
+        }
+        .card-meta i {
+            margin-right: 4px;
+            color: #7c3aed;
         }
 
         .card-link {
-            color: #1abc9c;
+            color: #a78bfa;
             text-decoration: none;
             font-weight: 600;
+            font-size: 0.9rem;
             display: inline-flex;
             align-items: center;
-            gap: 5px;
+            gap: 6px;
+            transition: all 0.25s ease;
+            border-bottom: 1px solid transparent;
         }
-
         .card-link:hover {
-            gap: 10px;
-            transition: gap 0.2s;
+            gap: 12px;
+            color: #c4b5fd;
+            border-bottom-color: #7c3aed;
         }
 
+        .card-link i {
+            font-size: 0.8rem;
+        }
+
+        /* ── Skill Tags ── */
         .skill-tag {
             display: inline-block;
-            background: #e2e8f0;
-            padding: 0.3rem 0.8rem;
-            border-radius: 20px;
-            font-size: 0.85rem;
-            margin: 0.25rem;
+            background: rgba(124, 58, 237, 0.15);
+            border: 1px solid rgba(124, 58, 237, 0.15);
+            padding: 4px 14px;
+            border-radius: 30px;
+            font-size: 0.78rem;
+            font-weight: 500;
+            color: #c4b5fd;
+            margin: 4px 4px 0 0;
+            letter-spacing: 0.01em;
         }
 
-        .article-meta, .card-meta {
-            font-size: 0.85rem;
-            color: #718096;
-            margin-bottom: 0.5rem;
-        }
-
-        footer {
+        /* ── Contact ── */
+        .contact-box {
+            max-width: 600px;
+            margin: 0 auto;
             text-align: center;
-            padding: 2rem;
-            background: #1e2a3a;
-            color: white;
+            background: rgba(255, 255, 255, 0.03);
+            border-radius: 32px;
+            padding: 48px 40px;
+            border: 1px solid rgba(255, 255, 255, 0.06);
+            backdrop-filter: blur(8px);
+        }
+        .contact-box h2 {
+            font-size: 2rem;
+            font-weight: 700;
+            background: linear-gradient(135deg, #c4b5fd, #93c5fd);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+        .contact-box p {
+            color: #94a3b8;
+            margin: 16px 0 28px;
+            font-size: 1.05rem;
+        }
+        .contact-links {
+            display: flex;
+            justify-content: center;
+            gap: 20px;
+            flex-wrap: wrap;
+        }
+        .contact-links a {
+            display: inline-flex;
+            align-items: center;
+            gap: 10px;
+            padding: 14px 32px;
+            border-radius: 60px;
+            background: rgba(255, 255, 255, 0.06);
+            border: 1px solid rgba(255, 255, 255, 0.08);
+            color: #e2e8f0;
+            text-decoration: none;
+            font-weight: 600;
+            transition: all 0.3s ease;
+            font-size: 1rem;
+        }
+        .contact-links a:hover {
+            background: rgba(124, 58, 237, 0.2);
+            border-color: #7c3aed;
+            transform: translateY(-3px);
+            box-shadow: 0 12px 32px rgba(124, 58, 237, 0.1);
+        }
+        .contact-links a i {
+            font-size: 1.2rem;
+            color: #a78bfa;
         }
 
+        /* ── Footer ── */
+        footer {
+            position: relative;
+            z-index: 1;
+            text-align: center;
+            padding: 32px 20px;
+            border-top: 1px solid rgba(255, 255, 255, 0.04);
+            color: #64748b;
+            font-size: 0.9rem;
+        }
+        footer i {
+            color: #f43f5e;
+        }
+
+        /* ── Responsive ── */
         @media (max-width: 768px) {
-            .hero h1 { font-size: 2.5rem; }
-            .typing-wrapper { font-size: 1.2rem; min-height: 4rem; }
-            .tab-btn { padding: 0.5rem 1rem; font-size: 0.9rem; }
+            .hero h1 {
+                font-size: 2.4rem;
+            }
+            .typing-wrapper {
+                font-size: 1.1rem;
+                min-height: 3.4rem;
+            }
+            .profile-img {
+                width: 130px;
+                height: 130px;
+            }
+            .tabs {
+                border-radius: 20px;
+                padding: 4px;
+                gap: 4px;
+                max-width: 100%;
+            }
+            .tab-btn {
+                padding: 8px 14px;
+                font-size: 0.75rem;
+            }
+            .card-content {
+                padding: 18px 18px 22px;
+            }
+            .project-grid,
+            .skill-grid,
+            .article-grid,
+            .volunteer-grid,
+            .club-grid,
+            .art-grid,
+            .workshop-grid {
+                grid-template-columns: 1fr;
+            }
+            .contact-box {
+                padding: 32px 20px;
+            }
+            .contact-links a {
+                padding: 12px 20px;
+                font-size: 0.9rem;
+            }
+            .social-links a {
+                padding: 10px 18px;
+                font-size: 0.85rem;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .hero h1 {
+                font-size: 1.8rem;
+            }
+            .profile-img {
+                width: 110px;
+                height: 110px;
+            }
+            .profile-ring {
+                inset: -5px;
+            }
+            .tab-btn {
+                padding: 6px 12px;
+                font-size: 0.7rem;
+            }
         }
     </style>
 </head>
 <body>
 
-<section class="hero">
-    <div class="hero-content">
-        <div class="profile-img-container">
-            <img src="assets/Dunith.jpeg" alt="Dunith Desitha" class="profile-img">
+    <!-- ── Animated Background Orbs ── -->
+    <div class="bg-orbs">
+        <span></span>
+        <span></span>
+        <span></span>
+    </div>
+
+    <!-- ── HERO ── -->
+    <section class="hero">
+        <div class="hero-content">
+            <!-- Profile Picture with Glowing Ring -->
+            <div class="profile-wrapper">
+                <div class="profile-ring"></div>
+                <div class="profile-ring-inner"></div>
+                <img src="assets/Dunith.jpeg" alt="Dunith Desitha Athukorala" class="profile-img" />
+                <span class="profile-status"></span>
+            </div>
+
+            <h1>Dunith Desitha Athukorala</h1>
+            <p class="hero-tagline">Instrumentation · Automation · AI/ML</p>
+
+            <div class="typing-wrapper">
+                <span class="typed-text"></span><span class="cursor">|</span>
+            </div>
+
+            <p class="hero-sub">
+                <i class="fas fa-microchip"></i> Bridging industrial hardware with intelligent software
+            </p>
+
+            <div class="social-links">
+                <a href="https://github.com/Dunith-Code" target="_blank"><i class="fab fa-github"></i> GitHub</a>
+                <a href="https://www.linkedin.com/in/dunith/" target="_blank"><i class="fab fa-linkedin"></i> LinkedIn</a>
+                <a href="https://medium.com/@Dunith-Write" target="_blank"><i class="fab fa-medium"></i> Medium</a>
+            </div>
         </div>
-        <h1>Dunith Desitha Athukorala</h1>
-        <div class="typing-wrapper">
-            <span class="typed-text"></span><span class="cursor">|</span>
-        </div>
-        <p class="subtitle">
-            Bridging industrial hardware with intelligent software.
-        </p>
-        <div class="social-links">
-            <a href="https://github.com/Dunith-Code" target="_blank"><i class="fab fa-github"></i> GitHub</a>
-            <a href="https://www.linkedin.com/in/dunith/" target="_blank"><i class="fab fa-linkedin"></i> LinkedIn</a>
-            <a href="https://medium.com/@Dunith-Write" target="_blank"><i class="fab fa-medium"></i> Medium</a>
+    </section>
+
+    <!-- ── MAIN ── -->
+    <div class="main-content">
+        <div class="container">
+
+            <!-- Tabs -->
+            <div class="tabs">
+                <button class="tab-btn active" data-tab="projects">🚀 Projects</button>
+                <button class="tab-btn" data-tab="skills">⚙️ Skills</button>
+                <button class="tab-btn" data-tab="articles">📝 Articles</button>
+                <button class="tab-btn" data-tab="volunteer">🤝 Volunteering</button>
+                <button class="tab-btn" data-tab="club">🏆 Club</button>
+                <button class="tab-btn" data-tab="art">🎨 Artworks</button>
+                <button class="tab-btn" data-tab="workshops">📚 Workshops</button>
+                <button class="tab-btn" data-tab="contact">📫 Contact</button>
+            </div>
+
+            <!-- ── PROJECTS ── -->
+            <div id="projects" class="tab-pane active-pane">
+                <div class="project-grid">
+                    <div class="card">
+                        <div class="card-img"><i class="fas fa-chart-line"></i></div>
+                        <div class="card-content">
+                            <h3>🌿 GreenHeavenDAQ</h3>
+                            <p>Smart home garden monitoring with ESP32, sensors, and a Streamlit dashboard. Real-time alerts &amp; historical trends.</p>
+                            <a href="https://tinyurl.com/greenheaven24" class="card-link">Live Demo →</a> &nbsp;|&nbsp;
+                            <a href="https://github.com/Dunith-Code/GreenHeavenDAQ" class="card-link">GitHub →</a>
+                        </div>
+                    </div>
+
+                    <div class="card">
+                        <div class="card-img"><i class="fas fa-volume-up"></i></div>
+                        <div class="card-content">
+                            <h3>🔊 Kids-Audio-Project</h3>
+                            <p>Interactive audio learning tool for children built with Python &amp; Pygame. Sound recognition games &amp; phonics.</p>
+                            <a href="https://github.com/Dunith-Code/Kids-Audio-Project" class="card-link">GitHub →</a>
+                        </div>
+                    </div>
+
+                    <div class="card">
+                        <div class="card-img"><i class="fas fa-cogs"></i></div>
+                        <div class="card-content">
+                            <h3>⚙️ Centrifugal Feeder Unscrambler</h3>
+                            <p>Automated bottle orientation with PLC &amp; HMI. Includes CAD design, simulation, and real-time monitoring.</p>
+                            <a href="https://github.com/Dunith-Code/Centrifugal-Feeder-Bottle-Unscrambler-Machine" class="card-link">GitHub →</a>
+                        </div>
+                    </div>
+
+                    <div class="card">
+                        <div class="card-img"><i class="fas fa-brain"></i></div>
+                        <div class="card-content">
+                            <h3>🧠 Ionosphere Neural Network</h3>
+                            <p>TensorFlow/Keras model to classify radar returns from the ionosphere. Achieved 94% accuracy.</p>
+                            <a href="#" class="card-link">GitHub →</a>
+                        </div>
+                    </div>
+
+                    <div class="card">
+                        <div class="card-img"><i class="fas fa-file-pdf"></i></div>
+                        <div class="card-content">
+                            <h3>📄 RAG Application</h3>
+                            <p>Chat with your PDFs using LLMs, vector databases, and source citations. Built with production in mind.</p>
+                            <a href="https://github.com/Dunith-Code/RAG-Application" class="card-link">GitHub →</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- ── SKILLS ── -->
+            <div id="skills" class="tab-pane">
+                <div class="skill-grid">
+                    <div class="card">
+                        <div class="card-content">
+                            <h3>🏭 Industrial Automation</h3>
+                            <div>
+                                <span class="skill-tag">PLC (Ladder, ST)</span>
+                                <span class="skill-tag">SCADA (Ignition, WinCC)</span>
+                                <span class="skill-tag">HMI Design</span>
+                                <span class="skill-tag">Modbus TCP/RTU</span>
+                                <span class="skill-tag">OPC-UA</span>
+                                <span class="skill-tag">Sensors &amp; Actuators</span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="card">
+                        <div class="card-content">
+                            <h3>🤖 AI &amp; Data Science</h3>
+                            <div>
+                                <span class="skill-tag">Python (Pandas, NumPy)</span>
+                                <span class="skill-tag">Scikit-learn</span>
+                                <span class="skill-tag">TensorFlow / PyTorch</span>
+                                <span class="skill-tag">Computer Vision (YOLO)</span>
+                                <span class="skill-tag">Time Series</span>
+                                <span class="skill-tag">MLOps basics</span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="card">
+                        <div class="card-content">
+                            <h3>💻 IT &amp; Full Stack</h3>
+                            <div>
+                                <span class="skill-tag">Git &amp; GitHub</span>
+                                <span class="skill-tag">Streamlit / Flask / FastAPI</span>
+                                <span class="skill-tag">SQL / InfluxDB</span>
+                                <span class="skill-tag">Docker</span>
+                                <span class="skill-tag">REST APIs</span>
+                                <span class="skill-tag">HTML/CSS/JS</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- ── ARTICLES ── -->
+            <div id="articles" class="tab-pane">
+                <div class="article-grid">
+                    <div class="card">
+                        <div class="card-content">
+                            <div class="card-meta"><i class="fas fa-calendar-alt"></i> March 2025</div>
+                            <h3>Building a Predictive Maintenance Dashboard for Industry 4.0</h3>
+                            <p>Combining simulated PLC data with Isolation Forest and deploying with Streamlit.</p>
+                            <a href="#" class="card-link">Read on Medium →</a>
+                        </div>
+                    </div>
+                    <div class="card">
+                        <div class="card-content">
+                            <div class="card-meta"><i class="fas fa-calendar-alt"></i> February 2025</div>
+                            <h3>OPC-UA vs MQTT: A Practical Guide for IIoT</h3>
+                            <p>Understanding the protocols that connect industrial devices to the cloud.</p>
+                            <a href="#" class="card-link">Read on Medium →</a>
+                        </div>
+                    </div>
+                    <div class="card">
+                        <div class="card-content">
+                            <div class="card-meta"><i class="fas fa-calendar-alt"></i> January 2025</div>
+                            <h3>Using YOLOv8 for PPE Detection in Manufacturing</h3>
+                            <p>End-to-end computer vision project for industrial safety.</p>
+                            <a href="#" class="card-link">Read on Medium →</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- ── VOLUNTEERING ── -->
+            <div id="volunteer" class="tab-pane">
+                <div class="volunteer-grid">
+                    <div class="card">
+                        <div class="card-img"><i class="fas fa-chalkboard-user"></i></div>
+                        <div class="card-content">
+                            <h3>Co Organizer</h3>
+                            <div class="card-meta">Pharocium'23 · Colombo Beacon · 2023</div>
+                            <p>Volunteer organizer for the largest youth event at University of Colombo. Helped drive success and community connection.</p>
+                        </div>
+                    </div>
+                    <div class="card">
+                        <div class="card-img"><i class="fas fa-tree"></i></div>
+                        <div class="card-content">
+                            <h3>Co-Event Chair</h3>
+                            <div class="card-meta">Pharocium'24 · Pharosium 2.0 · Colombo Beacon · 2024</div>
+                            <p>Co-led the planning and execution of Pharocium'24 — a landmark youth festival at Viharamahadevi Park.</p>
+                        </div>
+                    </div>
+                    <div class="card">
+                        <div class="card-img"><i class="fas fa-laptop-code"></i></div>
+                        <div class="card-content">
+                            <h3>Editor in Chief</h3>
+                            <div class="card-meta">Freshers Championship'23 Magazine · Colombo Beacon · 2023/24</div>
+                            <p>Led the editorial team for the inaugural Freshers' Championship magazine. <a href="https://tinyurl.com/5apuskmx" class="card-link">View →</a></p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- ── CLUB ── -->
+            <div id="club" class="tab-pane">
+                <div class="club-grid">
+                    <div class="card">
+                        <div class="card-img"><img src="assets/images/SEDS.jpg" alt="SEDS UOC" onerror="this.onerror=null;this.parentElement.innerHTML='<i class=\'fas fa-rocket\'></i>';" /></div>
+                        <div class="card-content">
+                            <h3>SEDS UOC – Assistant Secretary</h3>
+                            <div class="card-meta">University of Colombo · Sep 2024 – Sep 2025</div>
+                            <p>Organized space-tech workshops and outreach. Managed documentation and member coordination.</p>
+                        </div>
+                    </div>
+                    <div class="card">
+                        <div class="card-img"><img src="assets/images/CBT.jpg" alt="Colombo Beacon Top Board" onerror="this.onerror=null;this.parentElement.innerHTML='<i class=\'fas fa-chalkboard\'></i>';" /></div>
+                        <div class="card-content">
+                            <h3>Colombo Beacon – Top Board Director</h3>
+                            <div class="card-meta">University of Colombo · Jun 2024 – Jun 2025</div>
+                            <p>Strategic planning for annual events including the Freshers' Championship. Oversaw marketing &amp; sponsors.</p>
+                        </div>
+                    </div>
+                    <div class="card">
+                        <div class="card-img"><img src="assets/images/CBM.jpg" alt="Colombo Beacon Middle Board" onerror="this.onerror=null;this.parentElement.innerHTML='<i class=\'fas fa-users\'></i>';" /></div>
+                        <div class="card-content">
+                            <h3>Colombo Beacon – Middle Board Director</h3>
+                            <div class="card-meta">University of Colombo · May 2023 – Jun 2024</div>
+                            <p>Coordinated volunteer teams, social media campaigns, and content creation.</p>
+                        </div>
+                    </div>
+                    <div class="card">
+                        <div class="card-img"><img src="assets/images/TMH.jpg" alt="Techno Media Head" onerror="this.onerror=null;this.parentElement.innerHTML='<i class=\'fas fa-pen-fancy\'></i>';" /></div>
+                        <div class="card-content">
+                            <h3>Techno Media – Head of Content Writing</h3>
+                            <div class="card-meta">University of Colombo · Jul 2024 – Sep 2025</div>
+                            <p>Led a team of writers producing articles, event coverage, and technical blogs.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- ── ARTWORKS ── -->
+            <div id="art" class="tab-pane">
+                <div class="art-grid">
+                    <div class="card">
+                        <div class="card-img"><img src="assets/images/CB_Magazine.jpg" alt="Freshers Championship Magazine" onerror="this.onerror=null;this.parentElement.innerHTML='<i class=\'fas fa-book\'></i>';" /></div>
+                        <div class="card-content">
+                            <h3>The Freshers Championship'23 Magazine</h3>
+                            <div class="card-meta">Colombo Beacon · 2023</div>
+                            <p>Inaugural magazine for the Freshers' Championship — a university first.</p>
+                            <a href="https://tinyurl.com/5apuskmx" class="card-link">View →</a>
+                        </div>
+                    </div>
+                    <div class="card">
+                        <div class="card-img"><img src="assets/images/පුරවරමාන - කොළොම්පුර ඇසක අරුමය.jpg" alt="පුරවරමාන 01" onerror="this.onerror=null;this.parentElement.innerHTML='<i class=\'fas fa-book\'></i>';" /></div>
+                        <div class="card-content">
+                            <h3>පුරවරමාන – First Edition</h3>
+                            <div class="card-meta">Techno Media · March 2024</div>
+                            <p>Official magazine of the Department of Content Writing, Faculty of Technology.</p>
+                            <a href="https://rebrand.ly/e7pdurb" class="card-link">Drive →</a> <a href="https://rb.gy/5fyska" class="card-link">Facebook →</a>
+                        </div>
+                    </div>
+                    <div class="card">
+                        <div class="card-img"><img src="assets/images/පුරවරමාන_Second_Edition.jpg" alt="පුරවරමාන 02" onerror="this.onerror=null;this.parentElement.innerHTML='<i class=\'fas fa-book\'></i>';" /></div>
+                        <div class="card-content">
+                            <h3>පුරවරමාන – Second Edition</h3>
+                            <div class="card-meta">Techno Media · Dec 2024</div>
+                            <p>Second edition of the creative magazine "කොළොම්පුර ඇසක අරුමය".</p>
+                            <a href="https://rebrand.ly/m6op5le" class="card-link">Drive →</a> <a href="https://tinyurl.com/5n8ncrp7" class="card-link">Facebook →</a>
+                        </div>
+                    </div>
+                    <div class="card">
+                        <div class="card-img"><img src="assets/images/පුරවරමාන_Third_Edition.jpg" alt="පුරවරමාන 03" onerror="this.onerror=null;this.parentElement.innerHTML='<i class=\'fas fa-book\'></i>';" /></div>
+                        <div class="card-content">
+                            <h3>පුරවරමාන – Third Edition</h3>
+                            <div class="card-meta">Techno Media · May 2025</div>
+                            <p>Third edition of the magazine — creativity in every page.</p>
+                            <a href="https://tinyurl.com/3fws2938" class="card-link">Drive →</a> <a href="https://tinyurl.com/unbusxmy" class="card-link">Facebook →</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- ── WORKSHOPS ── -->
+            <div id="workshops" class="tab-pane">
+                <div class="workshop-grid">
+                    <div class="card">
+                        <div class="card-img"><img src="assets/images/NEO INK 1.0.jpg" alt="NEO INK 1.0" onerror="this.onerror=null;this.parentElement.innerHTML='<i class=\'fas fa-pen-fancy\'></i>';" /></div>
+                        <div class="card-content">
+                            <h3>NEO INK 1.0</h3>
+                            <div class="card-meta">Techno Media · Aug 2025</div>
+                            <p>Revolutionizing words in a digital era — official workshop series of the Department of Content Writing.</p>
+                            <a href="https://tinyurl.com/38sr2vyj" class="card-link">Explore →</a>
+                        </div>
+                    </div>
+                    <div class="card">
+                        <div class="card-img"><img src="assets/images/BloodMark1.0.jpg" alt="BloodMark 1.0" onerror="this.onerror=null;this.parentElement.innerHTML='<i class=\'fas fa-pen-fancy\'></i>';" /></div>
+                        <div class="card-content">
+                            <h3>BloodMark Workshop 1.0</h3>
+                            <div class="card-meta">Colombo Beacon · 2023/24</div>
+                            <p>Where every word leaves a mark. Co‑facilitated alongside the department team.</p>
+                            <a href="https://tinyurl.com/bloodmark0" class="card-link">Workshop 1.0 →</a>
+                        </div>
+                    </div>
+                    <div class="card">
+                        <div class="card-img"><img src="assets/images/BloodMark1.1.jpg" alt="BloodMark 1.1" onerror="this.onerror=null;this.parentElement.innerHTML='<i class=\'fas fa-pen-fancy\'></i>';" /></div>
+                        <div class="card-content">
+                            <h3>BloodMark Workshop 1.1</h3>
+                            <div class="card-meta">Colombo Beacon · 2023/24</div>
+                            <p>Second session of the BloodMark series. Co‑facilitated this workshop.</p>
+                            <a href="https://tinyurl.com/bloodmark1" class="card-link">Workshop 1.1 →</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- ── CONTACT ── -->
+            <div id="contact" class="tab-pane">
+                <div class="contact-box">
+                    <h2>Let's Connect</h2>
+                    <p>I'm open to internship opportunities, collaboration, or just a chat about automation and AI.</p>
+                    <div class="contact-links">
+                        <a href="mailto:dunithofficial@gmail.com"><i class="fas fa-envelope"></i> Email</a>
+                        <a href="https://www.linkedin.com/in/dunith/"><i class="fab fa-linkedin"></i> LinkedIn</a>
+                        <a href="https://github.com/Dunith-Code"><i class="fab fa-github"></i> GitHub</a>
+                    </div>
+                </div>
+            </div>
+
         </div>
     </div>
-</section>
 
-<div class="main-content">
-    <div class="container">
-        <!-- Tabs Navigation -->
-        <div class="tabs">
-            <button class="tab-btn active" data-tab="projects">🚀 Projects</button>
-            <button class="tab-btn" data-tab="skills">⚙️ Skills & Tools</button>
-            <button class="tab-btn" data-tab="articles">📝 Articles</button>
-            <button class="tab-btn" data-tab="volunteer">🤝 Volunteering</button>
-            <button class="tab-btn" data-tab="club">🏆 Club Positions</button>
-            <button class="tab-btn" data-tab="art">🎨 Artworks</button>
-            <button class="tab-btn" data-tab="workshops">📚 Workshops</button>
-            <button class="tab-btn" data-tab="contact">📫 Contact</button>
-        </div>
+    <!-- ── FOOTER ── -->
+    <footer>
+        <p>© 2025 Dunith &nbsp;·&nbsp; Built with <i class="fas fa-heart"></i> on GitHub Pages</p>
+    </footer>
 
-        <!-- Projects Tab -->
-        <div id="projects" class="tab-pane active-pane">
-            <div class="project-grid">
-                <div class="card">
-                    <div class="card-img"><i class="fas fa-chart-line"></i></div>
-                    <div class="card-content">
-                        <h3>🌿 GreenHeavenDAQ: Smart Home Garden Monitoring System</h3>
-                        <p>IoT-based system using ESP32 and sensors to monitor soil moisture, temperature, and humidity. Data is logged and visualized via a Streamlit dashboard. Includes real-time alerts and historical trends.</p>
-                        <a href="https://tinyurl.com/greenheaven24" class="card-link">Live Demo →</a> &nbsp;|&nbsp;
-                        <a href="https://github.com/Dunith-Code/GreenHeavenDAQ" class="card-link">GitHub →</a>
-                    </div>
-                </div>
-                <div class="card">
-                    <div class="card-img"><i class="fas fa-volume-up"></i></div>
-                    <div class="card-content">
-                        <h3>Kids-Audio-Project 🔊</h3>
-                        <p>An interactive audio learning tool for children built with Python and Pygame. Features sound recognition games and a simple GUI to help kids learn phonics and vocabulary.</p>
-                        <a href="https://github.com/Dunith-Code/Kids-Audio-Project" class="card-link">GitHub →</a>
-                    </div>
-                </div>
-                <div class="card">
-                    <div class="card-img"><i class="fas fa-cogs"></i></div>
-                    <div class="card-content">
-                        <h3>⚙️ Centrifugal-Feeder-Bottle-Unscrambler-Machine</h3>
-                        <p>Automated bottle orientation system using a centrifugal feeder, controlled by a PLC with HMI interface. Includes CAD design, simulation, and real-time monitoring.</p>
-                        <a href="https://github.com/Dunith-Code/Centrifugal-Feeder-Bottle-Unscrambler-Machine" class="card-link">GitHub →</a>
-                    </div>
-                </div>
-                <div class="card">
-                    <div class="card-img"><i class="fas fa-brain"></i></div>
-                    <div class="card-content">
-                        <h3>Ionosphere-Neural-Network-Classification</h3>
-                        <p>Neural network model built with TensorFlow/Keras to classify radar returns from the ionosphere. Achieved 94% accuracy on test data. Includes data preprocessing and hyperparameter tuning.</p>
-                        <a href="#" class="card-link">GitHub →</a>
-                    </div>
-                </div>
+    <!-- ── SCRIPTS ── -->
+    <script>
+        // ── Typing Animation ──
+        const typedSpan = document.querySelector('.typed-text');
+        const phrases = [
+            'Instrumentation & Automation Engineering Technology Undergraduate',
+            'Information Technology Undergraduate',
+            'AI/ML Enthusiast',
+            'Embedded Systems Enthusiast'
+        ];
+        let idx = 0,
+            charIdx = 0,
+            deleting = false;
 
-                <div class="card">
-                    <div class="card-img"><i class="fas fa-brain"></i></div>
-                    <div class="card-content">
-                        <h3>📄 RAG-Application</h3>
-                        <p>Building a RAG system that lets you chat with your PDFs<br/>
-                        Upload one or more documents, ask natural language questions, and get answers grounded in the actual content, with source citations. <br/>
-                        This was a fantastic way to dive into LLMs, vector databases, and building production‑ready apps.
-                        </p>
-                        <a href="https://github.com/Dunith-Code/RAG-Application" class="card-link">GitHub →</a>
-                    </div>
-                </div>
-            </div>
-        </div>
-
-        <!-- Skills Tab (unchanged but content should reflect your actual skills) -->
-        <div id="skills" class="tab-pane">
-            <div class="skill-grid">
-                <div class="card">
-                    <div class="card-content">
-                        <h3>Industrial Automation</h3>
-                        <div>
-                            <span class="skill-tag">PLC Programming (Ladder, ST)</span>
-                            <span class="skill-tag">SCADA (Ignition, WinCC)</span>
-                            <span class="skill-tag">HMI Design</span>
-                            <span class="skill-tag">Modbus TCP/RTU</span>
-                            <span class="skill-tag">OPC-UA</span>
-                            <span class="skill-tag">Sensors & Actuators</span>
-                        </div>
-                    </div>
-                </div>
-                <div class="card">
-                    <div class="card-content">
-                        <h3>AI & Data Science</h3>
-                        <div>
-                            <span class="skill-tag">Python (Pandas, NumPy)</span>
-                            <span class="skill-tag">Scikit-learn</span>
-                            <span class="skill-tag">TensorFlow / PyTorch</span>
-                            <span class="skill-tag">Computer Vision (YOLO)</span>
-                            <span class="skill-tag">Time Series Analysis</span>
-                            <span class="skill-tag">MLOps basics</span>
-                        </div>
-                    </div>
-                </div>
-                <div class="card">
-                    <div class="card-content">
-                        <h3>IT & Full Stack</h3>
-                        <div>
-                            <span class="skill-tag">Git & GitHub</span>
-                            <span class="skill-tag">Streamlit / Flask / FastAPI</span>
-                            <span class="skill-tag">SQL / InfluxDB</span>
-                            <span class="skill-tag">Docker</span>
-                            <span class="skill-tag">REST APIs</span>
-                            <span class="skill-tag">HTML/CSS/JS</span>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-
-        <!-- Articles Tab (unchanged) -->
-        <div id="articles" class="tab-pane">
-            <div class="article-grid">
-                <div class="card">
-                    <div class="card-content">
-                        <div class="article-meta"><i class="fas fa-calendar-alt"></i> March 2025</div>
-                        <h3>Building a Predictive Maintenance Dashboard for Industry 4.0</h3>
-                        <p>How I combined simulated PLC data with an Isolation Forest model and deployed it with Streamlit.</p>
-                        <a href="#" class="card-link">Read on Medium →</a>
-                    </div>
-                </div>
-                <div class="card">
-                    <div class="card-content">
-                        <div class="article-meta"><i class="fas fa-calendar-alt"></i> February 2025</div>
-                        <h3>OPC-UA vs MQTT: A Practical Guide for IIoT</h3>
-                        <p>Understanding the protocols that connect industrial devices to the cloud.</p>
-                        <a href="#" class="card-link">Read on Medium →</a>
-                    </div>
-                </div>
-                <div class="card">
-                    <div class="card-content">
-                        <div class="article-meta"><i class="fas fa-calendar-alt"></i> January 2025</div>
-                        <h3>Using YOLOv8 for PPE Detection in Manufacturing</h3>
-                        <p>End-to-end computer vision project for industrial safety.</p>
-                        <a href="#" class="card-link">Read on Medium →</a>
-                    </div>
-                </div>
-            </div>
-        </div>
-
-        <!-- Volunteering Tab (replace with your actual experiences) -->
-        <div id="volunteer" class="tab-pane">
-            <div class="volunteer-grid">
-                <div class="card">
-                    <div class="card-img"><i class="fas fa-chalkboard-user"></i></div>
-                    <div class="card-content">
-                        <h3>Co Organizer</h3>
-                        <div class="card-meta">Pharocium'23 | Colombo Beacon | 2023</div>
-                        <p>TIt was an amazing opportunity to be part of the organizing team for Pharocium'23, held on 29th January 2023 at Viharamahadevi Park. 
-                            Organized by Colombo Beacon, the largest youth organization at the University of Colombo, I served as a volunteer organizer and contributed significantly to the event's success. This experience was a memorable highlight in my life, 
-                            filled with connections, celebration, and inspiration.</p>
-                    </div>
-                </div>
-                <div class="card">
-                    <div class="card-img"><i class="fas fa-tree"></i></div>
-                    <div class="card-content">
-                        <h3>Co-Event Chair</h3>
-                        <div class="card-meta">Pharocium'24 | Pharosium 2.0 | Colombo Beacon | 2024</div>
-                        <p>I had the incredible opportunity to serve as the Co-Event Chair for Pharocium'24, held on 2nd March 2024 at Viharamahadevi Park. 
-                            Organized by Colombo Beacon, the largest youth organization at the University of Colombo, this event was a remarkable experience, 
-                            filled with meaningful connections, inspiring moments, and a shared sense of achievement.</p>
-                    </div>
-                </div>
-                <div class="card">
-                    <div class="card-img"><i class="fas fa-laptop-code"></i></div>
-                    <div class="card-content">
-                        <h3>Editor in Chief</h3>
-                        <div class="card-meta">The Freshers Championship'23 Magazine | Colombo Beacon | 2023/24</div>
-                        <p>Check it through the following drive link or QR code on the post: https://tinyurl.com/5apuskmx</p>
-                    </div>
-                </div>
-            </div>
-        </div>
-
-        <!-- Club Positions Tab -->
-        <div id="club" class="tab-pane">
-            <div class="club-grid">
-        
-                <!-- SEDS UOC – Assistant Secretary -->
-                <div class="card">
-                    <div class="card-img">
-                        <img src="assets/images/SEDS.jpg"
-                             alt="SEDS UOC – Assistant Secretary"
-                             onerror="this.onerror=null; this.parentElement.innerHTML='<i class=\'fas fa-rocket\'></i>';">
-                    </div>
-                    <div class="card-content">
-                        <h3>SEDS UOC – Assistant Secretary</h3>
-                        <div class="card-meta">University of Colombo | Sep 2024 – Sep 2025</div>
-                        <p>Assisted in organizing space-tech workshops and outreach events. Managed documentation and member coordination.</p>
-                    </div>
-                </div>
-        
-                <!-- Colombo Beacon – Top Board Director -->
-                <div class="card">
-                    <div class="card-img">
-                        <img src="assets/images/CBT.jpg"
-                             alt="Colombo Beacon – Top Board Director"
-                             onerror="this.onerror=null; this.parentElement.innerHTML='<i class=\'fas fa-chalkboard\'></i>';">
-                    </div>
-                    <div class="card-content">
-                        <h3>Colombo Beacon – Top Board Director</h3>
-                        <div class="card-meta">University of Colombo | Jun 2024 – Jun 2025</div>
-                        <p>Led strategic planning for annual events including the Freshers' Championship. Oversaw marketing and sponsor relations.</p>
-                    </div>
-                </div>
-        
-                <!-- Colombo Beacon – Middle Board Director -->
-                <div class="card">
-                    <div class="card-img">
-                        <img src="assets/images/CBM.jpg"
-                             alt="Colombo Beacon – Middle Board Director"
-                             onerror="this.onerror=null; this.parentElement.innerHTML='<i class=\'fas fa-users\'></i>';">
-                    </div>
-                    <div class="card-content">
-                        <h3>Colombo Beacon – Middle Board Director</h3>
-                        <div class="card-meta">University of Colombo | May 2023 – Jun 2024</div>
-                        <p>Coordinated volunteer teams for events, managed social media campaigns, and contributed to content creation.</p>
-                    </div>
-                </div>
-        
-                <!-- Techno Media – Head of Content Writing -->
-                <div class="card">
-                    <div class="card-img">
-                        <img src="assets/images/TMH.jpg"
-                             alt="Techno Media – Head of the Department of Content Writing"
-                             onerror="this.onerror=null; this.parentElement.innerHTML='<i class=\'fas fa-pen-fancy\'></i>';">
-                    </div>
-                    <div class="card-content">
-                        <h3>Techno Media – Head of the Department of Content Writing</h3>
-                        <div class="card-meta">University of Colombo | Jul 2024 – Sep 2025</div>
-                        <p>Led a team of writers to produce articles, event coverage, and technical blogs. Ensured quality and timely publication.</p>
-                    </div>
-                </div>
-        
-            </div>
-        </div>
-
-        <!-- Artworks Tab -->
-        <div id="art" class="tab-pane">
-            <div class="art-grid">
-                <!-- The Freshers Championship'23 Magazine -->
-                <div class="card">
-                    <div class="card-img">
-                        <img src="assets/images/CB_Magazine.jpg"
-                             alt="Freshers Championship 2023 Magazine Cover"
-                             onerror="this.onerror=null; this.parentElement.innerHTML='<i class=\'fas fa-book\'></i>';">
-                    </div>
-                    <div class="card-content">
-                        <h3>The Freshers Championship'23 Magazine</h3>
-                        <div class="card-meta">Department of Content Writing, Colombo Beacon Production, 2023</div>
-                        <p>Officially released! The inaugural magazine for the Freshers' Championship, a first in university history.</p>
-                        <a href="https://tinyurl.com/5apuskmx" class="card-link">Check it via Drive →</a>
-                    </div>
-                </div>
-
-                <!-- පුරවරමාන 01 -->
-                <div class="card">
-                    <div class="card-img">
-                        <img src="assets/images/පුරවරමාන - කොළොම්පුර ඇසක අරුමය.jpg"
-                             alt="පුරවරමාන - කොළොම්පුර ඇසක අරුමය"
-                             onerror="this.onerror=null; this.parentElement.innerHTML='<i class=\'fas fa-book\'></i>';">
-                    </div>
-                    <div class="card-content">
-                        <h3>පුරවරමාන - කොළොම්පුර ඇසක අරුමය<br/>First Edition</h3>
-                        <div class="card-meta">Department of Content Writing, Techno Media | March 2024</div>
-                        <p>Welcome to the official magazine issue of the Department of Content Writing, Techno Media of the Faculty of Technology, University of Colombo is now released.
-     We are proudly presenting the first edition of the magazine in March 2024. This is presented by the  Department of Content Writing and Department of Designing for the lovers of the creativity of the writer.💫
-     We invite you to read this new journey began as "පුරවරමාන". This is the "කොළොම්පුර ඇසක අරුමය" of us creatively ✨.</p>
-                        <a href="https://rebrand.ly/e7pdurb" class="card-link">Check it via Drive →</a><br/>
-                        <a href="https://rb.gy/5fyska" class="card-link">Check it via Facebook →</a>
-                    </div>
-                </div>
-
-                <!-- පුරවරමාන 02 -->
-                <div class="card">
-                    <div class="card-img">
-                        <img src="assets/images/පුරවරමාන_Second_Edition.jpg"
-                             alt="පුරවරමාන Second Edition"
-                             onerror="this.onerror=null; this.parentElement.innerHTML='<i class=\'fas fa-book\'></i>';">
-                    </div>
-                    <div class="card-content">
-                        <h3>පුරවරමාන - කොළොම්පුර ඇසක අරුමය<br/>Second Edition</h3>
-                        <div class="card-meta">Department of Content Writing, Techno Media | Dec 2024</div>
-                        <p>This is the “පුරවරමාන Second Edition”, “කොළොම්පුර ඇසක අරුමය”, a creation shaped by our creativity ✨.</p>
-                        <a href="https://rebrand.ly/m6op5le" class="card-link">Check it via Drive →</a>
-                        <a href="https://tinyurl.com/5n8ncrp7" class="card-link">Check it via Facebook →</a>
-                    </div>
-                </div>
-
-                <!-- පුරවරමාන 03 -->
-                <div class="card">
-                    <div class="card-img">
-                        <img src="assets/images/පුරවරමාන_Third_Edition.jpg"
-                             alt="පුරවරමාන Third Edition"
-                             onerror="this.onerror=null; this.parentElement.innerHTML='<i class=\'fas fa-book\'></i>';">
-                    </div>
-                    <div class="card-content">
-                        <h3>පුරවරමාන - කොළොම්පුර ඇසක අරුමය<br/>Third Edition</h3>
-                        <div class="card-meta">Department of Content Writing, Techno Media | May 2025</div>
-                        <p>This is the “පුරවරමාන Third Edition”, “කොළොම්පුර ඇසක අරුමය”, a creation shaped by our creativity ✨.</p>
-                        <a href="https://tinyurl.com/3fws2938" class="card-link">Check it via Drive →</a>
-                        <a href="https://tinyurl.com/unbusxmy" class="card-link">Check it via Facebook →</a>
-                    </div>
-                </div>
-                
-            </div>
-        </div>
-
-        <!-- Workshops Tab -->
-        <div id="workshops" class="tab-pane">
-            <div class="workshop-grid">
-                <!-- NEO INK 1.0 -->
-                <div class="card">
-                    <div class="card-img">
-                        <img src="assets/images/NEO INK 1.0.jpg"
-                             alt="NEO INK 1.0"
-                             onerror="this.onerror=null; this.parentElement.innerHTML='<i class=\'fas fa-book\'></i>';">
-                    </div>
-                    <div class="card-content">
-                        <h3>NEO INK 1.0 - Revolutionizing Words in a Digital Era</h3>
-                        <div class="card-meta">Department of Content Writing, Techno Media | Aug 2025</div>
-                        <p>The official workshop series of the Department of Content Writing, Techno Media. <br/>
-                            Where creativity meets words. 💫</p>
-                        <a href="https://tinyurl.com/38sr2vyj" class="card-link">Explore the Presentation →</a>
-                    </div>
-                </div>
-
-                <!-- BloodMark Workshop 1.0 -->
-                <div class="card">
-                    <div class="card-img">
-                        <img src="assets/images/BloodMark1.0.jpg"
-                             alt="BloodMark1.0"
-                             onerror="this.onerror=null; this.parentElement.innerHTML='<i class=\'fas fa-book\'></i>';">
-                    </div>
-                    <div class="card-content">
-                        <h3>BloodMark Workshop 1.0</h3>
-                        <div class="card-meta">Department of Content Writing, Colombo Beacon | 2023/24</div>
-                        <p>The official workshop series of the Department of Content Writing 23/24, Colombo Beacon.<br/>
-                            Where every word leaves a mark. ✍️ <br/>
-                        Conducted and co‑facilitated alongside the department team.</p>
-                        <a href="https://tinyurl.com/bloodmark0" class="card-link">Explore the Presentation Workshop 1.0 →</a><br/>
-                    </div>
-                </div>
-
-                <!-- BloodMark Workshop 1.1 -->
-                <div class="card">
-                    <div class="card-img">
-                        <img src="assets/images/BloodMark1.1.jpg"
-                             alt="BloodMark Workshop 1.1"
-                             onerror="this.onerror=null; this.parentElement.innerHTML='<i class=\'fas fa-book\'></i>';">
-                    </div>
-                    <div class="card-content">
-                        <h3>BloodMark Workshop 1.1</h3>
-                        <div class="card-meta">Department of Content Writing, Colombo Beacon | 2023/24</div>
-                        <p>The official workshop series of the Department of Content Writing 23/24, Colombo Beacon.<br/>
-                            Where every word leaves a mark. ✍️<br/>
-                            Co‑facilitated this session.</p>
-                        <a href="https://tinyurl.com/bloodmark1" class="card-link">Explore the Presentation Workshop 1.1 →</a>
-                    </div>
-                </div>
-                    
-               
-            </div>
-        </div>
-
-        <!-- Contact Tab -->
-        <div id="contact" class="tab-pane">
-            <div style="max-width: 600px; margin: 0 auto; text-align: center;">
-                <h2>Let's Connect</h2>
-                <p style="margin: 1rem 0;">I'm open to internship opportunities, collaboration, or just a chat about automation and AI.</p>
-                <div style="display: flex; justify-content: center; gap: 1.5rem; margin-top: 2rem;">
-                    <a href="mailto:dunithofficial@gmail.com" class="card-link" style="font-size: 1.2rem;"><i class="fas fa-envelope"></i> Email</a>
-                    <a href="https://www.linkedin.com/in/dunith/" class="card-link" style="font-size: 1.2rem;"><i class="fab fa-linkedin"></i> LinkedIn</a>
-                    <a href="https://github.com/Dunith-Code" class="card-link" style="font-size: 1.2rem;"><i class="fab fa-github"></i> GitHub</a>
-                </div>
-            </div>
-        </div>
-    </div>
-</div>
-
-<footer>
-    <p>© 2025 Dunith | Built with <i class="fas fa-heart" style="color: #ff6b6b;"></i> on GitHub Pages</p>
-</footer>
-
-<script>
-    // TYPING ANIMATION
-    const typedTextSpan = document.querySelector('.typed-text');
-    const textArray = [
-        'Instrumentation & Automation Engineering Technology Undergraduate',
-        'Information Technology Undergraduate',
-        'AI/ML Enthusiast',
-        'Embedded Systems Enthusiast'
-    ];
-    let textArrayIndex = 0;
-    let charIndex = 0;
-    let isDeleting = false;
-
-    function typeEffect() {
-        const currentText = textArray[textArrayIndex];
-        if (!isDeleting) {
-            typedTextSpan.textContent = currentText.substring(0, charIndex + 1);
-            charIndex++;
-            if (charIndex === currentText.length) {
-                isDeleting = true;
-                setTimeout(typeEffect, 2000);
-                return;
+        function typeEffect() {
+            const current = phrases[idx];
+            if (!deleting) {
+                typedSpan.textContent = current.substring(0, charIdx + 1);
+                charIdx++;
+                if (charIdx === current.length) {
+                    deleting = true;
+                    setTimeout(typeEffect, 2000);
+                    return;
+                }
+            } else {
+                typedSpan.textContent = current.substring(0, charIdx - 1);
+                charIdx--;
+                if (charIdx === 0) {
+                    deleting = false;
+                    idx = (idx + 1) % phrases.length;
+                }
             }
-        } else {
-            typedTextSpan.textContent = currentText.substring(0, charIndex - 1);
-            charIndex--;
-            if (charIndex === 0) {
-                isDeleting = false;
-                textArrayIndex = (textArrayIndex + 1) % textArray.length;
-            }
+            setTimeout(typeEffect, deleting ? 50 : 100);
         }
-        setTimeout(typeEffect, isDeleting ? 50 : 100);
-    }
-    typeEffect();
+        typeEffect();
 
-    // TAB SWITCHING
-    const tabBtns = document.querySelectorAll('.tab-btn');
-    const panes = document.querySelectorAll('.tab-pane');
+        // ── Tab Switching ──
+        const btns = document.querySelectorAll('.tab-btn');
+        const panes = document.querySelectorAll('.tab-pane');
 
-    tabBtns.forEach(btn => {
-        btn.addEventListener('click', () => {
-            tabBtns.forEach(b => b.classList.remove('active'));
-            btn.classList.add('active');
-            panes.forEach(pane => pane.classList.remove('active-pane'));
-            const tabId = btn.getAttribute('data-tab');
-            document.getElementById(tabId).classList.add('active-pane');
+        btns.forEach(btn => {
+            btn.addEventListener('click', () => {
+                btns.forEach(b => b.classList.remove('active'));
+                btn.classList.add('active');
+                panes.forEach(p => p.classList.remove('active-pane'));
+                document.getElementById(btn.dataset.tab).classList.add('active-pane');
+            });
         });
-    });
-</script>
+    </script>
+
 </body>
 </html>
