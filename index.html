@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Dunith | Instrumentation & Automation | AI/ML Portfolio</title>
+    <title>Dunith | AI/ML · Instrumentation · Automation</title>
     <!-- Font Awesome 6 -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" />
     <!-- Google Fonts -->
@@ -16,235 +16,338 @@
             box-sizing: border-box;
         }
 
-        body {
-            font-family: 'Inter', sans-serif;
-            background: #0b0d15;
-            color: #e8edf5;
-            line-height: 1.6;
+        html {
             scroll-behavior: smooth;
-            overflow-x: hidden;
         }
 
-        ::-webkit-scrollbar {
-            width: 8px;
-        }
-        ::-webkit-scrollbar-track {
-            background: #141824;
-        }
-        ::-webkit-scrollbar-thumb {
-            background: linear-gradient(180deg, #7c3aed, #2563eb);
-            border-radius: 10px;
+        body {
+            font-family: 'Inter', sans-serif;
+            background: #f8fafc;
+            color: #1e293b;
+            line-height: 1.6;
         }
 
         .container {
-            max-width: 1240px;
+            max-width: 1100px;
             margin: 0 auto;
             padding: 0 24px;
         }
 
-        /* ── Animated Background ── */
-        .bg-orbs {
+        /* ── Navigation ── */
+        nav {
             position: fixed;
-            inset: 0;
-            z-index: 0;
-            pointer-events: none;
-            overflow: hidden;
+            top: 0;
+            left: 0;
+            width: 100%;
+            background: rgba(255, 255, 255, 0.85);
+            backdrop-filter: blur(12px);
+            border-bottom: 1px solid rgba(0, 0, 0, 0.06);
+            z-index: 1000;
+            padding: 12px 0;
+            transition: box-shadow 0.3s;
         }
-        .bg-orbs span {
-            position: absolute;
-            border-radius: 50%;
-            filter: blur(120px);
-            opacity: 0.25;
-            animation: orbFloat 25s ease-in-out infinite alternate;
-        }
-        .bg-orbs span:nth-child(1) {
-            width: 600px;
-            height: 600px;
-            background: #7c3aed;
-            top: -10%;
-            left: -10%;
-            animation-duration: 30s;
-        }
-        .bg-orbs span:nth-child(2) {
-            width: 500px;
-            height: 500px;
-            background: #2563eb;
-            bottom: -10%;
-            right: -10%;
-            animation-duration: 25s;
-            animation-delay: -5s;
-        }
-        .bg-orbs span:nth-child(3) {
-            width: 400px;
-            height: 400px;
-            background: #0d9488;
-            top: 40%;
-            left: 40%;
-            animation-duration: 35s;
-            animation-delay: -10s;
+        nav.scrolled {
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.06);
         }
 
-        @keyframes orbFloat {
-            0% { transform: translate(0, 0) scale(1); }
-            33% { transform: translate(60px, -40px) scale(1.1); }
-            66% { transform: translate(-30px, 60px) scale(0.9); }
-            100% { transform: translate(20px, -20px) scale(1.05); }
+        nav .container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            flex-wrap: wrap;
+            gap: 12px;
+        }
+
+        .nav-logo {
+            font-weight: 700;
+            font-size: 1.2rem;
+            color: #0f172a;
+            text-decoration: none;
+            letter-spacing: -0.02em;
+        }
+        .nav-logo span {
+            color: #7c3aed;
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 8px;
+            flex-wrap: wrap;
+            list-style: none;
+        }
+        .nav-links a {
+            padding: 6px 16px;
+            border-radius: 40px;
+            text-decoration: none;
+            font-weight: 500;
+            font-size: 0.9rem;
+            color: #334155;
+            transition: all 0.2s;
+        }
+        .nav-links a:hover,
+        .nav-links a.active {
+            background: #7c3aed;
+            color: #fff;
+        }
+
+        /* ── Sections ── */
+        section {
+            padding: 80px 0 60px;
+            border-bottom: 1px solid rgba(0, 0, 0, 0.04);
+        }
+        section:last-of-type {
+            border-bottom: none;
+        }
+
+        .section-title {
+            font-size: 2rem;
+            font-weight: 700;
+            margin-bottom: 32px;
+            letter-spacing: -0.02em;
+        }
+        .section-title span {
+            color: #7c3aed;
         }
 
         /* ── Hero ── */
-        .hero {
+        #home {
+            padding-top: 120px;
             min-height: 100vh;
             display: flex;
             align-items: center;
-            justify-content: center;
-            text-align: center;
-            position: relative;
-            z-index: 1;
-            padding: 40px 0;
+            background: linear-gradient(145deg, #f8fafc 0%, #eef2f6 100%);
+        }
+        #home .hero-content {
+            display: flex;
+            align-items: center;
+            gap: 60px;
+            flex-wrap: wrap;
+        }
+        #home .hero-text {
+            flex: 1;
+        }
+        #home .hero-text .greeting {
+            font-size: 1.1rem;
+            color: #7c3aed;
+            font-weight: 600;
+            margin-bottom: 4px;
+        }
+        #home .hero-text h1 {
+            font-size: 3.2rem;
+            font-weight: 800;
+            letter-spacing: -0.03em;
+            line-height: 1.2;
+            margin-bottom: 8px;
+        }
+        #home .hero-text h1 span {
+            color: #7c3aed;
+        }
+        #home .hero-text .tagline {
+            font-size: 1.2rem;
+            color: #475569;
+            margin-bottom: 20px;
+        }
+        #home .hero-text p {
+            color: #64748b;
+            max-width: 480px;
+            margin-bottom: 28px;
         }
 
-        .hero-content {
-            max-width: 900px;
-            padding: 20px;
+        .hero-image {
+            flex: 0 0 220px;
         }
-
-        /* ── Profile Picture with Glow Ring ── */
-        .profile-wrapper {
-            position: relative;
-            display: inline-block;
-            margin-bottom: 32px;
-        }
-
-        .profile-ring {
-            position: absolute;
-            inset: -12px;
-            border-radius: 50%;
-            padding: 6px;
-            background: conic-gradient(from 0deg, #7c3aed, #2563eb, #0d9488, #7c3aed);
-            animation: spinRing 6s linear infinite;
-            -webkit-mask: radial-gradient(farthest-side, transparent calc(100% - 6px), #000 calc(100% - 5px));
-            mask: radial-gradient(farthest-side, transparent calc(100% - 6px), #000 calc(100% - 5px));
-        }
-        @keyframes spinRing {
-            to { transform: rotate(360deg); }
-        }
-
-        .profile-ring-inner {
-            position: absolute;
-            inset: -4px;
-            border-radius: 50%;
-            background: radial-gradient(circle at 30% 30%, rgba(124, 58, 237, 0.3), transparent 70%);
-            filter: blur(18px);
-            animation: pulseGlow 3s ease-in-out infinite alternate;
-        }
-        @keyframes pulseGlow {
-            0% { opacity: 0.3; transform: scale(1); }
-            100% { opacity: 0.9; transform: scale(1.12); }
-        }
-
-        .profile-img {
+        .hero-image img {
             width: 220px;
             height: 220px;
             object-fit: cover;
             border-radius: 50%;
-            border: 3px solid rgba(255, 255, 255, 0.15);
-            position: relative;
-            z-index: 2;
-            display: block;
-            transition: transform 0.5s cubic-bezier(0.34, 1.56, 0.64, 1);
-            box-shadow: 0 0 80px rgba(124, 58, 237, 0.25);
+            border: 4px solid #fff;
+            box-shadow: 0 12px 40px rgba(0, 0, 0, 0.08);
+            transition: transform 0.3s;
         }
-        .profile-img:hover {
-            transform: scale(1.05);
+        .hero-image img:hover {
+            transform: scale(1.02);
         }
 
-        .profile-status {
-            position: absolute;
-            bottom: 10px;
-            right: 10px;
-            z-index: 3;
-            width: 22px;
-            height: 22px;
-            background: #22c55e;
-            border-radius: 50%;
-            border: 3px solid #0b0d15;
-            box-shadow: 0 0 16px rgba(34, 197, 94, 0.6);
-            animation: statusPulse 2s ease-in-out infinite;
-        }
-        @keyframes statusPulse {
-            0%, 100% { box-shadow: 0 0 8px rgba(34, 197, 94, 0.3); }
-            50% { box-shadow: 0 0 32px rgba(34, 197, 94, 0.8); }
-        }
-
-        /* ── Hero Text ── */
-        .hero h1 {
-            font-size: 3.8rem;
-            font-weight: 800;
-            letter-spacing: -0.03em;
-            background: linear-gradient(135deg, #ffffff 0%, #c4b5fd 50%, #93c5fd 100%);
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-            background-clip: text;
-            margin-bottom: 6px;
-        }
-
-        .hero-tagline {
-            font-size: 1.15rem;
-            color: #94a3b8;
-            margin-bottom: 20px;
-            letter-spacing: 0.02em;
-        }
-
-        .typing-wrapper {
-            font-size: 1.5rem;
-            min-height: 4rem;
-            font-weight: 500;
-            color: #e2e8f0;
-        }
-        .typed-text {
-            background: linear-gradient(120deg, #a78bfa, #60a5fa, #2dd4bf);
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-            background-clip: text;
-            font-weight: 600;
-        }
-        .cursor {
-            display: inline-block;
-            width: 3px;
-            height: 1.2em;
-            background: #a78bfa;
-            margin-left: 4px;
-            vertical-align: text-bottom;
-            animation: blink 0.7s step-end infinite;
-            border-radius: 2px;
-        }
-        @keyframes blink {
-            0%, 100% { opacity: 1; }
-            50% { opacity: 0; }
-        }
-
-        .hero-sub {
-            margin-top: 12px;
-            font-size: 1.05rem;
-            color: #94a3b8;
-            max-width: 600px;
-            margin-left: auto;
-            margin-right: auto;
-        }
-        .hero-sub i {
-            color: #a78bfa;
-            margin: 0 4px;
-        }
-
-        /* ── Social Links ── */
-        .social-links {
-            margin-top: 32px;
+        .social-links-hero {
             display: flex;
             gap: 14px;
-            justify-content: center;
             flex-wrap: wrap;
         }
-        .social-links a {
+        .social-links-hero a {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            padding: 10px 22px;
+            border-radius: 40px;
+            text-decoration: none;
+            font-weight: 600;
+            font-size: 0.9rem;
+            background: #fff;
+            color: #1e293b;
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.04);
+            border: 1px solid rgba(0, 0, 0, 0.06);
+            transition: all 0.25s;
+        }
+        .social-links-hero a:hover {
+            background: #7c3aed;
+            color: #fff;
+            border-color: #7c3aed;
+            transform: translateY(-2px);
+        }
+        .social-links-hero a i {
+            font-size: 1.1rem;
+        }
+
+        /* ── About ── */
+        #about .about-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 40px;
+        }
+        #about .about-grid p {
+            color: #475569;
+            margin-bottom: 16px;
+        }
+        #about .about-highlights {
+            display: flex;
+            flex-direction: column;
+            gap: 12px;
+        }
+        #about .about-highlights .highlight-item {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            padding: 12px 16px;
+            background: #fff;
+            border-radius: 12px;
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.04);
+        }
+        #about .about-highlights .highlight-item i {
+            color: #7c3aed;
+            font-size: 1.2rem;
+            width: 28px;
+        }
+
+        /* ── Skills ── */
+        .skills-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+            gap: 24px;
+        }
+        .skill-card {
+            background: #fff;
+            border-radius: 16px;
+            padding: 24px;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.04);
+            border: 1px solid rgba(0, 0, 0, 0.04);
+            transition: transform 0.2s;
+        }
+        .skill-card:hover {
+            transform: translateY(-4px);
+        }
+        .skill-card h3 {
+            font-size: 1.1rem;
+            font-weight: 700;
+            margin-bottom: 14px;
+            color: #0f172a;
+        }
+        .skill-tag {
+            display: inline-block;
+            background: #f1f5f9;
+            padding: 4px 12px;
+            border-radius: 30px;
+            font-size: 0.75rem;
+            font-weight: 500;
+            color: #1e293b;
+            margin: 3px 3px 0 0;
+        }
+        .skill-tag.theoretical {
+            background: #e2e8f0;
+            color: #64748b;
+            font-style: italic;
+        }
+
+        /* ── Work Experience ── */
+        .work-item {
+            background: #fff;
+            border-radius: 16px;
+            padding: 24px 28px;
+            margin-bottom: 20px;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.04);
+            border-left: 4px solid #7c3aed;
+        }
+        .work-item .work-header {
+            display: flex;
+            justify-content: space-between;
+            flex-wrap: wrap;
+            gap: 8px;
+            margin-bottom: 6px;
+        }
+        .work-item .work-header h3 {
+            font-size: 1.2rem;
+            font-weight: 700;
+            color: #0f172a;
+        }
+        .work-item .work-header .date {
+            font-size: 0.85rem;
+            color: #64748b;
+            font-weight: 500;
+        }
+        .work-item .work-sub {
+            font-weight: 600;
+            color: #7c3aed;
+            margin-bottom: 8px;
+            font-size: 0.95rem;
+        }
+        .work-item p {
+            color: #475569;
+        }
+        .work-item .work-links {
+            margin-top: 12px;
+            display: flex;
+            gap: 16px;
+            flex-wrap: wrap;
+        }
+        .work-item .work-links a {
+            color: #7c3aed;
+            text-decoration: none;
+            font-weight: 600;
+            font-size: 0.9rem;
+            display: inline-flex;
+            align-items: center;
+            gap: 4px;
+        }
+        .work-item .work-links a:hover {
+            text-decoration: underline;
+        }
+
+        /* ── Contact ── */
+        #contact .contact-box {
+            max-width: 500px;
+            margin: 0 auto;
+            text-align: center;
+            background: #fff;
+            border-radius: 24px;
+            padding: 48px 40px;
+            box-shadow: 0 8px 30px rgba(0, 0, 0, 0.04);
+        }
+        #contact .contact-box h2 {
+            font-size: 1.8rem;
+            font-weight: 700;
+            margin-bottom: 12px;
+        }
+        #contact .contact-box p {
+            color: #64748b;
+            margin-bottom: 28px;
+        }
+        .contact-links {
+            display: flex;
+            justify-content: center;
+            gap: 16px;
+            flex-wrap: wrap;
+        }
+        .contact-links a {
             display: inline-flex;
             align-items: center;
             gap: 10px;
@@ -252,727 +355,364 @@
             border-radius: 60px;
             text-decoration: none;
             font-weight: 600;
-            font-size: 0.95rem;
-            color: #fff;
-            background: rgba(255, 255, 255, 0.06);
-            backdrop-filter: blur(12px);
-            border: 1px solid rgba(255, 255, 255, 0.08);
-            transition: all 0.3s ease;
-            letter-spacing: 0.01em;
-        }
-        .social-links a:hover {
-            transform: translateY(-4px);
-            background: rgba(124, 58, 237, 0.25);
-            border-color: rgba(124, 58, 237, 0.4);
-            box-shadow: 0 12px 40px rgba(124, 58, 237, 0.15);
-        }
-        .social-links a i {
-            font-size: 1.2rem;
-        }
-
-        /* ── Main Content ── */
-        .main-content {
-            position: relative;
-            z-index: 1;
-            padding: 40px 0 80px;
-        }
-
-        /* ── Tabs ── */
-        .tabs {
-            display: flex;
-            justify-content: center;
-            gap: 8px;
-            flex-wrap: wrap;
-            margin-bottom: 48px;
-            background: rgba(255, 255, 255, 0.04);
-            backdrop-filter: blur(12px);
-            border-radius: 60px;
-            padding: 6px;
-            border: 1px solid rgba(255, 255, 255, 0.06);
-            max-width: fit-content;
-            margin-left: auto;
-            margin-right: auto;
-        }
-        .tab-btn {
-            background: transparent;
-            border: none;
-            padding: 10px 24px;
-            font-size: 0.9rem;
-            font-weight: 600;
-            cursor: pointer;
-            color: #94a3b8;
-            transition: all 0.3s ease;
-            border-radius: 40px;
-            font-family: 'Inter', sans-serif;
-            white-space: nowrap;
-        }
-        .tab-btn:hover {
-            color: #e2e8f0;
-        }
-        .tab-btn.active {
-            background: linear-gradient(135deg, #7c3aed, #2563eb);
-            color: #fff;
-            box-shadow: 0 8px 24px rgba(124, 58, 237, 0.25);
-        }
-
-        .tab-pane {
-            display: none;
-            animation: fadeSlide 0.5s ease;
-        }
-        .tab-pane.active-pane {
-            display: block;
-        }
-
-        @keyframes fadeSlide {
-            from { opacity: 0; transform: translateY(18px); }
-            to { opacity: 1; transform: translateY(0); }
-        }
-
-        /* ── Cards ── */
-        .project-grid,
-        .skill-grid,
-        .article-grid,
-        .volunteer-grid,
-        .club-grid,
-        .art-grid,
-        .workshop-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            gap: 28px;
-        }
-
-        .card {
-            background: rgba(255, 255, 255, 0.04);
-            backdrop-filter: blur(12px);
-            border-radius: 24px;
-            overflow: hidden;
-            border: 1px solid rgba(255, 255, 255, 0.06);
-            transition: all 0.4s cubic-bezier(0.34, 1.56, 0.64, 1);
-            box-shadow: 0 4px 30px rgba(0, 0, 0, 0.2);
-        }
-        .card:hover {
-            transform: translateY(-8px);
-            border-color: rgba(124, 58, 237, 0.25);
-            box-shadow: 0 20px 60px rgba(0, 0, 0, 0.4), 0 0 40px rgba(124, 58, 237, 0.05);
-        }
-
-        .card-img {
-            width: 100%;
-            height: 200px;
-            overflow: hidden;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            background: rgba(0, 0, 0, 0.2);
-            position: relative;
-        }
-        .card-img img {
-            width: 100%;
-            height: 100%;
-            object-fit: cover;
-            transition: transform 0.5s ease;
-        }
-        .card:hover .card-img img {
-            transform: scale(1.04);
-        }
-        .card-img i {
-            font-size: 3.2rem;
-            color: #a78bfa;
-            opacity: 0.6;
-        }
-
-        .card-content {
-            padding: 24px 26px 28px;
-        }
-        .card-content h3 {
-            font-size: 1.2rem;
-            font-weight: 700;
-            margin-bottom: 8px;
-            color: #f1f5f9;
-            line-height: 1.3;
-        }
-        .card-content p {
-            color: #94a3b8;
-            font-size: 0.95rem;
-            margin-bottom: 14px;
-        }
-        .card-meta {
-            font-size: 0.8rem;
-            color: #64748b;
-            margin-bottom: 8px;
-            letter-spacing: 0.02em;
-        }
-        .card-meta i {
-            margin-right: 4px;
-            color: #7c3aed;
-        }
-
-        .card-link {
-            color: #a78bfa;
-            text-decoration: none;
-            font-weight: 600;
-            font-size: 0.9rem;
-            display: inline-flex;
-            align-items: center;
-            gap: 6px;
-            transition: all 0.25s ease;
-            border-bottom: 1px solid transparent;
-        }
-        .card-link:hover {
-            gap: 12px;
-            color: #c4b5fd;
-            border-bottom-color: #7c3aed;
-        }
-
-        .card-link i {
-            font-size: 0.8rem;
-        }
-
-        /* ── Skill Tags ── */
-        .skill-tag {
-            display: inline-block;
-            background: rgba(124, 58, 237, 0.15);
-            border: 1px solid rgba(124, 58, 237, 0.15);
-            padding: 4px 14px;
-            border-radius: 30px;
-            font-size: 0.78rem;
-            font-weight: 500;
-            color: #c4b5fd;
-            margin: 4px 4px 0 0;
-            letter-spacing: 0.01em;
-        }
-        .skill-tag.theoretical {
-            background: rgba(100, 116, 139, 0.15);
-            border-color: rgba(100, 116, 139, 0.2);
-            color: #94a3b8;
-            font-style: italic;
-        }
-
-        /* ── Contact ── */
-        .contact-box {
-            max-width: 600px;
-            margin: 0 auto;
-            text-align: center;
-            background: rgba(255, 255, 255, 0.03);
-            border-radius: 32px;
-            padding: 48px 40px;
-            border: 1px solid rgba(255, 255, 255, 0.06);
-            backdrop-filter: blur(8px);
-        }
-        .contact-box h2 {
-            font-size: 2rem;
-            font-weight: 700;
-            background: linear-gradient(135deg, #c4b5fd, #93c5fd);
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-            background-clip: text;
-        }
-        .contact-box p {
-            color: #94a3b8;
-            margin: 16px 0 28px;
-            font-size: 1.05rem;
-        }
-        .contact-links {
-            display: flex;
-            justify-content: center;
-            gap: 20px;
-            flex-wrap: wrap;
-        }
-        .contact-links a {
-            display: inline-flex;
-            align-items: center;
-            gap: 10px;
-            padding: 14px 32px;
-            border-radius: 60px;
-            background: rgba(255, 255, 255, 0.06);
-            border: 1px solid rgba(255, 255, 255, 0.08);
-            color: #e2e8f0;
-            text-decoration: none;
-            font-weight: 600;
-            transition: all 0.3s ease;
-            font-size: 1rem;
+            background: #f1f5f9;
+            color: #1e293b;
+            transition: all 0.25s;
         }
         .contact-links a:hover {
-            background: rgba(124, 58, 237, 0.2);
-            border-color: #7c3aed;
-            transform: translateY(-3px);
-            box-shadow: 0 12px 32px rgba(124, 58, 237, 0.1);
+            background: #7c3aed;
+            color: #fff;
         }
         .contact-links a i {
-            font-size: 1.2rem;
-            color: #a78bfa;
+            font-size: 1.1rem;
         }
 
         /* ── Footer ── */
         footer {
-            position: relative;
-            z-index: 1;
             text-align: center;
             padding: 32px 20px;
-            border-top: 1px solid rgba(255, 255, 255, 0.04);
-            color: #64748b;
+            color: #94a3b8;
             font-size: 0.9rem;
+            border-top: 1px solid rgba(0, 0, 0, 0.04);
         }
         footer i {
-            color: #f43f5e;
+            color: #ef4444;
         }
 
         /* ── Responsive ── */
         @media (max-width: 768px) {
-            .hero h1 { font-size: 2.4rem; }
-            .typing-wrapper { font-size: 1.1rem; min-height: 3.4rem; }
-            .profile-img { width: 170px; height: 170px; }
-            .profile-ring { inset: -10px; padding: 5px; }
-            .profile-status { width: 20px; height: 20px; bottom: 6px; right: 6px; }
-            .tabs { border-radius: 20px; padding: 4px; gap: 4px; max-width: 100%; }
-            .tab-btn { padding: 8px 14px; font-size: 0.75rem; }
-            .card-content { padding: 18px 18px 22px; }
-            .project-grid, .skill-grid, .article-grid, .volunteer-grid, .club-grid, .art-grid, .workshop-grid {
+            nav .container {
+                flex-direction: column;
+                align-items: center;
+            }
+            .nav-links {
+                justify-content: center;
+            }
+            #home .hero-content {
+                flex-direction: column-reverse;
+                text-align: center;
+            }
+            #home .hero-text p {
+                margin-left: auto;
+                margin-right: auto;
+            }
+            .social-links-hero {
+                justify-content: center;
+            }
+            #about .about-grid {
                 grid-template-columns: 1fr;
             }
-            .contact-box { padding: 32px 20px; }
-            .contact-links a { padding: 12px 20px; font-size: 0.9rem; }
-            .social-links a { padding: 10px 18px; font-size: 0.85rem; }
+            .hero-image {
+                flex: 0 0 160px;
+            }
+            .hero-image img {
+                width: 160px;
+                height: 160px;
+            }
+            #home .hero-text h1 {
+                font-size: 2.4rem;
+            }
+            section {
+                padding: 60px 0 40px;
+            }
+            .work-item .work-header {
+                flex-direction: column;
+                gap: 2px;
+            }
         }
 
         @media (max-width: 480px) {
-            .hero h1 { font-size: 1.8rem; }
-            .profile-img { width: 150px; height: 150px; }
-            .profile-ring { inset: -8px; padding: 4px; }
-            .profile-status { width: 18px; height: 18px; bottom: 4px; right: 4px; }
-            .tab-btn { padding: 6px 12px; font-size: 0.7rem; }
+            .nav-links a {
+                padding: 4px 12px;
+                font-size: 0.8rem;
+            }
+            #home .hero-text h1 {
+                font-size: 2rem;
+            }
+            .hero-image img {
+                width: 140px;
+                height: 140px;
+            }
+            .container {
+                padding: 0 16px;
+            }
         }
     </style>
 </head>
 <body>
 
-    <!-- ── Animated Background Orbs ── -->
-    <div class="bg-orbs">
-        <span></span>
-        <span></span>
-        <span></span>
-    </div>
+    <!-- ── Navigation ── -->
+    <nav>
+        <div class="container">
+            <a href="#home" class="nav-logo">Dunith<span>.</span></a>
+            <ul class="nav-links">
+                <li><a href="#home" class="active">Home</a></li>
+                <li><a href="#about">About</a></li>
+                <li><a href="#skills">Skills</a></li>
+                <li><a href="#work">Work</a></li>
+                <li><a href="#contact">Contact</a></li>
+            </ul>
+        </div>
+    </nav>
 
-    <!-- ── HERO ── -->
-    <section class="hero">
-        <div class="hero-content">
-            <div class="profile-wrapper">
-                <div class="profile-ring"></div>
-                <div class="profile-ring-inner"></div>
-                <img src="assets/Dunith.jpeg" alt="Dunith Desitha Athukorala" class="profile-img" />
-                <span class="profile-status"></span>
-            </div>
-
-            <h1>Dunith Desitha Athukorala</h1>
-            <p class="hero-tagline">AI/ML · Instrumentation · Automation</p>
-
-            <div class="typing-wrapper">
-                <span class="typed-text"></span><span class="cursor">|</span>
-            </div>
-
-            <p class="hero-sub">
-                <i class="fas fa-microchip"></i> Bridging industrial hardware with intelligent software
-            </p>
-
-            <div class="social-links">
-                <a href="https://github.com/Dunith-Code" target="_blank"><i class="fab fa-github"></i> GitHub</a>
-                <a href="https://www.linkedin.com/in/dunith/" target="_blank"><i class="fab fa-linkedin"></i> LinkedIn</a>
-                <a href="https://medium.com/@Dunith-Write" target="_blank"><i class="fab fa-medium"></i> Medium</a>
+    <!-- ── HOME ── -->
+    <section id="home">
+        <div class="container">
+            <div class="hero-content">
+                <div class="hero-text">
+                    <div class="greeting">Hi There,</div>
+                    <h1>I'm <span>Dunith</span></h1>
+                    <div class="tagline">AI/ML · Instrumentation · Automation</div>
+                    <p>Bridging industrial hardware with intelligent software. Final-year undergrad at University of Colombo.</p>
+                    <div class="social-links-hero">
+                        <a href="https://github.com/Dunith-Code" target="_blank"><i class="fab fa-github"></i> GitHub</a>
+                        <a href="https://www.linkedin.com/in/dunith/" target="_blank"><i class="fab fa-linkedin"></i> LinkedIn</a>
+                        <a href="https://medium.com/@Dunith-Write" target="_blank"><i class="fab fa-medium"></i> Medium</a>
+                    </div>
+                </div>
+                <div class="hero-image">
+                    <img src="assets/Dunith.jpeg" alt="Dunith Desitha Athukorala" />
+                </div>
             </div>
         </div>
     </section>
 
-    <!-- ── MAIN ── -->
-    <div class="main-content">
+    <!-- ── ABOUT ── -->
+    <section id="about">
         <div class="container">
-
-            <!-- Tabs -->
-            <div class="tabs">
-                <button class="tab-btn active" data-tab="projects">🚀 Projects</button>
-                <button class="tab-btn" data-tab="skills">⚙️ Skills</button>
-                <button class="tab-btn" data-tab="articles">📝 Articles</button>
-                <button class="tab-btn" data-tab="volunteer">🤝 Volunteering</button>
-                <button class="tab-btn" data-tab="club">🏆 Club</button>
-                <button class="tab-btn" data-tab="art">🎨 Artworks</button>
-                <button class="tab-btn" data-tab="workshops">📚 Workshops</button>
-                <button class="tab-btn" data-tab="contact">📫 Contact</button>
-            </div>
-
-            <!-- ── PROJECTS ── -->
-            <div id="projects" class="tab-pane active-pane">
-                <div class="project-grid">
-                    <!-- NEW: Final Year Research -->
-                    <div class="card">
-                        <div class="card-img"><i class="fas fa-traffic-light"></i></div>
-                        <div class="card-content">
-                            <h3>🚦 AI-Based Adaptive Traffic Signal Optimization</h3>
-                            <div class="card-meta"><i class="fas fa-calendar-alt"></i> Oct 2025 – July 2026 · Final Year Research (Completed)</div>
-                            <p>Dueling Double DQN traffic-signal controller (CNN + SE-attention + LSTM, PER) trained in SUMO, cutting vehicle delay ~40% at a real intersection. Deployed on a physical prototype with 4-camera YOLO detection, dual ESP32 controllers, and emergency-vehicle override.</p>
-                            <a href="https://tinyurl.com/2s3erf35" class="card-link">Insights →</a> &nbsp;|&nbsp;
-                            <a href="#" class="card-link">GitHub →</a>
-                        </div>
-                    </div>
-
-                    <div class="card">
-                        <div class="card-img"><i class="fas fa-chart-line"></i></div>
-                        <div class="card-content">
-                            <h3>🌿 GreenHeavenDAQ</h3>
-                            <div class="card-meta"><i class="fas fa-calendar-alt"></i> Nov 2025 · DAQ Mini Project</div>
-                            <p>Smart home garden monitoring with ESP32, sensors, and a Streamlit dashboard. Real-time alerts &amp; historical trends.</p>
-                            <a href="https://tinyurl.com/greenheaven24" class="card-link">Live Demo →</a> &nbsp;|&nbsp;
-                            <a href="https://github.com/Dunith-Code/GreenHeavenDAQ" class="card-link">GitHub →</a>
-                        </div>
-                    </div>
-
-                    <div class="card">
-                        <div class="card-img"><i class="fas fa-volume-up"></i></div>
-                        <div class="card-content">
-                            <h3>🔊 Kids-Audio-Project</h3>
-                            <div class="card-meta"><i class="fas fa-calendar-alt"></i> Feb – March 2025 · Internship</div>
-                            <p>Interactive audio learning tool for children built with Python &amp; Pygame. Sound recognition games &amp; phonics.</p>
-                            <a href="https://github.com/Dunith-Code/Kids-Audio-Project" class="card-link">GitHub →</a>
-                        </div>
-                    </div>
-
-                    <div class="card">
-                        <div class="card-img"><i class="fas fa-cogs"></i></div>
-                        <div class="card-content">
-                            <h3>⚙️ Centrifugal Feeder | Bottle Unscrambler</h3>
-                            <div class="card-meta"><i class="fas fa-calendar-alt"></i> Feb – Aug 2025 · Internship</div>
-                            <p>Automated bottle orientation with Arduino control (C++), motion profiling, NEMA steppers, and Python operator interface. SolidWorks CAD design.</p>
-                            <a href="https://github.com/Dunith-Code/Centrifugal-Feeder-Bottle-Unscrambler-Machine" class="card-link">GitHub →</a>
-                        </div>
-                    </div>
-
-                    <div class="card">
-                        <div class="card-img"><i class="fas fa-brain"></i></div>
-                        <div class="card-content">
-                            <h3>🧠 Ionosphere Neural Network</h3>
-                            <div class="card-meta"><i class="fas fa-calendar-alt"></i> March 2026 · Self-Learning</div>
-                            <p>TensorFlow/Keras model to classify radar returns from the ionosphere. Achieved 94% accuracy.</p>
-                            <a href="https://github.com/Dunith-Code/Ionosphere-Neural-Network-Classification" class="card-link">GitHub →</a>
-                        </div>
-                    </div>
-
-                    <div class="card">
-                        <div class="card-img"><i class="fas fa-file-pdf"></i></div>
-                        <div class="card-content">
-                            <h3>📄 RAG Application</h3>
-                            <div class="card-meta"><i class="fas fa-calendar-alt"></i> March 2026 · Self-Learning</div>
-                            <p>Chat with your PDFs using Google Gemini, LangChain, FAISS, and Streamlit. OCR-based processing with citation support.</p>
-                            <a href="https://tinyurl.com/bdehyvff" class="card-link">Live Demo →</a> &nbsp;|&nbsp;
-                            <a href="https://github.com/Dunith-Code/RAG-Application" class="card-link">GitHub →</a>
-                        </div>
-                    </div>
-
-                    <!-- NEW: EV Price Prediction -->
-                    <div class="card">
-                        <div class="card-img"><i class="fas fa-car-side"></i></div>
-                        <div class="card-content">
-                            <h3>🚗 EV Price Prediction – Full-Stack ML Web App</h3>
-                            <div class="card-meta"><i class="fas fa-calendar-alt"></i> March 2026 · Self-Learning</div>
-                            <p>XGBoost regression + Flask API + SQLite logging. Feature engineering for improved generalization.</p>
-                            <a href="https://tinyurl.com/2vtr32r2" class="card-link">Live Demo →</a> &nbsp;|&nbsp;
-                            <a href="https://github.com/Dunith-Code/EV-Price-Predictor" class="card-link">GitHub →</a>
-                        </div>
-                    </div>
-
+            <h2 class="section-title">About <span>Me</span></h2>
+            <div class="about-grid">
+                <div>
+                    <p>
+                        I'm an Instrumentation & Automation Engineering Technology undergraduate at the University of Colombo,
+                        also pursuing Information Technology. My passion lies at the intersection of industrial hardware and
+                        intelligent software — from embedded systems and IoT to AI/ML and full-stack development.
+                    </p>
+                    <p>
+                        With internship experience at Phoenix Industries Ltd. and active roles in university clubs,
+                        I've built hands-on systems ranging from adaptive traffic signal controllers using deep reinforcement learning
+                        to IoT-based audio distribution and bottle unscrambler machines.
+                    </p>
                 </div>
-            </div>
-
-            <!-- ── SKILLS ── -->
-            <div id="skills" class="tab-pane">
-                <div class="skill-grid">
-                    <div class="card">
-                        <div class="card-content">
-                            <h3>🤖 AI &amp; Data Science</h3>
-                            <div>
-                                <span class="skill-tag">PyTorch / TensorFlow</span>
-                                <span class="skill-tag">scikit-learn / XGBoost</span>
-                                <span class="skill-tag">CNN · LSTM · Dueling DQN</span>
-                                <span class="skill-tag">YOLO (v11, v26)</span>
-                                <span class="skill-tag">OpenCV · Roboflow</span>
-                                <span class="skill-tag">NumPy · Pandas · Matplotlib</span>
-                                <span class="skill-tag">LangChain · FAISS</span>
-                                <span class="skill-tag">RAG Pipelines · Prompt Engineering</span>
-                                <span class="skill-tag">Anthropic Claude · Google Gemini</span>
-                            </div>
-                        </div>
+                <div class="about-highlights">
+                    <div class="highlight-item">
+                        <i class="fas fa-graduation-cap"></i>
+                        <div><strong>BSc in Instrumentation & Automation</strong><br />University of Colombo (2023–2026)</div>
                     </div>
-                    <div class="card">
-                        <div class="card-content">
-                            <h3>📡 Instrumentation</h3>
-                            <div>
-                                <span class="skill-tag">Arduino · Raspberry Pi</span>
-                                <span class="skill-tag">ESP32 / ESP8266</span>
-                                <span class="skill-tag">Sensors &amp; Actuators</span>
-                                <span class="skill-tag">Microcontroller Programming</span>
-                                <span class="skill-tag">IoT System Design</span>
-                                <span class="skill-tag">SolidWorks (CAD)</span>
-                                <span class="skill-tag">Technical Drawing</span>
-                                <span class="skill-tag">3D Printing &amp; Fabrication</span>
-                            </div>
-                        </div>
+                    <div class="highlight-item">
+                        <i class="fas fa-briefcase"></i>
+                        <div><strong>Internship</strong><br />Phoenix Industries Ltd. (Feb–Aug 2025)</div>
                     </div>
-                    <div class="card">
-                        <div class="card-content">
-                            <h3>💻 IT &amp; Full Stack</h3>
-                            <div>
-                                <span class="skill-tag">Python · C++ · JavaScript</span>
-                                <span class="skill-tag">SQL · Bash · MATLAB/Octave</span>
-                                <span class="skill-tag">Flask · FastAPI · Streamlit</span>
-                                <span class="skill-tag">REST APIs · Socket.IO</span>
-                                <span class="skill-tag">SQLAlchemy · SQLite</span>
-                                <span class="skill-tag">Git &amp; GitHub</span>
-                                <span class="skill-tag">Docker (Basic)</span>
-                                <span class="skill-tag">Google Colab · Kaggle</span>
-                            </div>
-                        </div>
+                    <div class="highlight-item">
+                        <i class="fas fa-award"></i>
+                        <div><strong>Final Year Research</strong><br />AI-based Adaptive Traffic Signal Optimization</div>
                     </div>
-                    <div class="card">
-                        <div class="card-content">
-                            <h3>🏭 Industrial Automation</h3>
-                            <div>
-                                <span class="skill-tag">Arduino-based Control (C++)</span>
-                                <span class="skill-tag">Stepper Motor &amp; Motion Profiling</span>
-                                <span class="skill-tag">Motor Sizing &amp; Torque Calculations</span>
-                                <span class="skill-tag">MQTT · REST APIs for IIoT</span>
-                                <span class="skill-tag">ESP8266 / Raspberry Pi Automation</span>
-                                <span class="skill-tag theoretical">PLC (Theoretical)</span>
-                                <span class="skill-tag theoretical">SCADA / HMI (Theoretical)</span>
-                                <span class="skill-tag theoretical">Modbus / OPC-UA (Theoretical)</span>
-                                <span class="skill-tag">Industry 4.0 / IIoT Integration</span>
-                            </div>
-                        </div>
+                    <div class="highlight-item">
+                        <i class="fas fa-pen-fancy"></i>
+                        <div><strong>Content Writing Head</strong><br />Techno Media &amp; Colombo Beacon</div>
                     </div>
                 </div>
             </div>
+        </div>
+    </section>
 
-            <!-- ── ARTICLES ── -->
-            <div id="articles" class="tab-pane">
-                <div class="article-grid">
-                    <div class="card">
-                        <div class="card-content">
-                            <div class="card-meta"><i class="fas fa-calendar-alt"></i> July 2026</div>
-                            <h3>Learning the Loop | #101 – "What Is Machine Learning, Really?"</h3>
-                            <p>Started a new series breaking down AI concepts from the ground up. #101 explains ML fundamentals in plain English, perfect for beginners and curious minds.</p>
-                            <a href="https://tinyurl.com/yvkefrjk" class="card-link">Read on Medium →</a>
-                        </div>
-                    </div>
+    <!-- ── SKILLS ── -->
+    <section id="skills">
+        <div class="container">
+            <h2 class="section-title">Technical <span>Skills</span></h2>
+            <div class="skills-grid">
+                <!-- AI & Data Science -->
+                <div class="skill-card">
+                    <h3>🤖 AI &amp; Data Science</h3>
+                    <span class="skill-tag">PyTorch / TensorFlow</span>
+                    <span class="skill-tag">scikit-learn / XGBoost</span>
+                    <span class="skill-tag">CNN · LSTM · Dueling DQN</span>
+                    <span class="skill-tag">YOLO (v11, v26)</span>
+                    <span class="skill-tag">OpenCV · Roboflow</span>
+                    <span class="skill-tag">NumPy · Pandas · Matplotlib</span>
+                    <span class="skill-tag">LangChain · FAISS</span>
+                    <span class="skill-tag">RAG Pipelines · Prompt Engineering</span>
+                    <span class="skill-tag">Anthropic Claude · Google Gemini</span>
+                </div>
+                <!-- Instrumentation -->
+                <div class="skill-card">
+                    <h3>📡 Instrumentation</h3>
+                    <span class="skill-tag">Arduino · Raspberry Pi</span>
+                    <span class="skill-tag">ESP32 / ESP8266</span>
+                    <span class="skill-tag">Sensors &amp; Actuators</span>
+                    <span class="skill-tag">Microcontroller Programming</span>
+                    <span class="skill-tag">IoT System Design</span>
+                    <span class="skill-tag">SolidWorks (CAD)</span>
+                    <span class="skill-tag">Technical Drawing</span>
+                    <span class="skill-tag">3D Printing &amp; Fabrication</span>
+                </div>
+                <!-- Full Stack -->
+                <div class="skill-card">
+                    <h3>💻 IT &amp; Full Stack</h3>
+                    <span class="skill-tag">Python · C++ · JavaScript</span>
+                    <span class="skill-tag">SQL · Bash · MATLAB/Octave</span>
+                    <span class="skill-tag">Flask · FastAPI · Streamlit</span>
+                    <span class="skill-tag">REST APIs · Socket.IO</span>
+                    <span class="skill-tag">SQLAlchemy · SQLite</span>
+                    <span class="skill-tag">Git &amp; GitHub</span>
+                    <span class="skill-tag">Docker (Basic)</span>
+                    <span class="skill-tag">Google Colab · Kaggle</span>
+                </div>
+                <!-- Industrial Automation -->
+                <div class="skill-card">
+                    <h3>🏭 Industrial Automation</h3>
+                    <span class="skill-tag">Arduino-based Control (C++)</span>
+                    <span class="skill-tag">Stepper Motor &amp; Motion Profiling</span>
+                    <span class="skill-tag">Motor Sizing &amp; Torque Calculations</span>
+                    <span class="skill-tag">MQTT · REST APIs for IIoT</span>
+                    <span class="skill-tag">ESP8266 / Raspberry Pi Automation</span>
+                    <span class="skill-tag theoretical">PLC (Theoretical)</span>
+                    <span class="skill-tag theoretical">SCADA / HMI (Theoretical)</span>
+                    <span class="skill-tag theoretical">Modbus / OPC-UA (Theoretical)</span>
+                    <span class="skill-tag">Industry 4.0 / IIoT Integration</span>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ── WORK EXPERIENCE ── -->
+    <section id="work">
+        <div class="container">
+            <h2 class="section-title">Work <span>Experience</span></h2>
+
+            <!-- Internship -->
+            <div class="work-item">
+                <div class="work-header">
+                    <h3>Centrifugal Bottle-Feeder / Unscrambler Machine</h3>
+                    <span class="date">Feb 2025 – Aug 2025</span>
+                </div>
+                <div class="work-sub">Phoenix Industries Ltd. – Internship</div>
+                <p>Designed mechanical system in SolidWorks including rotating base, sorting mechanism, and adjustable bottle handling system. Performed motor sizing, torque calculations, and selected NEMA stepper motors with industrial-grade drivers. Developed Arduino-based control system (C++) with motion profiling and Python-based operator interface.</p>
+                <div class="work-links">
+                    <a href="https://github.com/Dunith-Code/Centrifugal-Feeder-Bottle-Unscrambler-Machine" target="_blank"><i class="fab fa-github"></i> GitHub</a>
                 </div>
             </div>
 
-            <!-- ── VOLUNTEERING ── -->
-            <div id="volunteer" class="tab-pane">
-                <div class="volunteer-grid">
-                    <div class="card">
-                        <div class="card-img"><i class="fas fa-chalkboard-user"></i></div>
-                        <div class="card-content">
-                            <h3>Co Organizer</h3>
-                            <div class="card-meta">Pharocium'23 · Colombo Beacon · 2023</div>
-                            <p>Volunteer organizer for the largest youth event at University of Colombo. Helped drive success and community connection.</p>
-                        </div>
-                    </div>
-                    <div class="card">
-                        <div class="card-img"><i class="fas fa-tree"></i></div>
-                        <div class="card-content">
-                            <h3>Co-Event Chair</h3>
-                            <div class="card-meta">Pharocium'24 · Pharosium 2.0 · Colombo Beacon · 2024</div>
-                            <p>Co-led the planning and execution of Pharocium'24 — a landmark youth festival at Viharamahadevi Park.</p>
-                        </div>
-                    </div>
-                    <div class="card">
-                        <div class="card-img"><i class="fas fa-laptop-code"></i></div>
-                        <div class="card-content">
-                            <h3>Editor in Chief</h3>
-                            <div class="card-meta">Freshers Championship'23 Magazine · Colombo Beacon · 2023/24</div>
-                            <p>Led the editorial team for the inaugural Freshers' Championship magazine. <a href="https://tinyurl.com/5apuskmx" class="card-link">View →</a></p>
-                        </div>
-                    </div>
+            <div class="work-item">
+                <div class="work-header">
+                    <h3>Distributed IoT Audio System – Phoenix Showroom</h3>
+                    <span class="date">Feb 2025 – Aug 2025</span>
+                </div>
+                <div class="work-sub">Phoenix Industries Ltd. – Internship</div>
+                <p>Built IoT-based distributed audio system using Raspberry Pi (Flask server) and ESP8266 MQTT clients. Implemented real-time communication using MQTT + REST APIs with multithreaded Python backend. Developed embedded firmware for wireless nodes with stable reconnection and hardware interrupt handling.</p>
+            </div>
+
+            <!-- Final Year Research -->
+            <div class="work-item">
+                <div class="work-header">
+                    <h3>AI-Based Adaptive Traffic Signal Optimization</h3>
+                    <span class="date">Oct 2025 – July 2026</span>
+                </div>
+                <div class="work-sub">Final Year Research Project (Completed)</div>
+                <p>Developed a deep reinforcement learning system using Dueling DQN with CNN + MLP + LSTM architecture in PyTorch for adaptive traffic signal control. Integrated YOLOv11 and YOLOv26-based vehicle detection with multi-class and emergency vehicle override. Implemented prioritized experience replay and attention mechanisms to improve learning efficiency and lane-level adaptation. Evaluated using SUMO simulation (TraCI API) across multiple scenarios, achieving ~40% reduction in average vehicle delay compared to fixed-time signals.</p>
+                <div class="work-links">
+                    <a href="https://tinyurl.com/2s3erf35" target="_blank"><i class="fas fa-external-link-alt"></i> Insights</a>
+                    <a href="#" target="_blank"><i class="fab fa-github"></i> GitHub</a>
                 </div>
             </div>
 
-            <!-- ── CLUB ── -->
-            <div id="club" class="tab-pane">
-                <div class="club-grid">
-                    <div class="card">
-                        <div class="card-img"><img src="assets/images/SEDS.jpg" alt="SEDS UOC" onerror="this.onerror=null;this.parentElement.innerHTML='<i class=\'fas fa-rocket\'></i>';" /></div>
-                        <div class="card-content">
-                            <h3>SEDS UOC – Assistant Secretary</h3>
-                            <div class="card-meta">University of Colombo · Sep 2024 – Sep 2025</div>
-                            <p>Organized space-tech workshops and outreach. Managed documentation and member coordination.</p>
-                        </div>
-                    </div>
-                    <div class="card">
-                        <div class="card-img"><img src="assets/images/CBT.jpg" alt="Colombo Beacon Top Board" onerror="this.onerror=null;this.parentElement.innerHTML='<i class=\'fas fa-chalkboard\'></i>';" /></div>
-                        <div class="card-content">
-                            <h3>Colombo Beacon – Top Board Director</h3>
-                            <div class="card-meta">University of Colombo · Jun 2024 – Jun 2025</div>
-                            <p>Strategic planning for annual events including the Freshers' Championship. Oversaw marketing &amp; sponsors.</p>
-                        </div>
-                    </div>
-                    <div class="card">
-                        <div class="card-img"><img src="assets/images/CBM.jpg" alt="Colombo Beacon Middle Board" onerror="this.onerror=null;this.parentElement.innerHTML='<i class=\'fas fa-users\'></i>';" /></div>
-                        <div class="card-content">
-                            <h3>Colombo Beacon – Middle Board Director</h3>
-                            <div class="card-meta">University of Colombo · May 2023 – Jun 2024</div>
-                            <p>Coordinated volunteer teams, social media campaigns, and content creation.</p>
-                        </div>
-                    </div>
-                    <div class="card">
-                        <div class="card-img"><img src="assets/images/TMH.jpg" alt="Techno Media Head" onerror="this.onerror=null;this.parentElement.innerHTML='<i class=\'fas fa-pen-fancy\'></i>';" /></div>
-                        <div class="card-content">
-                            <h3>Techno Media – Head of Content Writing</h3>
-                            <div class="card-meta">University of Colombo · Jul 2024 – Sep 2025</div>
-                            <p>Led a team of writers producing articles, event coverage, and technical blogs.</p>
-                        </div>
-                    </div>
+            <!-- Self-Learning Projects -->
+            <div class="work-item">
+                <div class="work-header">
+                    <h3>RAG System – Chat with PDFs</h3>
+                    <span class="date">March 2026</span>
+                </div>
+                <div class="work-sub">Self-Learning Project</div>
+                <p>Built LLM-powered document Q&A system using Google Gemini, LangChain, and FAISS vector database. Enabled OCR-based PDF processing and context-aware retrieval with citation support. Developed Streamlit interface with secure API handling and cloud deployment readiness.</p>
+                <div class="work-links">
+                    <a href="https://tinyurl.com/bdehyvff" target="_blank"><i class="fas fa-external-link-alt"></i> Live Demo</a>
+                    <a href="https://github.com/Dunith-Code/RAG-Application" target="_blank"><i class="fab fa-github"></i> GitHub</a>
                 </div>
             </div>
 
-            <!-- ── ARTWORKS ── -->
-            <div id="art" class="tab-pane">
-                <div class="art-grid">
-                    <div class="card">
-                        <div class="card-img"><img src="assets/images/CB_Magazine.jpg" alt="Freshers Championship Magazine" onerror="this.onerror=null;this.parentElement.innerHTML='<i class=\'fas fa-book\'></i>';" /></div>
-                        <div class="card-content">
-                            <h3>The Freshers Championship'23 Magazine</h3>
-                            <div class="card-meta">Colombo Beacon · 2023</div>
-                            <p>Inaugural magazine for the Freshers' Championship — a university first.</p>
-                            <a href="https://tinyurl.com/5apuskmx" class="card-link">View →</a>
-                        </div>
-                    </div>
-                    <div class="card">
-                        <div class="card-img"><img src="assets/images/පුරවරමාන - කොළොම්පුර ඇසක අරුමය.jpg" alt="පුරවරමාන 01" onerror="this.onerror=null;this.parentElement.innerHTML='<i class=\'fas fa-book\'></i>';" /></div>
-                        <div class="card-content">
-                            <h3>පුරවරමාන – First Edition</h3>
-                            <div class="card-meta">Techno Media · March 2024</div>
-                            <p>Official magazine of the Department of Content Writing, Faculty of Technology.</p>
-                            <a href="https://rebrand.ly/e7pdurb" class="card-link">Drive →</a> <a href="https://rb.gy/5fyska" class="card-link">Facebook →</a>
-                        </div>
-                    </div>
-                    <div class="card">
-                        <div class="card-img"><img src="assets/images/පුරවරමාන_Second_Edition.jpg" alt="පුරවරමාන 02" onerror="this.onerror=null;this.parentElement.innerHTML='<i class=\'fas fa-book\'></i>';" /></div>
-                        <div class="card-content">
-                            <h3>පුරවරමාන – Second Edition</h3>
-                            <div class="card-meta">Techno Media · Dec 2024</div>
-                            <p>Second edition of the creative magazine "කොළොම්පුර ඇසක අරුමය".</p>
-                            <a href="https://rebrand.ly/m6op5le" class="card-link">Drive →</a> <a href="https://tinyurl.com/5n8ncrp7" class="card-link">Facebook →</a>
-                        </div>
-                    </div>
-                    <div class="card">
-                        <div class="card-img"><img src="assets/images/පුරවරමාන_Third_Edition.jpg" alt="පුරවරමාන 03" onerror="this.onerror=null;this.parentElement.innerHTML='<i class=\'fas fa-book\'></i>';" /></div>
-                        <div class="card-content">
-                            <h3>පුරවරමාන – Third Edition</h3>
-                            <div class="card-meta">Techno Media · May 2025</div>
-                            <p>Third edition of the magazine — creativity in every page.</p>
-                            <a href="https://tinyurl.com/3fws2938" class="card-link">Drive →</a> <a href="https://tinyurl.com/unbusxmy" class="card-link">Facebook →</a>
-                        </div>
-                    </div>
+            <div class="work-item">
+                <div class="work-header">
+                    <h3>EV Price Prediction – Full-Stack ML Web App</h3>
+                    <span class="date">March 2026</span>
+                </div>
+                <div class="work-sub">Self-Learning Project</div>
+                <p>Developed ML regression pipeline using XGBoost and Scikit-learn for EV price prediction. Built full-stack system with Flask API, SQLite logging, and web UI frontend. Performed feature engineering and model optimization for improved prediction accuracy.</p>
+                <div class="work-links">
+                    <a href="https://tinyurl.com/2vtr32r2" target="_blank"><i class="fas fa-external-link-alt"></i> Live Demo</a>
+                    <a href="https://github.com/Dunith-Code/EV-Price-Predictor" target="_blank"><i class="fab fa-github"></i> GitHub</a>
                 </div>
             </div>
 
-            <!-- ── WORKSHOPS ── -->
-            <div id="workshops" class="tab-pane">
-                <div class="workshop-grid">
-                    <div class="card">
-                        <div class="card-img"><img src="assets/images/NEO INK 1.0.jpg" alt="NEO INK 1.0" onerror="this.onerror=null;this.parentElement.innerHTML='<i class=\'fas fa-pen-fancy\'></i>';" /></div>
-                        <div class="card-content">
-                            <h3>NEO INK 1.0</h3>
-                            <div class="card-meta">Techno Media · Aug 2025</div>
-                            <p>Revolutionizing words in a digital era — official workshop series of the Department of Content Writing.</p>
-                            <a href="https://tinyurl.com/38sr2vyj" class="card-link">Explore →</a>
-                        </div>
-                    </div>
-                    <div class="card">
-                        <div class="card-img"><img src="assets/images/BloodMark1.0.jpg" alt="BloodMark 1.0" onerror="this.onerror=null;this.parentElement.innerHTML='<i class=\'fas fa-pen-fancy\'></i>';" /></div>
-                        <div class="card-content">
-                            <h3>BloodMark Workshop 1.0</h3>
-                            <div class="card-meta">Colombo Beacon · 2023/24</div>
-                            <p>Where every word leaves a mark. Co‑facilitated alongside the department team.</p>
-                            <a href="https://tinyurl.com/bloodmark0" class="card-link">Workshop 1.0 →</a>
-                        </div>
-                    </div>
-                    <div class="card">
-                        <div class="card-img"><img src="assets/images/BloodMark1.1.jpg" alt="BloodMark 1.1" onerror="this.onerror=null;this.parentElement.innerHTML='<i class=\'fas fa-pen-fancy\'></i>';" /></div>
-                        <div class="card-content">
-                            <h3>BloodMark Workshop 1.1</h3>
-                            <div class="card-meta">Colombo Beacon · 2023/24</div>
-                            <p>Second session of the BloodMark series. Co‑facilitated this workshop.</p>
-                            <a href="https://tinyurl.com/bloodmark1" class="card-link">Workshop 1.1 →</a>
-                        </div>
-                    </div>
+            <div class="work-item">
+                <div class="work-header">
+                    <h3>Smart Home Garden DAQ System (GreenHeaven)</h3>
+                    <span class="date">Nov 2025</span>
+                </div>
+                <div class="work-sub">DAQ Mini Project</div>
+                <p>Developed ESP32-based IoT system for real-time environmental monitoring and automated irrigation control. Built sensor-to-dashboard pipeline for live data visualization and threshold-based automation.</p>
+                <div class="work-links">
+                    <a href="https://tinyurl.com/greenheaven24" target="_blank"><i class="fas fa-external-link-alt"></i> Live Demo</a>
+                    <a href="https://github.com/Dunith-Code/GreenHeavenDAQ" target="_blank"><i class="fab fa-github"></i> GitHub</a>
                 </div>
             </div>
 
-            <!-- ── CONTACT ── -->
-            <div id="contact" class="tab-pane">
-                <div class="contact-box">
-                    <h2>Let's Connect</h2>
-                    <p>I'm open to internship opportunities, collaboration, or just a chat about automation and AI.</p>
-                    <div class="contact-links">
-                        <a href="mailto:dunithofficial@gmail.com"><i class="fas fa-envelope"></i> Email</a>
-                        <a href="https://www.linkedin.com/in/dunith/"><i class="fab fa-linkedin"></i> LinkedIn</a>
-                        <a href="https://github.com/Dunith-Code"><i class="fab fa-github"></i> GitHub</a>
-                    </div>
+            <div class="work-item">
+                <div class="work-header">
+                    <h3>Kids-Audio-Project</h3>
+                    <span class="date">Feb – March 2025</span>
+                </div>
+                <div class="work-sub">Internship Project</div>
+                <p>Interactive audio learning tool for children built with Python &amp; Pygame. Features sound recognition games and a simple GUI to help kids learn phonics and vocabulary.</p>
+                <div class="work-links">
+                    <a href="https://github.com/Dunith-Code/Kids-Audio-Project" target="_blank"><i class="fab fa-github"></i> GitHub</a>
                 </div>
             </div>
 
         </div>
-    </div>
+    </section>
+
+    <!-- ── CONTACT ── -->
+    <section id="contact">
+        <div class="container">
+            <div class="contact-box">
+                <h2>Let's Connect</h2>
+                <p>I'm open to internship opportunities, collaboration, or just a chat about automation and AI.</p>
+                <div class="contact-links">
+                    <a href="mailto:dunithofficial@gmail.com"><i class="fas fa-envelope"></i> Email</a>
+                    <a href="https://www.linkedin.com/in/dunith/" target="_blank"><i class="fab fa-linkedin"></i> LinkedIn</a>
+                    <a href="https://github.com/Dunith-Code" target="_blank"><i class="fab fa-github"></i> GitHub</a>
+                </div>
+            </div>
+        </div>
+    </section>
 
     <!-- ── FOOTER ── -->
     <footer>
         <p>© 2026 Dunith &nbsp;·&nbsp; Built with <i class="fas fa-heart"></i> on GitHub Pages</p>
     </footer>
 
-    <!-- ── SCRIPTS ── -->
+    <!-- ── Active nav link on scroll ── -->
     <script>
-        // ── Typing Animation ──
-        const typedSpan = document.querySelector('.typed-text');
-        const phrases = [
-            'Instrumentation & Automation Engineering Technology Undergraduate',
-            'Information Technology Undergraduate',
-            'AI/ML Enthusiast',
-            'Embedded Systems Enthusiast'
-        ];
-        let idx = 0,
-            charIdx = 0,
-            deleting = false;
+        const sections = document.querySelectorAll('section');
+        const navLinks = document.querySelectorAll('.nav-links a');
 
-        function typeEffect() {
-            const current = phrases[idx];
-            if (!deleting) {
-                typedSpan.textContent = current.substring(0, charIdx + 1);
-                charIdx++;
-                if (charIdx === current.length) {
-                    deleting = true;
-                    setTimeout(typeEffect, 2000);
-                    return;
+        window.addEventListener('scroll', () => {
+            let current = '';
+            sections.forEach(section => {
+                const top = section.offsetTop - 120;
+                if (window.scrollY >= top) {
+                    current = section.getAttribute('id');
                 }
-            } else {
-                typedSpan.textContent = current.substring(0, charIdx - 1);
-                charIdx--;
-                if (charIdx === 0) {
-                    deleting = false;
-                    idx = (idx + 1) % phrases.length;
-                }
-            }
-            setTimeout(typeEffect, deleting ? 50 : 100);
-        }
-        typeEffect();
-
-        // ── Tab Switching ──
-        const btns = document.querySelectorAll('.tab-btn');
-        const panes = document.querySelectorAll('.tab-pane');
-
-        btns.forEach(btn => {
-            btn.addEventListener('click', () => {
-                btns.forEach(b => b.classList.remove('active'));
-                btn.classList.add('active');
-                panes.forEach(p => p.classList.remove('active-pane'));
-                document.getElementById(btn.dataset.tab).classList.add('active-pane');
             });
+            navLinks.forEach(link => {
+                link.classList.remove('active');
+                if (link.getAttribute('href') === '#' + current) {
+                    link.classList.add('active');
+                }
+            });
+
+            // add shadow to nav on scroll
+            document.querySelector('nav').classList.toggle('scrolled', window.scrollY > 40);
         });
     </script>
 
