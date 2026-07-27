@@ -3,11 +3,11 @@
 <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Dunith | Instrumentation & Automation | AI/ML Portfolio</title>
+    <title>Dunith | Terminal Portfolio</title>
     <!-- Font Awesome 6 -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" />
-    <!-- Google Fonts -->
-    <link href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,300;14..32,400;14..32,600;14..32,700;14..32,800&display=swap" rel="stylesheet" />
+    <!-- Google Font: JetBrains Mono (Terminal Style) -->
+    <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@300;400;500;600;700;800&display=swap" rel="stylesheet" />
     <style>
         /* ── Reset & Base ── */
         * {
@@ -17,9 +17,9 @@
         }
 
         body {
-            font-family: 'Inter', sans-serif;
-            background: #0b0d15;
-            color: #e8edf5;
+            font-family: 'JetBrains Mono', monospace;
+            background: #0a0e14;
+            color: #c9d1d9;
             line-height: 1.6;
             scroll-behavior: smooth;
             overflow-x: hidden;
@@ -29,10 +29,10 @@
             width: 8px;
         }
         ::-webkit-scrollbar-track {
-            background: #141824;
+            background: #0d1117;
         }
         ::-webkit-scrollbar-thumb {
-            background: linear-gradient(180deg, #7c3aed, #2563eb);
+            background: #00ff41;
             border-radius: 10px;
         }
 
@@ -42,7 +42,7 @@
             padding: 0 24px;
         }
 
-        /* ── Animated Background ── */
+        /* ── Animated Background (Terminal Colors) ── */
         .bg-orbs {
             position: fixed;
             inset: 0;
@@ -54,13 +54,13 @@
             position: absolute;
             border-radius: 50%;
             filter: blur(120px);
-            opacity: 0.25;
+            opacity: 0.12;
             animation: orbFloat 25s ease-in-out infinite alternate;
         }
         .bg-orbs span:nth-child(1) {
             width: 600px;
             height: 600px;
-            background: #7c3aed;
+            background: #00ff41;
             top: -10%;
             left: -10%;
             animation-duration: 30s;
@@ -68,7 +68,7 @@
         .bg-orbs span:nth-child(2) {
             width: 500px;
             height: 500px;
-            background: #2563eb;
+            background: #ffb000;
             bottom: -10%;
             right: -10%;
             animation-duration: 25s;
@@ -77,7 +77,7 @@
         .bg-orbs span:nth-child(3) {
             width: 400px;
             height: 400px;
-            background: #0d9488;
+            background: #00ccff;
             top: 40%;
             left: 40%;
             animation-duration: 35s;
@@ -85,18 +85,10 @@
         }
 
         @keyframes orbFloat {
-            0% {
-                transform: translate(0, 0) scale(1);
-            }
-            33% {
-                transform: translate(60px, -40px) scale(1.1);
-            }
-            66% {
-                transform: translate(-30px, 60px) scale(0.9);
-            }
-            100% {
-                transform: translate(20px, -20px) scale(1.05);
-            }
+            0% { transform: translate(0, 0) scale(1); }
+            33% { transform: translate(60px, -40px) scale(1.1); }
+            66% { transform: translate(-30px, 60px) scale(0.9); }
+            100% { transform: translate(20px, -20px) scale(1.05); }
         }
 
         /* ── Hero ── */
@@ -105,7 +97,7 @@
             display: flex;
             align-items: center;
             justify-content: center;
-            text-align: center;
+            text-align: left;
             position: relative;
             z-index: 1;
             padding: 40px 0;
@@ -114,64 +106,82 @@
         .hero-content {
             max-width: 900px;
             padding: 20px;
+            width: 100%;
         }
 
-        /* ── Profile Picture with Glow Ring (ENHANCED SIZE) ── */
+        /* ── Terminal Prompt Header ── */
+        .terminal-prompt {
+            font-size: 0.85rem;
+            color: #8b949e;
+            margin-bottom: 8px;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            flex-wrap: wrap;
+        }
+        .terminal-prompt .user {
+            color: #00ff41;
+            font-weight: 600;
+        }
+        .terminal-prompt .host {
+            color: #ffb000;
+        }
+        .terminal-prompt .path {
+            color: #58a6ff;
+        }
+        .terminal-prompt .arrow {
+            color: #00ff41;
+            font-weight: 700;
+        }
+
+        /* ── Profile Picture with Glow Ring ── */
         .profile-wrapper {
             position: relative;
             display: inline-block;
-            margin-bottom: 32px;
+            margin-bottom: 20px;
         }
 
         .profile-ring {
             position: absolute;
-            inset: -12px; /* Increased ring offset */
+            inset: -12px;
             border-radius: 50%;
-            padding: 6px; /* Slightly thicker ring */
-            background: conic-gradient(from 0deg, #7c3aed, #2563eb, #0d9488, #7c3aed);
+            padding: 6px;
+            background: conic-gradient(from 0deg, #00ff41, #ffb000, #00ccff, #00ff41);
             animation: spinRing 6s linear infinite;
             -webkit-mask: radial-gradient(farthest-side, transparent calc(100% - 6px), #000 calc(100% - 5px));
             mask: radial-gradient(farthest-side, transparent calc(100% - 6px), #000 calc(100% - 5px));
         }
         @keyframes spinRing {
-            to {
-                transform: rotate(360deg);
-            }
+            to { transform: rotate(360deg); }
         }
 
         .profile-ring-inner {
             position: absolute;
             inset: -4px;
             border-radius: 50%;
-            background: radial-gradient(circle at 30% 30%, rgba(124, 58, 237, 0.3), transparent 70%);
+            background: radial-gradient(circle at 30% 30%, rgba(0, 255, 65, 0.2), transparent 70%);
             filter: blur(18px);
             animation: pulseGlow 3s ease-in-out infinite alternate;
         }
         @keyframes pulseGlow {
-            0% {
-                opacity: 0.3;
-                transform: scale(1);
-            }
-            100% {
-                opacity: 0.9;
-                transform: scale(1.12);
-            }
+            0% { opacity: 0.3; transform: scale(1); }
+            100% { opacity: 0.9; transform: scale(1.12); }
         }
 
         .profile-img {
-            width: 220px;  /* ENHANCED: significantly larger */
-            height: 220px; /* ENHANCED: significantly larger */
+            width: 200px;
+            height: 200px;
             object-fit: cover;
             border-radius: 50%;
-            border: 3px solid rgba(255, 255, 255, 0.15);
+            border: 2px solid rgba(0, 255, 65, 0.3);
             position: relative;
             z-index: 2;
             display: block;
             transition: transform 0.5s cubic-bezier(0.34, 1.56, 0.64, 1);
-            box-shadow: 0 0 80px rgba(124, 58, 237, 0.25);
+            box-shadow: 0 0 60px rgba(0, 255, 65, 0.1);
         }
         .profile-img:hover {
-            transform: scale(1.05);
+            transform: scale(1.04);
         }
 
         .profile-status {
@@ -179,140 +189,173 @@
             bottom: 10px;
             right: 10px;
             z-index: 3;
-            width: 22px;
-            height: 22px;
-            background: #22c55e;
+            width: 18px;
+            height: 18px;
+            background: #ffb000;
             border-radius: 50%;
-            border: 3px solid #0b0d15;
-            box-shadow: 0 0 16px rgba(34, 197, 94, 0.6);
-            animation: statusPulse 2s ease-in-out infinite;
+            border: 2px solid #0a0e14;
+            box-shadow: 0 0 16px rgba(255, 176, 0, 0.6);
+            animation: statusPulse 1.5s ease-in-out infinite;
         }
         @keyframes statusPulse {
-            0%,
-            100% {
-                box-shadow: 0 0 8px rgba(34, 197, 94, 0.3);
-            }
-            50% {
-                box-shadow: 0 0 32px rgba(34, 197, 94, 0.8);
-            }
+            0%, 100% { box-shadow: 0 0 8px rgba(255, 176, 0, 0.3); }
+            50% { box-shadow: 0 0 24px rgba(255, 176, 0, 0.8); }
         }
 
         /* ── Hero Text ── */
-        .hero h1 {
-            font-size: 3.8rem;
-            font-weight: 800;
-            letter-spacing: -0.03em;
-            background: linear-gradient(135deg, #ffffff 0%, #c4b5fd 50%, #93c5fd 100%);
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-            background-clip: text;
-            margin-bottom: 6px;
+        .hero .greeting {
+            font-size: 0.9rem;
+            color: #8b949e;
+            margin-bottom: 2px;
         }
-
-        .hero-tagline {
-            font-size: 1.15rem;
-            color: #94a3b8;
-            margin-bottom: 20px;
-            letter-spacing: 0.02em;
+        .hero .greeting .dollar {
+            color: #00ff41;
+            font-weight: 700;
         }
-
-        .typing-wrapper {
-            font-size: 1.5rem;
-            min-height: 4rem;
-            font-weight: 500;
-            color: #e2e8f0;
-        }
-        .typed-text {
-            background: linear-gradient(120deg, #a78bfa, #60a5fa, #2dd4bf);
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-            background-clip: text;
+        .hero .greeting .cmd {
+            color: #f0f6fc;
             font-weight: 600;
         }
-        .cursor {
+
+        .hero h1 {
+            font-size: 3.6rem;
+            font-weight: 700;
+            letter-spacing: -0.02em;
+            color: #f0f6fc;
+            margin-bottom: 4px;
+            line-height: 1.1;
+        }
+        .hero h1 .highlight {
+            color: #00ff41;
+        }
+        .hero h1 .cursor-blink {
             display: inline-block;
-            width: 3px;
-            height: 1.2em;
-            background: #a78bfa;
+            width: 4px;
+            height: 0.9em;
+            background: #00ff41;
             margin-left: 4px;
+            animation: blink 0.8s step-end infinite;
             vertical-align: text-bottom;
-            animation: blink 0.7s step-end infinite;
             border-radius: 2px;
         }
         @keyframes blink {
-            0%,
-            100% {
-                opacity: 1;
-            }
-            50% {
-                opacity: 0;
-            }
+            0%, 100% { opacity: 1; }
+            50% { opacity: 0; }
+        }
+
+        .hero .tagline {
+            font-size: 1.1rem;
+            color: #ffb000;
+            margin-bottom: 6px;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+        .hero .tagline .gt {
+            color: #00ff41;
+            font-weight: 700;
+        }
+
+        .typing-wrapper {
+            font-size: 1.2rem;
+            min-height: 3.2rem;
+            font-weight: 400;
+            color: #8b949e;
+            display: flex;
+            align-items: center;
+            gap: 6px;
+        }
+        .typing-wrapper .prompt-symbol {
+            color: #00ff41;
+            font-weight: 700;
+        }
+        .typed-text {
+            color: #00ff41;
+            font-weight: 500;
+        }
+        .typing-wrapper .cursor {
+            display: inline-block;
+            width: 3px;
+            height: 1.1em;
+            background: #00ff41;
+            margin-left: 2px;
+            animation: blink 0.7s step-end infinite;
+            border-radius: 2px;
         }
 
         .hero-sub {
             margin-top: 12px;
-            font-size: 1.05rem;
-            color: #94a3b8;
-            max-width: 600px;
-            margin-left: auto;
-            margin-right: auto;
+            font-size: 0.95rem;
+            color: #8b949e;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            flex-wrap: wrap;
+        }
+        .hero-sub .hash {
+            color: #00ff41;
         }
         .hero-sub i {
-            color: #a78bfa;
+            color: #ffb000;
             margin: 0 4px;
         }
 
         /* ── Social Links ── */
         .social-links {
-            margin-top: 32px;
+            margin-top: 28px;
             display: flex;
-            gap: 14px;
-            justify-content: center;
+            gap: 12px;
+            justify-content: flex-start;
             flex-wrap: wrap;
         }
         .social-links a {
             display: inline-flex;
             align-items: center;
-            gap: 10px;
-            padding: 12px 28px;
-            border-radius: 60px;
+            gap: 8px;
+            padding: 10px 22px;
+            border-radius: 6px;
             text-decoration: none;
-            font-weight: 600;
-            font-size: 0.95rem;
-            color: #fff;
-            background: rgba(255, 255, 255, 0.06);
-            backdrop-filter: blur(12px);
-            border: 1px solid rgba(255, 255, 255, 0.08);
+            font-weight: 500;
+            font-size: 0.85rem;
+            color: #c9d1d9;
+            background: rgba(255, 255, 255, 0.04);
+            border: 1px solid rgba(255, 255, 255, 0.06);
             transition: all 0.3s ease;
-            letter-spacing: 0.01em;
+            font-family: 'JetBrains Mono', monospace;
         }
         .social-links a:hover {
-            transform: translateY(-4px);
-            background: rgba(124, 58, 237, 0.25);
-            border-color: rgba(124, 58, 237, 0.4);
-            box-shadow: 0 12px 40px rgba(124, 58, 237, 0.15);
+            background: rgba(0, 255, 65, 0.12);
+            border-color: #00ff41;
+            transform: translateY(-3px);
+            box-shadow: 0 8px 30px rgba(0, 255, 65, 0.08);
         }
         .social-links a i {
-            font-size: 1.2rem;
+            font-size: 1.1rem;
+            color: #00ff41;
+        }
+        .social-links a .link-label {
+            color: #8b949e;
+        }
+        .social-links a:hover .link-label {
+            color: #f0f6fc;
         }
 
         /* ── Main Content ── */
         .main-content {
             position: relative;
             z-index: 1;
-            padding: 40px 0 80px;
+            padding: 20px 0 80px;
         }
 
-        /* ── Tabs ── */
+        /* ── Terminal-Style Tabs ── */
         .tabs {
             display: flex;
             justify-content: center;
-            gap: 8px;
+            gap: 4px;
             flex-wrap: wrap;
             margin-bottom: 48px;
-            background: rgba(255, 255, 255, 0.04);
-            backdrop-filter: blur(12px);
-            border-radius: 60px;
+            background: rgba(255, 255, 255, 0.03);
+            border-radius: 8px;
             padding: 6px;
             border: 1px solid rgba(255, 255, 255, 0.06);
             max-width: fit-content;
@@ -322,45 +365,48 @@
         .tab-btn {
             background: transparent;
             border: none;
-            padding: 10px 24px;
-            font-size: 0.9rem;
-            font-weight: 600;
+            padding: 8px 18px;
+            font-size: 0.8rem;
+            font-weight: 500;
             cursor: pointer;
-            color: #94a3b8;
+            color: #8b949e;
             transition: all 0.3s ease;
-            border-radius: 40px;
-            font-family: 'Inter', sans-serif;
+            border-radius: 4px;
+            font-family: 'JetBrains Mono', monospace;
             white-space: nowrap;
         }
+        .tab-btn::before {
+            content: '$ ';
+            color: #00ff41;
+            opacity: 0;
+            transition: opacity 0.3s ease;
+        }
         .tab-btn:hover {
-            color: #e2e8f0;
+            color: #f0f6fc;
         }
         .tab-btn.active {
-            background: linear-gradient(135deg, #7c3aed, #2563eb);
-            color: #fff;
-            box-shadow: 0 8px 24px rgba(124, 58, 237, 0.25);
+            background: rgba(0, 255, 65, 0.08);
+            color: #00ff41;
+            border: 1px solid rgba(0, 255, 65, 0.2);
+        }
+        .tab-btn.active::before {
+            opacity: 1;
         }
 
         .tab-pane {
             display: none;
-            animation: fadeSlide 0.5s ease;
+            animation: fadeSlide 0.4s ease;
         }
         .tab-pane.active-pane {
             display: block;
         }
 
         @keyframes fadeSlide {
-            from {
-                opacity: 0;
-                transform: translateY(18px);
-            }
-            to {
-                opacity: 1;
-                transform: translateY(0);
-            }
+            from { opacity: 0; transform: translateY(12px); }
+            to { opacity: 1; transform: translateY(0); }
         }
 
-        /* ── Cards ── */
+        /* ── Terminal-Style Cards ── */
         .project-grid,
         .skill-grid,
         .article-grid,
@@ -370,33 +416,44 @@
         .workshop-grid {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            gap: 28px;
+            gap: 24px;
         }
 
         .card {
-            background: rgba(255, 255, 255, 0.04);
-            backdrop-filter: blur(12px);
-            border-radius: 24px;
+            background: #0d1117;
+            border-radius: 8px;
             overflow: hidden;
             border: 1px solid rgba(255, 255, 255, 0.06);
             transition: all 0.4s cubic-bezier(0.34, 1.56, 0.64, 1);
-            box-shadow: 0 4px 30px rgba(0, 0, 0, 0.2);
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.3);
+            position: relative;
+        }
+        .card::before {
+            content: '● ● ●';
+            position: absolute;
+            top: 10px;
+            left: 14px;
+            font-size: 0.6rem;
+            letter-spacing: 6px;
+            color: #2d333b;
+            z-index: 5;
         }
         .card:hover {
-            transform: translateY(-8px);
-            border-color: rgba(124, 58, 237, 0.25);
-            box-shadow: 0 20px 60px rgba(0, 0, 0, 0.4), 0 0 40px rgba(124, 58, 237, 0.05);
+            transform: translateY(-6px);
+            border-color: rgba(0, 255, 65, 0.2);
+            box-shadow: 0 12px 40px rgba(0, 0, 0, 0.5), 0 0 30px rgba(0, 255, 65, 0.03);
         }
 
         .card-img {
             width: 100%;
-            height: 200px;
+            height: 180px;
             overflow: hidden;
             display: flex;
             align-items: center;
             justify-content: center;
-            background: rgba(0, 0, 0, 0.2);
+            background: rgba(0, 0, 0, 0.3);
             position: relative;
+            margin-top: 6px;
         }
         .card-img img {
             width: 100%;
@@ -408,70 +465,88 @@
             transform: scale(1.04);
         }
         .card-img i {
-            font-size: 3.2rem;
-            color: #a78bfa;
-            opacity: 0.6;
+            font-size: 2.8rem;
+            color: #00ff41;
+            opacity: 0.5;
         }
 
         .card-content {
-            padding: 24px 26px 28px;
+            padding: 20px 22px 24px;
         }
         .card-content h3 {
-            font-size: 1.2rem;
-            font-weight: 700;
-            margin-bottom: 8px;
-            color: #f1f5f9;
+            font-size: 1.05rem;
+            font-weight: 600;
+            margin-bottom: 6px;
+            color: #f0f6fc;
             line-height: 1.3;
         }
+        .card-content h3 .prompt {
+            color: #00ff41;
+            font-weight: 400;
+            font-size: 0.75rem;
+            margin-right: 4px;
+        }
         .card-content p {
-            color: #94a3b8;
-            font-size: 0.95rem;
-            margin-bottom: 14px;
+            color: #8b949e;
+            font-size: 0.9rem;
+            margin-bottom: 12px;
+            line-height: 1.6;
         }
         .card-meta {
-            font-size: 0.8rem;
-            color: #64748b;
-            margin-bottom: 8px;
+            font-size: 0.75rem;
+            color: #484f58;
+            margin-bottom: 6px;
             letter-spacing: 0.02em;
         }
         .card-meta i {
             margin-right: 4px;
-            color: #7c3aed;
+            color: #ffb000;
         }
 
         .card-link {
-            color: #a78bfa;
+            color: #00ff41;
             text-decoration: none;
-            font-weight: 600;
-            font-size: 0.9rem;
+            font-weight: 500;
+            font-size: 0.85rem;
             display: inline-flex;
             align-items: center;
-            gap: 6px;
+            gap: 4px;
             transition: all 0.25s ease;
             border-bottom: 1px solid transparent;
         }
         .card-link:hover {
-            gap: 12px;
-            color: #c4b5fd;
-            border-bottom-color: #7c3aed;
+            gap: 10px;
+            color: #66ff88;
+            border-bottom-color: #00ff41;
         }
-
         .card-link i {
-            font-size: 0.8rem;
+            font-size: 0.7rem;
         }
 
         /* ── Skill Tags ── */
         .skill-tag {
             display: inline-block;
-            background: rgba(124, 58, 237, 0.15);
-            border: 1px solid rgba(124, 58, 237, 0.15);
-            padding: 4px 14px;
-            border-radius: 30px;
-            font-size: 0.78rem;
-            font-weight: 500;
-            color: #c4b5fd;
-            margin: 4px 4px 0 0;
+            background: rgba(0, 255, 65, 0.06);
+            border: 1px solid rgba(0, 255, 65, 0.12);
+            padding: 3px 12px;
+            border-radius: 4px;
+            font-size: 0.7rem;
+            font-weight: 400;
+            color: #c9d1d9;
+            margin: 3px 3px 0 0;
             letter-spacing: 0.01em;
+            font-family: 'JetBrains Mono', monospace;
+        }
+        .skill-tag.theoretical {
+            background: rgba(255, 176, 0, 0.06);
+            border-color: rgba(255, 176, 0, 0.12);
+            color: #8b949e;
+            font-style: italic;
+        }
+        .skill-tag::before {
+            content: '› ';
+            color: #00ff41;
+            font-weight: 700;
         }
 
         /* ── Contact ── */
@@ -479,54 +554,54 @@
             max-width: 600px;
             margin: 0 auto;
             text-align: center;
-            background: rgba(255, 255, 255, 0.03);
-            border-radius: 32px;
+            background: #0d1117;
+            border-radius: 8px;
             padding: 48px 40px;
             border: 1px solid rgba(255, 255, 255, 0.06);
-            backdrop-filter: blur(8px);
         }
         .contact-box h2 {
-            font-size: 2rem;
+            font-size: 1.8rem;
             font-weight: 700;
-            background: linear-gradient(135deg, #c4b5fd, #93c5fd);
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-            background-clip: text;
+            color: #f0f6fc;
+            margin-bottom: 8px;
+        }
+        .contact-box h2 .highlight {
+            color: #00ff41;
         }
         .contact-box p {
-            color: #94a3b8;
-            margin: 16px 0 28px;
-            font-size: 1.05rem;
+            color: #8b949e;
+            margin: 12px 0 28px;
+            font-size: 0.95rem;
         }
         .contact-links {
             display: flex;
             justify-content: center;
-            gap: 20px;
+            gap: 16px;
             flex-wrap: wrap;
         }
         .contact-links a {
             display: inline-flex;
             align-items: center;
-            gap: 10px;
-            padding: 14px 32px;
-            border-radius: 60px;
-            background: rgba(255, 255, 255, 0.06);
-            border: 1px solid rgba(255, 255, 255, 0.08);
-            color: #e2e8f0;
+            gap: 8px;
+            padding: 12px 28px;
+            border-radius: 6px;
             text-decoration: none;
-            font-weight: 600;
+            font-weight: 500;
+            background: rgba(255, 255, 255, 0.04);
+            border: 1px solid rgba(255, 255, 255, 0.06);
+            color: #c9d1d9;
             transition: all 0.3s ease;
-            font-size: 1rem;
+            font-family: 'JetBrains Mono', monospace;
+            font-size: 0.9rem;
         }
         .contact-links a:hover {
-            background: rgba(124, 58, 237, 0.2);
-            border-color: #7c3aed;
+            background: rgba(0, 255, 65, 0.08);
+            border-color: #00ff41;
             transform: translateY(-3px);
-            box-shadow: 0 12px 32px rgba(124, 58, 237, 0.1);
         }
         .contact-links a i {
-            font-size: 1.2rem;
-            color: #a78bfa;
+            font-size: 1.1rem;
+            color: #00ff41;
         }
 
         /* ── Footer ── */
@@ -534,13 +609,17 @@
             position: relative;
             z-index: 1;
             text-align: center;
-            padding: 32px 20px;
+            padding: 28px 20px;
             border-top: 1px solid rgba(255, 255, 255, 0.04);
-            color: #64748b;
-            font-size: 0.9rem;
+            color: #484f58;
+            font-size: 0.8rem;
+            font-family: 'JetBrains Mono', monospace;
         }
         footer i {
-            color: #f43f5e;
+            color: #00ff41;
+        }
+        footer .prompt {
+            color: #00ff41;
         }
 
         /* ── Responsive ── */
@@ -549,36 +628,38 @@
                 font-size: 2.4rem;
             }
             .typing-wrapper {
-                font-size: 1.1rem;
-                min-height: 3.4rem;
+                font-size: 1rem;
+                min-height: 2.8rem;
             }
-            /* ENHANCED: Larger on tablet */
             .profile-img {
-                width: 170px;
-                height: 170px;
+                width: 150px;
+                height: 150px;
             }
             .profile-ring {
                 inset: -10px;
                 padding: 5px;
             }
             .profile-status {
-                width: 20px;
-                height: 20px;
+                width: 16px;
+                height: 16px;
                 bottom: 6px;
                 right: 6px;
             }
             .tabs {
-                border-radius: 20px;
+                border-radius: 6px;
                 padding: 4px;
-                gap: 4px;
+                gap: 2px;
                 max-width: 100%;
             }
             .tab-btn {
-                padding: 8px 14px;
-                font-size: 0.75rem;
+                padding: 6px 12px;
+                font-size: 0.7rem;
+            }
+            .tab-btn::before {
+                content: '';
             }
             .card-content {
-                padding: 18px 18px 22px;
+                padding: 16px 16px 20px;
             }
             .project-grid,
             .skill-grid,
@@ -590,15 +671,24 @@
                 grid-template-columns: 1fr;
             }
             .contact-box {
-                padding: 32px 20px;
+                padding: 28px 20px;
             }
             .contact-links a {
-                padding: 12px 20px;
-                font-size: 0.9rem;
+                padding: 10px 18px;
+                font-size: 0.8rem;
             }
             .social-links a {
-                padding: 10px 18px;
+                padding: 8px 16px;
+                font-size: 0.8rem;
+            }
+            .hero .tagline {
+                font-size: 0.95rem;
+            }
+            .hero-sub {
                 font-size: 0.85rem;
+            }
+            .terminal-prompt {
+                font-size: 0.75rem;
             }
         }
 
@@ -606,31 +696,41 @@
             .hero h1 {
                 font-size: 1.8rem;
             }
-            /* ENHANCED: Larger on mobile */
             .profile-img {
-                width: 150px;
-                height: 150px;
+                width: 130px;
+                height: 130px;
             }
             .profile-ring {
                 inset: -8px;
                 padding: 4px;
             }
             .profile-status {
-                width: 18px;
-                height: 18px;
+                width: 14px;
+                height: 14px;
                 bottom: 4px;
                 right: 4px;
             }
             .tab-btn {
-                padding: 6px 12px;
-                font-size: 0.7rem;
+                padding: 4px 10px;
+                font-size: 0.65rem;
+            }
+            .social-links a {
+                padding: 6px 14px;
+                font-size: 0.75rem;
+            }
+            .social-links a .link-label {
+                display: none;
+            }
+            .typing-wrapper {
+                font-size: 0.85rem;
+                min-height: 2.4rem;
             }
         }
     </style>
 </head>
 <body>
 
-    <!-- ── Animated Background Orbs ── -->
+    <!-- ── Animated Background ── -->
     <div class="bg-orbs">
         <span></span>
         <span></span>
@@ -640,7 +740,16 @@
     <!-- ── HERO ── -->
     <section class="hero">
         <div class="hero-content">
-            <!-- Profile Picture with Glowing Ring (Now Larger) -->
+
+            <!-- Terminal Prompt Header -->
+            <div class="terminal-prompt">
+                <span class="user">dunith@portfolio</span>
+                <span class="host">~</span>
+                <span class="path">/home</span>
+                <span class="arrow">❯</span>
+                <span style="color: #484f58;">whoami</span>
+            </div>
+
             <div class="profile-wrapper">
                 <div class="profile-ring"></div>
                 <div class="profile-ring-inner"></div>
@@ -648,22 +757,52 @@
                 <span class="profile-status"></span>
             </div>
 
-            <h1>Dunith Desitha Athukorala</h1>
-            <p class="hero-tagline">AI/ML · Instrumentation · Automation</p>
+            <div class="greeting">
+                <span class="dollar">$</span>
+                <span class="cmd">cat about-me.txt</span>
+            </div>
+
+            <h1>
+                Dunith Desitha Athukorala
+                <span class="cursor-blink"></span>
+            </h1>
+
+            <div class="tagline">
+                <span class="gt">></span>
+                AI/ML · Instrumentation · Automation
+            </div>
 
             <div class="typing-wrapper">
-                <span class="typed-text"></span><span class="cursor">|</span>
+                <span class="prompt-symbol">❯</span>
+                <span class="typed-text"></span>
+                <span class="cursor">|</span>
             </div>
 
-            <p class="hero-sub">
-                <i class="fas fa-microchip"></i> Bridging industrial hardware with intelligent software
-            </p>
+            <div class="hero-sub">
+                <span class="hash">#</span>
+                <i class="fas fa-microchip"></i>
+                Bridging industrial hardware with intelligent software
+            </div>
 
             <div class="social-links">
-                <a href="https://github.com/Dunith-Code" target="_blank"><i class="fab fa-github"></i> GitHub</a>
-                <a href="https://www.linkedin.com/in/dunith/" target="_blank"><i class="fab fa-linkedin"></i> LinkedIn</a>
-                <a href="https://medium.com/@Dunith-Write" target="_blank"><i class="fab fa-medium"></i> Medium</a>
+                <a href="https://github.com/Dunith-Code" target="_blank">
+                    <i class="fab fa-github"></i>
+                    <span class="link-label">GitHub</span>
+                </a>
+                <a href="https://www.linkedin.com/in/dunith/" target="_blank">
+                    <i class="fab fa-linkedin"></i>
+                    <span class="link-label">LinkedIn</span>
+                </a>
+                <a href="https://medium.com/@Dunith-Write" target="_blank">
+                    <i class="fab fa-medium"></i>
+                    <span class="link-label">Medium</span>
+                </a>
+                <a href="mailto:dunithofficial@gmail.com">
+                    <i class="fas fa-envelope"></i>
+                    <span class="link-label">Email</span>
+                </a>
             </div>
+
         </div>
     </section>
 
@@ -673,103 +812,115 @@
 
             <!-- Tabs -->
             <div class="tabs">
-                <button class="tab-btn active" data-tab="projects">🚀 Projects</button>
-                <button class="tab-btn" data-tab="skills">⚙️ Skills</button>
-                <button class="tab-btn" data-tab="articles">📝 Articles</button>
-                <button class="tab-btn" data-tab="volunteer">🤝 Volunteering</button>
-                <button class="tab-btn" data-tab="club">🏆 Club</button>
-                <button class="tab-btn" data-tab="art">🎨 Artworks</button>
-                <button class="tab-btn" data-tab="workshops">📚 Workshops</button>
-                <button class="tab-btn" data-tab="contact">📫 Contact</button>
+                <button class="tab-btn active" data-tab="projects">Projects</button>
+                <button class="tab-btn" data-tab="skills">Skills</button>
+                <button class="tab-btn" data-tab="articles">Articles</button>
+                <button class="tab-btn" data-tab="volunteer">Volunteering</button>
+                <button class="tab-btn" data-tab="club">Club</button>
+                <button class="tab-btn" data-tab="art">Artworks</button>
+                <button class="tab-btn" data-tab="workshops">Workshops</button>
+                <button class="tab-btn" data-tab="contact">Contact</button>
             </div>
 
             <!-- ── PROJECTS ── -->
             <div id="projects" class="tab-pane active-pane">
                 <div class="project-grid">
+
+                    <!-- Traffic Signal -->
                     <div class="card">
                         <div class="card-img"><i class="fas fa-traffic-light"></i></div>
                         <div class="card-content">
-                            <h3>🚦 AI-Based Adaptive Traffic Signal Optimization under Irregular Traffic Conditions</h3>
-                            <div class="card-meta"><i class="fas fa-calendar-alt"></i> Oct 2025 – July 2026 · Final Year Research Project (Completed)</div>
-                            <p>Dueling Double DQN traffic-signal controller (CNN + SE-attention + LSTM, PER) trained in SUMO, cutting vehicle delay ~40% at a real intersection. Deployed on a physical prototype with 4-camera YOLO detection, dual ESP32 controllers, and emergency-vehicle override.</p>
+                            <h3><span class="prompt">⏺</span> AI-Based Adaptive Traffic Signal Optimization</h3>
+                            <div class="card-meta"><i class="fas fa-calendar-alt"></i> Oct 2025 – July 2026 · Final Year Research</div>
+                            <p>Dueling Double DQN with CNN + SE-attention + LSTM, trained in SUMO. ~40% reduction in vehicle delay. Deployed with YOLO detection and ESP32 controllers.</p>
                             <a href="https://tinyurl.com/2s3erf35" class="card-link">Insights →</a> &nbsp;|&nbsp;
                             <a href="#" class="card-link">GitHub →</a>
                         </div>
                     </div>
-                    
+
+                    <!-- Showroom Robot Box -->
+                    <div class="card">
+                        <div class="card-img"><i class="fas fa-cube"></i></div>
+                        <div class="card-content">
+                            <h3><span class="prompt">⏺</span> Showroom Robot Upper Box – Design &amp; Fabrication</h3>
+                            <div class="card-meta"><i class="fas fa-calendar-alt"></i> Feb – Aug 2025 · Internship (Phoenix Industries)</div>
+                            <p>Designed upper enclosure in SolidWorks for Perspex fabrication. Programmed CNC router with HSMWorks G-code, achieving tight tolerances. Oversaw toolpath generation, machining, and assembly.</p>
+                            <span class="skill-tag">SolidWorks</span>
+                            <span class="skill-tag">Perspex</span>
+                            <span class="skill-tag">CNC Router</span>
+                            <span class="skill-tag">HSMWorks</span>
+                        </div>
+                    </div>
+
+                    <!-- GreenHeaven -->
                     <div class="card">
                         <div class="card-img"><i class="fas fa-chart-line"></i></div>
                         <div class="card-content">
-                            <h3>🌿 GreenHeavenDAQ</h3>
-                            <div class="card-meta"><i class="fas fa-calendar-alt"></i> Nov 2024 · DAQ Mini Project</div>
-                            <p>Smart home garden monitoring with ESP32, sensors, and a Streamlit dashboard. Real-time alerts &amp; historical trends.</p>
+                            <h3><span class="prompt">⏺</span> GreenHeavenDAQ</h3>
+                            <div class="card-meta"><i class="fas fa-calendar-alt"></i> Nov 2025 · DAQ Mini Project</div>
+                            <p>ESP32-based IoT system for environmental monitoring and automated irrigation control. Streamlit dashboard with live data visualization.</p>
                             <a href="https://tinyurl.com/greenheaven24" class="card-link">Live Demo →</a> &nbsp;|&nbsp;
                             <a href="https://github.com/Dunith-Code/GreenHeavenDAQ" class="card-link">GitHub →</a>
                         </div>
                     </div>
 
+                    <!-- Kids Audio -->
                     <div class="card">
                         <div class="card-img"><i class="fas fa-volume-up"></i></div>
                         <div class="card-content">
-                            <h3>🔊 Kids-Audio-Project</h3>
-                            <div class="card-meta"><i class="fas fa-calendar-alt"></i> Feb 2025 – March 2025 · Internship Project</div>
-                            <p>Interactive audio learning tool for children built with Python &amp; Pygame. Sound recognition games &amp; phonics.</p>
+                            <h3><span class="prompt">⏺</span> Kids-Audio-Project</h3>
+                            <div class="card-meta"><i class="fas fa-calendar-alt"></i> Feb – March 2025 · Internship</div>
+                            <p>Interactive audio learning tool with Python &amp; Pygame. Sound recognition games for phonics and vocabulary.</p>
                             <a href="https://github.com/Dunith-Code/Kids-Audio-Project" class="card-link">GitHub →</a>
                         </div>
                     </div>
 
+                    <!-- Centrifugal Feeder -->
                     <div class="card">
                         <div class="card-img"><i class="fas fa-cogs"></i></div>
                         <div class="card-content">
-                            <h3>⚙️ Centrifugal Feeder | Bottle Unscrambler</h3>
-                            <div class="card-meta"><i class="fas fa-calendar-alt"></i> Feb 2025 – Aug 2025 · Internship Project</div>
-                            <p>Automated bottle orientation with PLC &amp; HMI. Includes CAD design, simulation, and real-time monitoring.</p>
+                            <h3><span class="prompt">⏺</span> Centrifugal Feeder | Bottle Unscrambler</h3>
+                            <div class="card-meta"><i class="fas fa-calendar-alt"></i> Feb – Aug 2025 · Internship</div>
+                            <p>Arduino-based control with motion profiling, NEMA steppers, and Python operator interface. SolidWorks CAD design.</p>
                             <a href="https://github.com/Dunith-Code/Centrifugal-Feeder-Bottle-Unscrambler-Machine" class="card-link">GitHub →</a>
                         </div>
                     </div>
 
-                     <div class="card">
+                    <!-- Ionosphere -->
+                    <div class="card">
+                        <div class="card-img"><i class="fas fa-brain"></i></div>
+                        <div class="card-content">
+                            <h3><span class="prompt">⏺</span> Ionosphere Neural Network</h3>
+                            <div class="card-meta"><i class="fas fa-calendar-alt"></i> March 2026 · Self-Learning</div>
+                            <p>TensorFlow/Keras model for radar signal classification. Achieved 94% accuracy.</p>
+                            <a href="https://github.com/Dunith-Code/Ionosphere-Neural-Network-Classification" class="card-link">GitHub →</a>
+                        </div>
+                    </div>
+
+                    <!-- RAG -->
+                    <div class="card">
                         <div class="card-img"><i class="fas fa-file-pdf"></i></div>
                         <div class="card-content">
-                            <h3>📄 RAG Application</h3>
-                            <div class="card-meta"><i class="fas fa-calendar-alt"></i> March 2026 · Self-Learning Project</div>
-                            <p>Chat with your PDFs using LLMs, vector databases, and source citations. Built with production in mind.</p>
+                            <h3><span class="prompt">⏺</span> RAG Application</h3>
+                            <div class="card-meta"><i class="fas fa-calendar-alt"></i> March 2026 · Self-Learning</div>
+                            <p>PDF Q&A with Google Gemini, LangChain, FAISS, and Streamlit. OCR-based processing with citations.</p>
                             <a href="https://tinyurl.com/bdehyvff" class="card-link">Live Demo →</a> &nbsp;|&nbsp;
                             <a href="https://github.com/Dunith-Code/RAG-Application" class="card-link">GitHub →</a>
                         </div>
                     </div>
 
-                    <div class="card">
-                        <div class="card-img"><i class="fas fa-cogs"></i></div>
-                        <div class="card-content">
-                            <h3>💡 Showroom Robot Upper Box – Design &amp; Fabrication</h3>
-                            <div class="card-meta"><i class="fas fa-calendar-alt"></i> July 2025 · Internship Project</div>
-                            <p>Designed the upper enclosure for a showroom robot using SolidWorks, with precision modeling optimized for acrylic (Perspex) fabrication.</p>
-                            <a href="https://github.com/Dunith-Code/Showroom-Robot-Upper-Box" class="card-link">GitHub →</a>
-                        </div>
-                    </div>
-
-                    <div class="card">
-                        <div class="card-img"><i class="fas fa-brain"></i></div>
-                        <div class="card-content">
-                            <h3>🧠 Ionosphere Neural Network</h3>
-                            <div class="card-meta"><i class="fas fa-calendar-alt"></i> March 2026 · Self-Learning Project</div>
-                            <p>TensorFlow/Keras model to classify radar returns from the ionosphere. Achieved 94% accuracy.</p>
-                            <a href="https://github.com/Dunith-Code/Ionosphere-Neural-Network-Classification" class="card-link">GitHub →</a>
-                        </div>
-                    </div>
-
+                    <!-- EV Price -->
                     <div class="card">
                         <div class="card-img"><i class="fas fa-car-side"></i></div>
                         <div class="card-content">
-                            <h3>🚗 EV Price Prediction – Full-Stack ML Web App</h3>
-                            <div class="card-meta"><i class="fas fa-calendar-alt"></i> March 2026 · Self-Learning Project</div>
-                            <p>Full-stack ML application using XGBoost regression, Scikit-learn, a Flask API, and SQLite logging for EV price prediction, with feature engineering applied to improve model generalization and accuracy.</p>
+                            <h3><span class="prompt">⏺</span> EV Price Prediction – Full-Stack ML Web App</h3>
+                            <div class="card-meta"><i class="fas fa-calendar-alt"></i> March 2026 · Self-Learning</div>
+                            <p>XGBoost regression + Flask API + SQLite logging. Feature engineering for improved generalization.</p>
                             <a href="https://tinyurl.com/2vtr32r2" class="card-link">Live Demo →</a> &nbsp;|&nbsp;
                             <a href="https://github.com/Dunith-Code/EV-Price-Predictor" class="card-link">GitHub →</a>
                         </div>
                     </div>
-                    
+
                 </div>
             </div>
 
@@ -778,7 +929,7 @@
                 <div class="skill-grid">
                     <div class="card">
                         <div class="card-content">
-                            <h3>🤖 AI &amp; Data Science</h3>
+                            <h3><span class="prompt">⏺</span> AI &amp; Data Science</h3>
                             <div>
                                 <span class="skill-tag">PyTorch / TensorFlow</span>
                                 <span class="skill-tag">scikit-learn / XGBoost</span>
@@ -788,13 +939,12 @@
                                 <span class="skill-tag">NumPy · Pandas · Matplotlib</span>
                                 <span class="skill-tag">LangChain · FAISS</span>
                                 <span class="skill-tag">RAG Pipelines · Prompt Engineering</span>
-                                <span class="skill-tag">Anthropic Claude · Google Gemini</span>
                             </div>
                         </div>
                     </div>
                     <div class="card">
                         <div class="card-content">
-                            <h3>📡 Instrumentation</h3>
+                            <h3><span class="prompt">⏺</span> Instrumentation</h3>
                             <div>
                                 <span class="skill-tag">Arduino · Raspberry Pi</span>
                                 <span class="skill-tag">ESP32 / ESP8266</span>
@@ -809,29 +959,33 @@
                     </div>
                     <div class="card">
                         <div class="card-content">
-                            <h3>💻 IT &amp; Full Stack</h3>
+                            <h3><span class="prompt">⏺</span> IT &amp; Full Stack</h3>
                             <div>
+                                <span class="skill-tag">Python · C++ · JavaScript</span>
+                                <span class="skill-tag">SQL · Bash · MATLAB/Octave</span>
+                                <span class="skill-tag">Flask · FastAPI · Streamlit</span>
+                                <span class="skill-tag">REST APIs · Socket.IO</span>
+                                <span class="skill-tag">SQLAlchemy · SQLite</span>
                                 <span class="skill-tag">Git &amp; GitHub</span>
-                                <span class="skill-tag">Streamlit / Flask / FastAPI</span>
-                                <span class="skill-tag">SQL / InfluxDB</span>
-                                <span class="skill-tag">Docker</span>
-                                <span class="skill-tag">REST APIs</span>
-                                <span class="skill-tag">HTML/CSS/JS</span>
+                                <span class="skill-tag">Docker (Basic)</span>
                             </div>
                         </div>
                     </div>
                     <div class="card">
                         <div class="card-content">
-                            <h3>🏭 Industrial Automation</h3>
+                            <h3><span class="prompt">⏺</span> Industrial Automation</h3>
                             <div>
-                                <span class="skill-tag">PLC Programming (Theoretical)</span>
-                                <span class="skill-tag">SCADA / HMI Concepts (Theoretical)</span>
-                                <span class="skill-tag">Modbus / OPC-UA (Theoretical)</span>
-                                <span class="skill-tag">PID Tuning Concepts</span>
+                                <span class="skill-tag">Arduino-based Control (C++)</span>
+                                <span class="skill-tag">Stepper Motor &amp; Motion Profiling</span>
+                                <span class="skill-tag">Motor Sizing &amp; Torque Calculations</span>
+                                <span class="skill-tag">MQTT · REST APIs for IIoT</span>
+                                <span class="skill-tag">ESP8266 / Raspberry Pi</span>
+                                <span class="skill-tag theoretical">PLC (Theoretical)</span>
+                                <span class="skill-tag theoretical">SCADA / HMI (Theoretical)</span>
+                                <span class="skill-tag theoretical">Modbus / OPC-UA (Theoretical)</span>
                                 <span class="skill-tag">Industry 4.0 / IIoT Integration</span>
                             </div>
                         </div>
-                    </div>
                     </div>
                 </div>
             </div>
@@ -842,12 +996,8 @@
                     <div class="card">
                         <div class="card-content">
                             <div class="card-meta"><i class="fas fa-calendar-alt"></i> July 2026</div>
-                            <h3>Learning the Loop | #101 is live - “What Is Machine Learning, Really?”</h3>
-                            <p>Started a new series: Learning the Loop.
-                            When I started exploring AI, I realized something important: knowing a definition and truly understanding a concept are two very different things.
-                            So, I decided to document my learning journey, starting from the fundamentals and gradually building toward real ML/DL/RL systems from scratch.
-                            #101 is live - “What Is Machine Learning, Really?”
-                           In this series, I’ll break down AI concepts in simple terms, explore the ideas behind ML, DL, and RL, and share what I learn while building and experimenting with real systems. If you’re learning ML/DL/RL too, follow along. I’d love to hear what concepts you want me to break down next.</p>
+                            <h3><span class="prompt">⏺</span> Learning the Loop | #101 – "What Is Machine Learning, Really?"</h3>
+                            <p>Breaking down AI concepts from the ground up. #101 explains ML fundamentals in plain English — perfect for beginners and curious minds.</p>
                             <a href="https://tinyurl.com/yvkefrjk" class="card-link">Read on Medium →</a>
                         </div>
                     </div>
@@ -860,7 +1010,7 @@
                     <div class="card">
                         <div class="card-img"><i class="fas fa-chalkboard-user"></i></div>
                         <div class="card-content">
-                            <h3>Co Organizer</h3>
+                            <h3><span class="prompt">⏺</span> Co Organizer</h3>
                             <div class="card-meta">Pharocium'23 · Colombo Beacon · 2023</div>
                             <p>Volunteer organizer for the largest youth event at University of Colombo. Helped drive success and community connection.</p>
                         </div>
@@ -868,7 +1018,7 @@
                     <div class="card">
                         <div class="card-img"><i class="fas fa-tree"></i></div>
                         <div class="card-content">
-                            <h3>Co-Event Chair</h3>
+                            <h3><span class="prompt">⏺</span> Co-Event Chair</h3>
                             <div class="card-meta">Pharocium'24 · Pharosium 2.0 · Colombo Beacon · 2024</div>
                             <p>Co-led the planning and execution of Pharocium'24 — a landmark youth festival at Viharamahadevi Park.</p>
                         </div>
@@ -876,7 +1026,7 @@
                     <div class="card">
                         <div class="card-img"><i class="fas fa-laptop-code"></i></div>
                         <div class="card-content">
-                            <h3>Editor in Chief</h3>
+                            <h3><span class="prompt">⏺</span> Editor in Chief</h3>
                             <div class="card-meta">Freshers Championship'23 Magazine · Colombo Beacon · 2023/24</div>
                             <p>Led the editorial team for the inaugural Freshers' Championship magazine. <a href="https://tinyurl.com/5apuskmx" class="card-link">View →</a></p>
                         </div>
@@ -890,7 +1040,7 @@
                     <div class="card">
                         <div class="card-img"><img src="assets/images/SEDS.jpg" alt="SEDS UOC" onerror="this.onerror=null;this.parentElement.innerHTML='<i class=\'fas fa-rocket\'></i>';" /></div>
                         <div class="card-content">
-                            <h3>SEDS UOC – Assistant Secretary</h3>
+                            <h3><span class="prompt">⏺</span> SEDS UOC – Assistant Secretary</h3>
                             <div class="card-meta">University of Colombo · Sep 2024 – Sep 2025</div>
                             <p>Organized space-tech workshops and outreach. Managed documentation and member coordination.</p>
                         </div>
@@ -898,7 +1048,7 @@
                     <div class="card">
                         <div class="card-img"><img src="assets/images/CBT.jpg" alt="Colombo Beacon Top Board" onerror="this.onerror=null;this.parentElement.innerHTML='<i class=\'fas fa-chalkboard\'></i>';" /></div>
                         <div class="card-content">
-                            <h3>Colombo Beacon – Top Board Director</h3>
+                            <h3><span class="prompt">⏺</span> Colombo Beacon – Top Board Director</h3>
                             <div class="card-meta">University of Colombo · Jun 2024 – Jun 2025</div>
                             <p>Strategic planning for annual events including the Freshers' Championship. Oversaw marketing &amp; sponsors.</p>
                         </div>
@@ -906,7 +1056,7 @@
                     <div class="card">
                         <div class="card-img"><img src="assets/images/CBM.jpg" alt="Colombo Beacon Middle Board" onerror="this.onerror=null;this.parentElement.innerHTML='<i class=\'fas fa-users\'></i>';" /></div>
                         <div class="card-content">
-                            <h3>Colombo Beacon – Middle Board Director</h3>
+                            <h3><span class="prompt">⏺</span> Colombo Beacon – Middle Board Director</h3>
                             <div class="card-meta">University of Colombo · May 2023 – Jun 2024</div>
                             <p>Coordinated volunteer teams, social media campaigns, and content creation.</p>
                         </div>
@@ -914,7 +1064,7 @@
                     <div class="card">
                         <div class="card-img"><img src="assets/images/TMH.jpg" alt="Techno Media Head" onerror="this.onerror=null;this.parentElement.innerHTML='<i class=\'fas fa-pen-fancy\'></i>';" /></div>
                         <div class="card-content">
-                            <h3>Techno Media – Head of Content Writing</h3>
+                            <h3><span class="prompt">⏺</span> Techno Media – Head of Content Writing</h3>
                             <div class="card-meta">University of Colombo · Jul 2024 – Sep 2025</div>
                             <p>Led a team of writers producing articles, event coverage, and technical blogs.</p>
                         </div>
@@ -928,7 +1078,7 @@
                     <div class="card">
                         <div class="card-img"><img src="assets/images/CB_Magazine.jpg" alt="Freshers Championship Magazine" onerror="this.onerror=null;this.parentElement.innerHTML='<i class=\'fas fa-book\'></i>';" /></div>
                         <div class="card-content">
-                            <h3>The Freshers Championship'23 Magazine</h3>
+                            <h3><span class="prompt">⏺</span> The Freshers Championship'23 Magazine</h3>
                             <div class="card-meta">Colombo Beacon · 2023</div>
                             <p>Inaugural magazine for the Freshers' Championship — a university first.</p>
                             <a href="https://tinyurl.com/5apuskmx" class="card-link">View →</a>
@@ -937,7 +1087,7 @@
                     <div class="card">
                         <div class="card-img"><img src="assets/images/පුරවරමාන - කොළොම්පුර ඇසක අරුමය.jpg" alt="පුරවරමාන 01" onerror="this.onerror=null;this.parentElement.innerHTML='<i class=\'fas fa-book\'></i>';" /></div>
                         <div class="card-content">
-                            <h3>පුරවරමාන – First Edition</h3>
+                            <h3><span class="prompt">⏺</span> පුරවරමාන – First Edition</h3>
                             <div class="card-meta">Techno Media · March 2024</div>
                             <p>Official magazine of the Department of Content Writing, Faculty of Technology.</p>
                             <a href="https://rebrand.ly/e7pdurb" class="card-link">Drive →</a> <a href="https://rb.gy/5fyska" class="card-link">Facebook →</a>
@@ -946,7 +1096,7 @@
                     <div class="card">
                         <div class="card-img"><img src="assets/images/පුරවරමාන_Second_Edition.jpg" alt="පුරවරමාන 02" onerror="this.onerror=null;this.parentElement.innerHTML='<i class=\'fas fa-book\'></i>';" /></div>
                         <div class="card-content">
-                            <h3>පුරවරමාන – Second Edition</h3>
+                            <h3><span class="prompt">⏺</span> පුරවරමාන – Second Edition</h3>
                             <div class="card-meta">Techno Media · Dec 2024</div>
                             <p>Second edition of the creative magazine "කොළොම්පුර ඇසක අරුමය".</p>
                             <a href="https://rebrand.ly/m6op5le" class="card-link">Drive →</a> <a href="https://tinyurl.com/5n8ncrp7" class="card-link">Facebook →</a>
@@ -955,7 +1105,7 @@
                     <div class="card">
                         <div class="card-img"><img src="assets/images/පුරවරමාන_Third_Edition.jpg" alt="පුරවරමාන 03" onerror="this.onerror=null;this.parentElement.innerHTML='<i class=\'fas fa-book\'></i>';" /></div>
                         <div class="card-content">
-                            <h3>පුරවරමාන – Third Edition</h3>
+                            <h3><span class="prompt">⏺</span> පුරවරමාන – Third Edition</h3>
                             <div class="card-meta">Techno Media · May 2025</div>
                             <p>Third edition of the magazine — creativity in every page.</p>
                             <a href="https://tinyurl.com/3fws2938" class="card-link">Drive →</a> <a href="https://tinyurl.com/unbusxmy" class="card-link">Facebook →</a>
@@ -970,7 +1120,7 @@
                     <div class="card">
                         <div class="card-img"><img src="assets/images/NEO INK 1.0.jpg" alt="NEO INK 1.0" onerror="this.onerror=null;this.parentElement.innerHTML='<i class=\'fas fa-pen-fancy\'></i>';" /></div>
                         <div class="card-content">
-                            <h3>NEO INK 1.0</h3>
+                            <h3><span class="prompt">⏺</span> NEO INK 1.0</h3>
                             <div class="card-meta">Techno Media · Aug 2025</div>
                             <p>Revolutionizing words in a digital era — official workshop series of the Department of Content Writing.</p>
                             <a href="https://tinyurl.com/38sr2vyj" class="card-link">Explore →</a>
@@ -979,7 +1129,7 @@
                     <div class="card">
                         <div class="card-img"><img src="assets/images/BloodMark1.0.jpg" alt="BloodMark 1.0" onerror="this.onerror=null;this.parentElement.innerHTML='<i class=\'fas fa-pen-fancy\'></i>';" /></div>
                         <div class="card-content">
-                            <h3>BloodMark Workshop 1.0</h3>
+                            <h3><span class="prompt">⏺</span> BloodMark Workshop 1.0</h3>
                             <div class="card-meta">Colombo Beacon · 2023/24</div>
                             <p>Where every word leaves a mark. Co‑facilitated alongside the department team.</p>
                             <a href="https://tinyurl.com/bloodmark0" class="card-link">Workshop 1.0 →</a>
@@ -988,7 +1138,7 @@
                     <div class="card">
                         <div class="card-img"><img src="assets/images/BloodMark1.1.jpg" alt="BloodMark 1.1" onerror="this.onerror=null;this.parentElement.innerHTML='<i class=\'fas fa-pen-fancy\'></i>';" /></div>
                         <div class="card-content">
-                            <h3>BloodMark Workshop 1.1</h3>
+                            <h3><span class="prompt">⏺</span> BloodMark Workshop 1.1</h3>
                             <div class="card-meta">Colombo Beacon · 2023/24</div>
                             <p>Second session of the BloodMark series. Co‑facilitated this workshop.</p>
                             <a href="https://tinyurl.com/bloodmark1" class="card-link">Workshop 1.1 →</a>
@@ -1000,7 +1150,7 @@
             <!-- ── CONTACT ── -->
             <div id="contact" class="tab-pane">
                 <div class="contact-box">
-                    <h2>Let's Connect</h2>
+                    <h2><span class="highlight">$</span> Let's Connect</h2>
                     <p>I'm open to internship opportunities, collaboration, or just a chat about automation and AI.</p>
                     <div class="contact-links">
                         <a href="mailto:dunithofficial@gmail.com"><i class="fas fa-envelope"></i> Email</a>
@@ -1015,7 +1165,7 @@
 
     <!-- ── FOOTER ── -->
     <footer>
-        <p>© 2025 Dunith &nbsp;·&nbsp; Built with <i class="fas fa-heart"></i> on GitHub Pages</p>
+        <p><span class="prompt">$</span> © 2026 Dunith &nbsp;·&nbsp; Built with <i class="fas fa-heart"></i> on GitHub Pages</p>
     </footer>
 
     <!-- ── SCRIPTS ── -->
@@ -1064,6 +1214,17 @@
                 btn.classList.add('active');
                 panes.forEach(p => p.classList.remove('active-pane'));
                 document.getElementById(btn.dataset.tab).classList.add('active-pane');
+            });
+        });
+
+        // ── Nav Link Smooth Scroll (for any future nav) ──
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function(e) {
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    e.preventDefault();
+                    target.scrollIntoView({ behavior: 'smooth' });
+                }
             });
         });
     </script>
