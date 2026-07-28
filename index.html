@@ -21,8 +21,7 @@
 
         body {
             font-family: 'JetBrains Mono', monospace;
-            background: #0b1120;
-            /* Deep blue/black background */
+            background: #0b1120; /* Deep blue/black */
             color: #c9d1d9;
             line-height: 1.6;
             scroll-behavior: smooth;
@@ -73,8 +72,7 @@
         .bg-orbs span:nth-child(2) {
             width: 500px;
             height: 500px;
-            background: #58a6ff;
-            /* Blue accent orb */
+            background: #58a6ff; /* Blue accent */
             bottom: -10%;
             right: -10%;
             animation-duration: 25s;
@@ -91,18 +89,10 @@
         }
 
         @keyframes orbFloat {
-            0% {
-                transform: translate(0, 0) scale(1);
-            }
-            33% {
-                transform: translate(60px, -40px) scale(1.1);
-            }
-            66% {
-                transform: translate(-30px, 60px) scale(0.9);
-            }
-            100% {
-                transform: translate(20px, -20px) scale(1.05);
-            }
+            0% { transform: translate(0, 0) scale(1); }
+            33% { transform: translate(60px, -40px) scale(1.1); }
+            66% { transform: translate(-30px, 60px) scale(0.9); }
+            100% { transform: translate(20px, -20px) scale(1.05); }
         }
 
         /* ---------- NAVIGATION (FIXED TOP BAR + HAMBURGER) ---------- */
@@ -217,7 +207,6 @@
             box-shadow: 0 0 60px rgba(0, 255, 65, 0.08);
         }
 
-        /* Math Grid Background */
         .math-bg {
             position: absolute;
             top: 50%;
@@ -228,9 +217,7 @@
             border-radius: 50%;
             z-index: 0;
             background-image:
-                /* Dot grid */
                 radial-gradient(circle, rgba(0, 255, 65, 0.15) 1px, transparent 1px),
-                /* Subtle cross grid */
                 linear-gradient(rgba(88, 166, 255, 0.05) 1px, transparent 1px),
                 linear-gradient(90deg, rgba(88, 166, 255, 0.05) 1px, transparent 1px);
             background-size: 20px 20px, 40px 40px, 40px 40px;
@@ -239,7 +226,6 @@
             pointer-events: none;
         }
 
-        /* Axes overlay for math feel */
         .math-bg::after {
             content: '';
             position: absolute;
@@ -250,17 +236,13 @@
             height: 70%;
             border-radius: 50%;
             background:
-                /* X-axis */
                 linear-gradient(90deg, transparent 48%, rgba(255, 176, 0, 0.15) 48%, rgba(255, 176, 0, 0.15) 52%, transparent 52%),
-                /* Y-axis */
                 linear-gradient(0deg, transparent 48%, rgba(255, 176, 0, 0.15) 48%, rgba(255, 176, 0, 0.15) 52%, transparent 52%);
             pointer-events: none;
         }
 
         @keyframes spinGrid {
-            to {
-                transform: translate(-50%, -50%) rotate(360deg);
-            }
+            to { transform: translate(-50%, -50%) rotate(360deg); }
         }
 
         .hero-avatar {
@@ -309,18 +291,10 @@
             display: inline-block;
             transition: opacity 0.2s;
         }
-        .terminal-dots span:hover {
-            opacity: 0.7;
-        }
-        .dot-red {
-            background: #ff5f56;
-        }
-        .dot-yellow {
-            background: #ffbd2e;
-        }
-        .dot-green {
-            background: #27c93f;
-        }
+        .terminal-dots span:hover { opacity: 0.7; }
+        .dot-red { background: #ff5f56; }
+        .dot-yellow { background: #ffbd2e; }
+        .dot-green { background: #27c93f; }
         .terminal-title {
             font-size: 0.75rem;
             color: #484f58;
@@ -342,20 +316,10 @@
             flex-wrap: wrap;
             margin-bottom: 4px;
         }
-        .terminal-prompt .user {
-            color: #00ff41;
-            font-weight: 600;
-        }
-        .terminal-prompt .host {
-            color: #ffb000;
-        }
-        .terminal-prompt .path {
-            color: #58a6ff;
-        }
-        .terminal-prompt .arrow {
-            color: #00ff41;
-            font-weight: 700;
-        }
+        .terminal-prompt .user { color: #00ff41; font-weight: 600; }
+        .terminal-prompt .host { color: #ffb000; }
+        .terminal-prompt .path { color: #58a6ff; }
+        .terminal-prompt .arrow { color: #00ff41; font-weight: 700; }
 
         .command-line {
             display: flex;
@@ -389,18 +353,11 @@
             border-radius: 2px;
             margin-left: 2px;
         }
-        .command-line .cmd-cursor.hidden {
-            display: none;
-        }
+        .command-line .cmd-cursor.hidden { display: none; }
 
         @keyframes blink {
-            0%,
-            100% {
-                opacity: 1;
-            }
-            50% {
-                opacity: 0;
-            }
+            0%, 100% { opacity: 1; }
+            50% { opacity: 0; }
         }
 
         /* ---------- TERMINAL OUTPUT ---------- */
@@ -423,100 +380,57 @@
             transform: translateY(6px);
             animation: fadeInUp 0.4s ease forwards;
         }
-        .terminal-output.visible .output-line:nth-child(1) {
-            animation-delay: 0.1s;
-        }
-        .terminal-output.visible .output-line:nth-child(2) {
-            animation-delay: 0.3s;
-        }
-        .terminal-output.visible .output-line:nth-child(3) {
-            animation-delay: 0.5s;
-        }
-        .terminal-output.visible .output-line:nth-child(4) {
-            animation-delay: 0.7s;
-        }
-        .terminal-output.visible .output-line:nth-child(5) {
-            animation-delay: 0.9s;
-        }
-        .terminal-output.visible .output-line:nth-child(6) {
-            animation-delay: 1.1s;
-        }
-        .terminal-output.visible .output-line:nth-child(7) {
-            animation-delay: 1.3s;
-        }
-        .terminal-output.visible .output-line:nth-child(8) {
-            animation-delay: 1.5s;
-        }
-        .terminal-output.visible .output-line:nth-child(9) {
-            animation-delay: 1.7s;
-        }
-        .terminal-output.visible .output-line:nth-child(10) {
-            animation-delay: 1.9s;
-        }
+        .terminal-output.visible .output-line:nth-child(1) { animation-delay: 0.1s; }
+        .terminal-output.visible .output-line:nth-child(2) { animation-delay: 0.3s; }
+        .terminal-output.visible .output-line:nth-child(3) { animation-delay: 0.5s; }
+        .terminal-output.visible .output-line:nth-child(4) { animation-delay: 0.7s; }
+        .terminal-output.visible .output-line:nth-child(5) { animation-delay: 0.9s; }
+        .terminal-output.visible .output-line:nth-child(6) { animation-delay: 1.1s; }
+        .terminal-output.visible .output-line:nth-child(7) { animation-delay: 1.3s; }
+        .terminal-output.visible .output-line:nth-child(8) { animation-delay: 1.5s; }
+        .terminal-output.visible .output-line:nth-child(9) { animation-delay: 1.7s; }
+        .terminal-output.visible .output-line:nth-child(10) { animation-delay: 1.9s; }
 
         @keyframes fadeInUp {
-            to {
-                opacity: 1;
-                transform: translateY(0);
-            }
+            to { opacity: 1; transform: translateY(0); }
         }
 
-        .output-line .icon {
-            color: #00ff41;
-            min-width: 22px;
-            font-size: 0.9rem;
-        }
-        .output-line .label {
-            color: #ffb000;
-            font-weight: 600;
-        }
         .output-line .value {
             color: #f0f6fc;
         }
         .output-line .value.green {
             color: #00ff41;
         }
-        .output-line .value.cyan {
-            color: #58a6ff;
+        .output-line .value .highlight-name {
+            color: #00ff41;
+            font-weight: 600;
         }
-        .output-line .value.purple {
-            color: #d2a8ff;
+        .output-line .value .highlight-role {
+            color: #d2a8ff; /* purple */
         }
-        .output-line .value.amber {
-            color: #ffb000;
+        .output-line .value .highlight-passion {
+            color: #58a6ff; /* cyan/blue */
         }
-
-        .output-divider {
-            border-top: 1px dashed rgba(255, 255, 255, 0.06);
-            margin: 10px 0;
-        }
-
-        /* ---------- TYPING GOAL ---------- */
-        .output-typing {
-            display: flex;
-            align-items: center;
-            gap: 6px;
-            font-size: 0.92rem;
-            color: #8b949e;
-            opacity: 0;
-            animation: fadeInUp 0.4s ease 2.3s forwards;
-        }
-        .output-typing .prompt-symbol {
+        .output-line .value .highlight-open {
             color: #00ff41;
         }
-        .output-typing .typing-text {
-            color: #00ff41;
+
+        /* ---------- TYPING GOAL (inside output-line) ---------- */
+        .output-line .typing-text {
+            color: #f0f6fc;
         }
-        .output-typing .cursor {
+        .output-line .typing-cursor {
             display: inline-block;
             width: 3px;
             height: 1em;
             background: #00ff41;
             animation: blink 0.7s step-end infinite;
             border-radius: 2px;
+            margin-left: 2px;
+            vertical-align: text-bottom;
         }
 
-        /* ---------- MAIN CONTENT (Tabs area) ---------- */
+        /* ---------- MAIN CONTENT (Tabs) ---------- */
         .main-content {
             position: relative;
             z-index: 1;
@@ -532,14 +446,8 @@
         }
 
         @keyframes fadeSlide {
-            from {
-                opacity: 0;
-                transform: translateY(12px);
-            }
-            to {
-                opacity: 1;
-                transform: translateY(0);
-            }
+            from { opacity: 0; transform: translateY(12px); }
+            to { opacity: 1; transform: translateY(0); }
         }
 
         /* ---------- CARDS ---------- */
@@ -655,9 +563,7 @@
             color: #66ff88;
             border-bottom-color: #00ff41;
         }
-        .card-link i {
-            font-size: 0.7rem;
-        }
+        .card-link i { font-size: 0.7rem; }
 
         /* ---------- SKILL TAGS ---------- */
         .skill-tag {
@@ -685,7 +591,7 @@
             font-weight: 700;
         }
 
-        /* ---------- CONTACT SECTION ---------- */
+        /* ---------- CONTACT ---------- */
         .contact-box {
             max-width: 600px;
             margin: 0 auto;
@@ -701,9 +607,7 @@
             color: #f0f6fc;
             margin-bottom: 8px;
         }
-        .contact-box h2 .highlight {
-            color: #00ff41;
-        }
+        .contact-box h2 .highlight { color: #00ff41; }
         .contact-box p {
             color: #8b949e;
             margin: 12px 0 28px;
@@ -740,19 +644,14 @@
             color: #00ff41;
         }
 
-        /* ---------- HOME TAB SPECIFIC ---------- */
+        /* ---------- HOME TAB ---------- */
         .home-grid {
             display: grid;
             grid-template-columns: 1fr 1fr;
             gap: 24px;
         }
-
-        .home-card .card-content {
-            padding: 24px 26px;
-        }
-        .home-card h3 {
-            margin-bottom: 16px;
-        }
+        .home-card .card-content { padding: 24px 26px; }
+        .home-card h3 { margin-bottom: 16px; }
 
         .edu-item {
             display: flex;
@@ -761,9 +660,7 @@
             padding: 10px 0;
             border-bottom: 1px solid rgba(255, 255, 255, 0.04);
         }
-        .edu-item:last-child {
-            border-bottom: none;
-        }
+        .edu-item:last-child { border-bottom: none; }
         .edu-item i {
             color: #00ff41;
             font-size: 1.2rem;
@@ -786,7 +683,6 @@
             grid-template-columns: 1fr 1fr;
             gap: 10px;
         }
-
         .category-item {
             display: flex;
             align-items: center;
@@ -823,18 +719,12 @@
             font-size: 0.78rem;
             font-family: 'JetBrains Mono', monospace;
         }
-        footer i {
-            color: #00ff41;
-        }
-        footer .prompt {
-            color: #00ff41;
-        }
+        footer i { color: #00ff41; }
+        footer .prompt { color: #00ff41; }
 
         /* ---------- RESPONSIVE ---------- */
         @media (max-width: 768px) {
-            .nav-toggle {
-                display: block;
-            }
+            .nav-toggle { display: block; }
             .nav-links {
                 display: none;
                 flex-direction: column;
@@ -844,104 +734,46 @@
                 border-top: 1px solid rgba(255, 255, 255, 0.04);
                 margin-top: 6px;
             }
-            .nav-links.open {
-                display: flex;
-            }
+            .nav-links.open { display: flex; }
             .nav-links a {
                 padding: 8px 14px;
                 width: 100%;
                 text-align: center;
                 font-size: 0.85rem;
             }
-            .hero-avatar {
-                width: 150px;
-                height: 150px;
-            }
-            .math-bg {
-                width: calc(100% + 30px);
-                height: calc(100% + 30px);
-            }
-            .terminal-body {
-                padding: 20px 18px 24px;
-            }
-            .terminal-header {
-                padding: 10px 16px;
-            }
-            .terminal-dots span {
-                width: 12px;
-                height: 12px;
-            }
-            .terminal-title {
-                font-size: 0.65rem;
-            }
-            .output-line {
-                font-size: 0.82rem;
-                flex-wrap: wrap;
-            }
-            .command-line .cmd {
-                font-size: 0.9rem;
-            }
-            .card-content {
-                padding: 16px 16px 20px;
-            }
+            .hero-avatar { width: 150px; height: 150px; }
+            .math-bg { width: calc(100% + 30px); height: calc(100% + 30px); }
+            .terminal-body { padding: 20px 18px 24px; }
+            .terminal-header { padding: 10px 16px; }
+            .terminal-dots span { width: 12px; height: 12px; }
+            .terminal-title { font-size: 0.65rem; }
+            .output-line { font-size: 0.82rem; flex-wrap: wrap; }
+            .command-line .cmd { font-size: 0.9rem; }
+            .card-content { padding: 16px 16px 20px; }
             .project-grid,
             .skill-grid,
             .article-grid,
             .volunteer-grid,
             .club-grid,
             .art-grid,
-            .workshop-grid {
-                grid-template-columns: 1fr;
-            }
-            .contact-box {
-                padding: 28px 20px;
-            }
-            .contact-links a {
-                padding: 8px 16px;
-                font-size: 0.78rem;
-            }
-            .hero {
-                padding: 80px 0 30px;
-            }
-            .home-grid {
-                grid-template-columns: 1fr;
-            }
-            .category-grid {
-                grid-template-columns: 1fr 1fr;
-            }
-            .hero-wrapper {
-                gap: 30px;
-            }
+            .workshop-grid { grid-template-columns: 1fr; }
+            .contact-box { padding: 28px 20px; }
+            .contact-links a { padding: 8px 16px; font-size: 0.78rem; }
+            .hero { padding: 80px 0 30px; }
+            .home-grid { grid-template-columns: 1fr; }
+            .category-grid { grid-template-columns: 1fr 1fr; }
+            .hero-wrapper { gap: 30px; }
         }
 
         @media (max-width: 480px) {
-            .hero-avatar {
-                width: 130px;
-                height: 130px;
-            }
-            .math-bg {
-                width: calc(100% + 20px);
-                height: calc(100% + 20px);
-            }
-            .terminal-body {
-                padding: 16px 14px 20px;
-            }
-            .output-line {
-                font-size: 0.75rem;
-            }
-            .command-line .cmd {
-                font-size: 0.8rem;
-            }
-            .terminal-prompt {
-                font-size: 0.7rem;
-            }
-            .category-grid {
-                grid-template-columns: 1fr;
-            }
-            .nav-links a {
-                font-size: 0.78rem;
-                padding: 6px 12px;
-            }
+            .hero-avatar { width: 130px; height: 130px; }
+            .math-bg { width: calc(100% + 20px); height: calc(100% + 20px); }
+            .terminal-body { padding: 16px 14px 20px; }
+            .output-line { font-size: 0.75rem; }
+            .command-line .cmd { font-size: 0.8rem; }
+            .terminal-prompt { font-size: 0.7rem; }
+            .category-grid { grid-template-columns: 1fr; }
+            .nav-links a { font-size: 0.78rem; padding: 6px 12px; }
         }
     </style>
 </head>
@@ -1021,45 +853,52 @@
                         <!-- Terminal output -->
                         <div class="terminal-output" id="terminalOutput">
 
+                            <!-- Docstring opening -->
+                            <div class="output-line">
+                                <span class="value green">"""</span>
+                            </div>
+
                             <!-- Line 1: Hi, I'm ... -->
                             <div class="output-line">
-                                <span class="icon">📂</span>
-                                <span class="label">Hi, I'm</span>
-                                <span class="value green">Dunith Desitha Athukorala</span>
+                                <span class="value">Hi, I'm <span class="highlight-name">Dunith Desitha Athukorala</span>.</span>
+                            </div>
+
+                            <!-- Blank line -->
+                            <div class="output-line">
+                                <span class="value">&nbsp;</span>
                             </div>
 
                             <!-- Line 2: Role -->
                             <div class="output-line">
-                                <span class="icon">🎯</span>
-                                <span class="label">Role</span>
-                                <span class="value purple">Instrumentation &amp; Automation Engineering Technology Undergrad</span>
+                                <span class="value">Role: <span class="highlight-role">Instrumentation &amp; Automation Engineering Technology Undergrad</span></span>
                             </div>
 
                             <!-- Line 3: Passion -->
                             <div class="output-line">
-                                <span class="icon">🧠</span>
-                                <span class="label">Passion</span>
-                                <span class="value cyan">AI/ML · Embedded Systems · IIoT</span>
+                                <span class="value">Passion: <span class="highlight-passion">AI/ML · Embedded Systems · IIoT</span></span>
                             </div>
-
-                            <!-- Dashed divider -->
-                            <div class="output-divider"></div>
 
                             <!-- Line 4: Open to -->
                             <div class="output-line">
-                                <span class="icon">🚀</span>
-                                <span class="label">Open to</span>
-                                <span class="value green">Internships · Collaboration · Tech Talks</span>
+                                <span class="value">Open to: <span class="highlight-open">Internships · Collaboration · Tech Talks</span></span>
                             </div>
 
-                            <!-- Dashed divider -->
-                            <div class="output-divider"></div>
+                            <!-- Blank line -->
+                            <div class="output-line">
+                                <span class="value">&nbsp;</span>
+                            </div>
 
-                            <!-- Typing goal -->
-                            <div class="output-typing">
-                                <span class="prompt-symbol">❯</span>
-                                <span class="typing-text" id="typingGoal"></span>
-                                <span class="cursor"></span>
+                            <!-- Typing goal line (will be typed) -->
+                            <div class="output-line">
+                                <span class="value">
+                                    <span id="typingGoal" class="typing-text"></span>
+                                    <span class="typing-cursor" id="typingCursor"></span>
+                                </span>
+                            </div>
+
+                            <!-- Docstring closing -->
+                            <div class="output-line">
+                                <span class="value green">"""</span>
                             </div>
 
                         </div> <!-- end terminal-output -->
@@ -1136,11 +975,10 @@
             <!-- ---------- PROJECTS TAB ---------- -->
             <div id="projects" class="tab-pane">
                 <div class="project-grid">
-
                     <div class="card">
                         <div class="card-img"><i class="fas fa-traffic-light"></i></div>
                         <div class="card-content">
-                            <h3><span class="prompt">⏺</span> AI-Based Adaptive Traffic Signal Optimization</h3>
+                            <h3><span class="prompt">⏺</span> AI-Based Adaptive Traffic Signal Optimization under Irregular Traffic Conditions</h3>
                             <div class="card-meta"><i class="fas fa-calendar-alt"></i> Oct 2025 – July 2026 · Final Year Research</div>
                             <p>Dueling Double DQN with CNN + SE-attention + LSTM, trained in SUMO. ~40% reduction in vehicle delay. Deployed with YOLO detection and ESP32 controllers.</p>
                             <a href="https://tinyurl.com/2s3erf35" class="card-link">Insights →</a> &nbsp;|&nbsp;
@@ -1223,7 +1061,6 @@
                             <a href="https://github.com/Dunith-Code/EV-Price-Predictor" class="card-link">GitHub →</a>
                         </div>
                     </div>
-
                 </div>
             </div>
 
@@ -1485,7 +1322,7 @@
         const cmdTextEl = document.getElementById('cmdText');
         const cmdCursor = document.getElementById('cmdCursor');
         const outputContainer = document.getElementById('terminalOutput');
-        const commandString = 'cat ~/.dunith/about';
+        const commandString = 'python -c "import about; print(about.__doc__)"';
 
         let charIndexCmd = 0;
 
@@ -1504,9 +1341,10 @@
             }
         }
 
-        // ── Typing effect for the goal ──
+        // ── Typing effect for the goal (last line of docstring) ──
         const goalText = 'Build intelligent systems that bridge hardware and software to solve real-world problems.';
         const typingGoalEl = document.getElementById('typingGoal');
+        const typingCursor = document.getElementById('typingCursor');
         let goalIndex = 0;
 
         function typeGoal() {
@@ -1514,6 +1352,9 @@
                 typingGoalEl.textContent += goalText.charAt(goalIndex);
                 goalIndex++;
                 setTimeout(typeGoal, 40);
+            } else {
+                // Hide cursor when done
+                typingCursor.style.display = 'none';
             }
         }
 
