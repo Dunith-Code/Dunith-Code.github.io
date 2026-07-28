@@ -389,7 +389,6 @@
         .terminal-output.visible .output-line:nth-child(7) { animation-delay: 1.3s; }
         .terminal-output.visible .output-line:nth-child(8) { animation-delay: 1.5s; }
         .terminal-output.visible .output-line:nth-child(9) { animation-delay: 1.7s; }
-        .terminal-output.visible .output-line:nth-child(10) { animation-delay: 1.9s; }
 
         @keyframes fadeInUp {
             to { opacity: 1; transform: translateY(0); }
@@ -853,11 +852,6 @@
                         <!-- Terminal output -->
                         <div class="terminal-output" id="terminalOutput">
 
-                            <!-- Docstring opening -->
-                            <div class="output-line">
-                                <span class="value green">"""</span>
-                            </div>
-
                             <!-- Line 1: Hi, I'm ... -->
                             <div class="output-line">
                                 <span class="value">Hi, I'm <span class="highlight-name">Dunith Desitha Athukorala</span>.</span>
@@ -894,11 +888,6 @@
                                     <span id="typingGoal" class="typing-text"></span>
                                     <span class="typing-cursor" id="typingCursor"></span>
                                 </span>
-                            </div>
-
-                            <!-- Docstring closing -->
-                            <div class="output-line">
-                                <span class="value green">"""</span>
                             </div>
 
                         </div> <!-- end terminal-output -->
@@ -1322,7 +1311,7 @@
         const cmdTextEl = document.getElementById('cmdText');
         const cmdCursor = document.getElementById('cmdCursor');
         const outputContainer = document.getElementById('terminalOutput');
-        const commandString = 'python -c "import about; print(about.__doc__)"';
+        const commandString = 'cat ~/.dunith/about';
 
         let charIndexCmd = 0;
 
@@ -1341,7 +1330,7 @@
             }
         }
 
-        // ── Typing effect for the goal (last line of docstring) ──
+        // ── Typing effect for the goal (last line) ──
         const goalText = 'Build intelligent systems that bridge hardware and software to solve real-world problems.';
         const typingGoalEl = document.getElementById('typingGoal');
         const typingCursor = document.getElementById('typingCursor');
