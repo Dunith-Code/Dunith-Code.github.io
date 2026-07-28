@@ -3,13 +3,16 @@
 <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Dunith | Terminal Portfolio</title>
+    <title>Dunith | My Portfolio</title>
+
     <!-- Font Awesome 6 -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" />
+
     <!-- Google Font: JetBrains Mono -->
     <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@300;400;500;600;700;800&display=swap" rel="stylesheet" />
+
     <style>
-        /* ── Reset ── */
+        /* ---------- RESET & BASE ---------- */
         * {
             margin: 0;
             padding: 0;
@@ -18,7 +21,8 @@
 
         body {
             font-family: 'JetBrains Mono', monospace;
-            background: #0a0e14;
+            background: #0b1120;
+            /* Deep blue/black background */
             color: #c9d1d9;
             line-height: 1.6;
             scroll-behavior: smooth;
@@ -36,13 +40,14 @@
             border-radius: 10px;
         }
 
+        /* ---------- CONTAINER ---------- */
         .container {
             max-width: 1240px;
             margin: 0 auto;
             padding: 0 24px;
         }
 
-        /* ── Animated Background ── */
+        /* ---------- ANIMATED BACKGROUND (ORBS) ---------- */
         .bg-orbs {
             position: fixed;
             inset: 0;
@@ -68,7 +73,8 @@
         .bg-orbs span:nth-child(2) {
             width: 500px;
             height: 500px;
-            background: #ffb000;
+            background: #58a6ff;
+            /* Blue accent orb */
             bottom: -10%;
             right: -10%;
             animation-duration: 25s;
@@ -77,7 +83,7 @@
         .bg-orbs span:nth-child(3) {
             width: 400px;
             height: 400px;
-            background: #00ccff;
+            background: #ffb000;
             top: 40%;
             left: 40%;
             animation-duration: 35s;
@@ -85,13 +91,21 @@
         }
 
         @keyframes orbFloat {
-            0% { transform: translate(0, 0) scale(1); }
-            33% { transform: translate(60px, -40px) scale(1.1); }
-            66% { transform: translate(-30px, 60px) scale(0.9); }
-            100% { transform: translate(20px, -20px) scale(1.05); }
+            0% {
+                transform: translate(0, 0) scale(1);
+            }
+            33% {
+                transform: translate(60px, -40px) scale(1.1);
+            }
+            66% {
+                transform: translate(-30px, 60px) scale(0.9);
+            }
+            100% {
+                transform: translate(20px, -20px) scale(1.05);
+            }
         }
 
-        /* ── Navigation (Fixed) ── */
+        /* ---------- NAVIGATION (FIXED TOP BAR + HAMBURGER) ---------- */
         nav {
             position: fixed;
             top: 0;
@@ -99,7 +113,7 @@
             width: 100%;
             z-index: 1000;
             padding: 10px 0;
-            background: rgba(10, 14, 20, 0.85);
+            background: rgba(11, 17, 32, 0.85);
             backdrop-filter: blur(14px);
             border-bottom: 1px solid rgba(255, 255, 255, 0.04);
         }
@@ -110,6 +124,7 @@
             flex-wrap: wrap;
             gap: 10px;
         }
+
         .nav-logo {
             font-weight: 700;
             font-size: 1.1rem;
@@ -120,11 +135,27 @@
         .nav-logo .highlight {
             color: #00ff41;
         }
+
+        .nav-toggle {
+            display: none;
+            background: none;
+            border: none;
+            color: #c9d1d9;
+            font-size: 1.5rem;
+            cursor: pointer;
+            padding: 4px 8px;
+            transition: color 0.2s;
+        }
+        .nav-toggle:hover {
+            color: #00ff41;
+        }
+
         .nav-links {
             display: flex;
             gap: 2px;
             flex-wrap: wrap;
             list-style: none;
+            transition: all 0.3s ease;
         }
         .nav-links a {
             padding: 5px 14px;
@@ -156,7 +187,7 @@
             opacity: 1;
         }
 
-        /* ── Hero ── */
+        /* ---------- HERO SECTION ---------- */
         .hero {
             min-height: 100vh;
             display: flex;
@@ -171,28 +202,85 @@
             display: flex;
             flex-direction: column;
             align-items: center;
-            gap: 28px;
+            gap: 40px;
             max-width: 860px;
             width: 100%;
         }
 
-        /* ── Profile Picture (Above Terminal) ── */
+        /* ---------- PROFILE PICTURE WRAPPER (Math Background) ---------- */
+        .profile-wrapper {
+            position: relative;
+            display: inline-block;
+            border-radius: 50%;
+            padding: 4px;
+            background: #0b1120;
+            box-shadow: 0 0 60px rgba(0, 255, 65, 0.08);
+        }
+
+        /* Math Grid Background */
+        .math-bg {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            width: calc(100% + 40px);
+            height: calc(100% + 40px);
+            border-radius: 50%;
+            z-index: 0;
+            background-image:
+                /* Dot grid */
+                radial-gradient(circle, rgba(0, 255, 65, 0.15) 1px, transparent 1px),
+                /* Subtle cross grid */
+                linear-gradient(rgba(88, 166, 255, 0.05) 1px, transparent 1px),
+                linear-gradient(90deg, rgba(88, 166, 255, 0.05) 1px, transparent 1px);
+            background-size: 20px 20px, 40px 40px, 40px 40px;
+            background-position: center center;
+            animation: spinGrid 30s linear infinite;
+            pointer-events: none;
+        }
+
+        /* Axes overlay for math feel */
+        .math-bg::after {
+            content: '';
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            width: 70%;
+            height: 70%;
+            border-radius: 50%;
+            background:
+                /* X-axis */
+                linear-gradient(90deg, transparent 48%, rgba(255, 176, 0, 0.15) 48%, rgba(255, 176, 0, 0.15) 52%, transparent 52%),
+                /* Y-axis */
+                linear-gradient(0deg, transparent 48%, rgba(255, 176, 0, 0.15) 48%, rgba(255, 176, 0, 0.15) 52%, transparent 52%);
+            pointer-events: none;
+        }
+
+        @keyframes spinGrid {
+            to {
+                transform: translate(-50%, -50%) rotate(360deg);
+            }
+        }
+
         .hero-avatar {
-            width: 100px;
-            height: 100px;
+            width: 180px;
+            height: 180px;
             border-radius: 50%;
             object-fit: cover;
-            border: 2px solid #00ff41;
+            border: 2px solid rgba(0, 255, 65, 0.3);
             background: #0d1117;
-            padding: 3px;
-            box-shadow: 0 0 40px rgba(0, 255, 65, 0.08);
+            padding: 4px;
+            position: relative;
+            z-index: 2;
             transition: transform 0.3s ease;
+            display: block;
         }
         .hero-avatar:hover {
             transform: scale(1.04);
         }
 
-        /* ── Terminal Window ── */
+        /* ---------- TERMINAL WINDOW ---------- */
         .terminal-window {
             width: 100%;
             background: #0d1117;
@@ -202,7 +290,6 @@
             overflow: hidden;
         }
 
-        /* ── Terminal Header (Red, Yellow, Green) ── */
         .terminal-header {
             padding: 14px 20px;
             background: #161b22;
@@ -225,10 +312,15 @@
         .terminal-dots span:hover {
             opacity: 0.7;
         }
-        .dot-red { background: #ff5f56; }
-        .dot-yellow { background: #ffbd2e; }
-        .dot-green { background: #27c93f; }
-
+        .dot-red {
+            background: #ff5f56;
+        }
+        .dot-yellow {
+            background: #ffbd2e;
+        }
+        .dot-green {
+            background: #27c93f;
+        }
         .terminal-title {
             font-size: 0.75rem;
             color: #484f58;
@@ -236,7 +328,7 @@
             letter-spacing: 0.02em;
         }
 
-        /* ── Terminal Body ── */
+        /* ---------- TERMINAL BODY ---------- */
         .terminal-body {
             padding: 28px 32px 32px;
         }
@@ -269,8 +361,8 @@
             display: flex;
             align-items: center;
             gap: 10px;
-            margin-bottom: 16px;
             flex-wrap: wrap;
+            min-height: 2.4rem;
         }
         .command-line .dollar {
             color: #00ff41;
@@ -281,26 +373,43 @@
             color: #f0f6fc;
             font-weight: 500;
             font-size: 1rem;
+            display: inline-flex;
+            align-items: center;
+            gap: 2px;
         }
         .command-line .cmd .highlight-cmd {
             color: #ffb000;
         }
-        .command-line .cursor-blink {
+        .command-line .cmd-cursor {
             display: inline-block;
             width: 8px;
             height: 1.1em;
             background: #00ff41;
             animation: blink 0.8s step-end infinite;
             border-radius: 2px;
+            margin-left: 2px;
         }
-        @keyframes blink {
-            0%, 100% { opacity: 1; }
-            50% { opacity: 0; }
+        .command-line .cmd-cursor.hidden {
+            display: none;
         }
 
-        /* ── Terminal Output ── */
+        @keyframes blink {
+            0%,
+            100% {
+                opacity: 1;
+            }
+            50% {
+                opacity: 0;
+            }
+        }
+
+        /* ---------- TERMINAL OUTPUT ---------- */
         .terminal-output {
-            margin-top: 6px;
+            margin-top: 16px;
+            display: none;
+        }
+        .terminal-output.visible {
+            display: block;
         }
 
         .output-line {
@@ -314,21 +423,42 @@
             transform: translateY(6px);
             animation: fadeInUp 0.4s ease forwards;
         }
-        .output-line:nth-child(1) { animation-delay: 0.3s; }
-        .output-line:nth-child(2) { animation-delay: 0.6s; }
-        .output-line:nth-child(3) { animation-delay: 0.9s; }
-        .output-line:nth-child(4) { animation-delay: 1.2s; }
-        .output-line:nth-child(5) { animation-delay: 1.5s; }
-        .output-line:nth-child(6) { animation-delay: 1.8s; }
-        .output-line:nth-child(7) { animation-delay: 2.1s; }
-        .output-line:nth-child(8) { animation-delay: 2.4s; }
-        .output-line:nth-child(9) { animation-delay: 2.7s; }
-        .output-line:nth-child(10) { animation-delay: 3.0s; }
-        .output-line:nth-child(11) { animation-delay: 3.3s; }
-        .output-line:nth-child(12) { animation-delay: 3.6s; }
+        .terminal-output.visible .output-line:nth-child(1) {
+            animation-delay: 0.1s;
+        }
+        .terminal-output.visible .output-line:nth-child(2) {
+            animation-delay: 0.3s;
+        }
+        .terminal-output.visible .output-line:nth-child(3) {
+            animation-delay: 0.5s;
+        }
+        .terminal-output.visible .output-line:nth-child(4) {
+            animation-delay: 0.7s;
+        }
+        .terminal-output.visible .output-line:nth-child(5) {
+            animation-delay: 0.9s;
+        }
+        .terminal-output.visible .output-line:nth-child(6) {
+            animation-delay: 1.1s;
+        }
+        .terminal-output.visible .output-line:nth-child(7) {
+            animation-delay: 1.3s;
+        }
+        .terminal-output.visible .output-line:nth-child(8) {
+            animation-delay: 1.5s;
+        }
+        .terminal-output.visible .output-line:nth-child(9) {
+            animation-delay: 1.7s;
+        }
+        .terminal-output.visible .output-line:nth-child(10) {
+            animation-delay: 1.9s;
+        }
 
         @keyframes fadeInUp {
-            to { opacity: 1; transform: translateY(0); }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
         }
 
         .output-line .icon {
@@ -355,13 +485,13 @@
         .output-line .value.amber {
             color: #ffb000;
         }
+
         .output-divider {
             border-top: 1px dashed rgba(255, 255, 255, 0.06);
             margin: 10px 0;
-            opacity: 0;
-            animation: fadeInUp 0.4s ease 2.8s forwards;
         }
 
+        /* ---------- TYPING GOAL ---------- */
         .output-typing {
             display: flex;
             align-items: center;
@@ -369,7 +499,7 @@
             font-size: 0.92rem;
             color: #8b949e;
             opacity: 0;
-            animation: fadeInUp 0.4s ease 3.6s forwards;
+            animation: fadeInUp 0.4s ease 2.3s forwards;
         }
         .output-typing .prompt-symbol {
             color: #00ff41;
@@ -386,56 +516,11 @@
             border-radius: 2px;
         }
 
-        /* ── Main Content (Tabs) ── */
+        /* ---------- MAIN CONTENT (Tabs area) ---------- */
         .main-content {
             position: relative;
             z-index: 1;
             padding: 30px 0 80px;
-        }
-
-        .tabs {
-            display: flex;
-            justify-content: center;
-            gap: 4px;
-            flex-wrap: wrap;
-            margin-bottom: 48px;
-            background: rgba(255, 255, 255, 0.02);
-            border-radius: 8px;
-            padding: 6px;
-            border: 1px solid rgba(255, 255, 255, 0.04);
-            max-width: fit-content;
-            margin-left: auto;
-            margin-right: auto;
-        }
-        .tab-btn {
-            background: transparent;
-            border: none;
-            padding: 8px 18px;
-            font-size: 0.78rem;
-            font-weight: 500;
-            cursor: pointer;
-            color: #8b949e;
-            transition: all 0.3s ease;
-            border-radius: 4px;
-            font-family: 'JetBrains Mono', monospace;
-            white-space: nowrap;
-        }
-        .tab-btn::before {
-            content: '$ ';
-            color: #00ff41;
-            opacity: 0;
-            transition: opacity 0.3s ease;
-        }
-        .tab-btn:hover {
-            color: #f0f6fc;
-        }
-        .tab-btn.active {
-            background: rgba(0, 255, 65, 0.06);
-            color: #00ff41;
-            border: 1px solid rgba(0, 255, 65, 0.1);
-        }
-        .tab-btn.active::before {
-            opacity: 1;
         }
 
         .tab-pane {
@@ -447,11 +532,17 @@
         }
 
         @keyframes fadeSlide {
-            from { opacity: 0; transform: translateY(12px); }
-            to { opacity: 1; transform: translateY(0); }
+            from {
+                opacity: 0;
+                transform: translateY(12px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
         }
 
-        /* ── Cards ── */
+        /* ---------- CARDS ---------- */
         .project-grid,
         .skill-grid,
         .article-grid,
@@ -568,7 +659,7 @@
             font-size: 0.7rem;
         }
 
-        /* ── Skill Tags ── */
+        /* ---------- SKILL TAGS ---------- */
         .skill-tag {
             display: inline-block;
             background: rgba(0, 255, 65, 0.05);
@@ -594,7 +685,7 @@
             font-weight: 700;
         }
 
-        /* ── Contact ── */
+        /* ---------- CONTACT SECTION ---------- */
         .contact-box {
             max-width: 600px;
             margin: 0 auto;
@@ -649,7 +740,7 @@
             color: #00ff41;
         }
 
-        /* ── Home Tab Specific Styles ── */
+        /* ---------- HOME TAB SPECIFIC ---------- */
         .home-grid {
             display: grid;
             grid-template-columns: 1fr 1fr;
@@ -721,7 +812,7 @@
             min-width: 28px;
         }
 
-        /* ── Footer ── */
+        /* ---------- FOOTER ---------- */
         footer {
             position: relative;
             z-index: 1;
@@ -739,22 +830,36 @@
             color: #00ff41;
         }
 
-        /* ── Responsive ── */
+        /* ---------- RESPONSIVE ---------- */
         @media (max-width: 768px) {
-            nav .container {
-                flex-direction: column;
-                align-items: center;
+            .nav-toggle {
+                display: block;
             }
             .nav-links {
-                justify-content: center;
+                display: none;
+                flex-direction: column;
+                width: 100%;
+                padding: 10px 0 6px 0;
+                gap: 4px;
+                border-top: 1px solid rgba(255, 255, 255, 0.04);
+                margin-top: 6px;
+            }
+            .nav-links.open {
+                display: flex;
             }
             .nav-links a {
-                padding: 4px 10px;
-                font-size: 0.7rem;
+                padding: 8px 14px;
+                width: 100%;
+                text-align: center;
+                font-size: 0.85rem;
             }
             .hero-avatar {
-                width: 80px;
-                height: 80px;
+                width: 150px;
+                height: 150px;
+            }
+            .math-bg {
+                width: calc(100% + 30px);
+                height: calc(100% + 30px);
             }
             .terminal-body {
                 padding: 20px 18px 24px;
@@ -775,19 +880,6 @@
             }
             .command-line .cmd {
                 font-size: 0.9rem;
-            }
-            .tabs {
-                border-radius: 6px;
-                padding: 4px;
-                gap: 2px;
-                max-width: 100%;
-            }
-            .tab-btn {
-                padding: 6px 12px;
-                font-size: 0.68rem;
-            }
-            .tab-btn::before {
-                content: '';
             }
             .card-content {
                 padding: 16px 16px 20px;
@@ -817,12 +909,19 @@
             .category-grid {
                 grid-template-columns: 1fr 1fr;
             }
+            .hero-wrapper {
+                gap: 30px;
+            }
         }
 
         @media (max-width: 480px) {
             .hero-avatar {
-                width: 70px;
-                height: 70px;
+                width: 130px;
+                height: 130px;
+            }
+            .math-bg {
+                width: calc(100% + 20px);
+                height: calc(100% + 20px);
             }
             .terminal-body {
                 padding: 16px 14px 20px;
@@ -836,30 +935,34 @@
             .terminal-prompt {
                 font-size: 0.7rem;
             }
-            .tab-btn {
-                padding: 4px 10px;
-                font-size: 0.62rem;
-            }
             .category-grid {
                 grid-template-columns: 1fr;
+            }
+            .nav-links a {
+                font-size: 0.78rem;
+                padding: 6px 12px;
             }
         }
     </style>
 </head>
+
 <body>
 
-    <!-- ── Animated Background ── -->
+    <!-- ---------- ANIMATED BACKGROUND ORBS ---------- -->
     <div class="bg-orbs">
         <span></span>
         <span></span>
         <span></span>
     </div>
 
-    <!-- ── Navigation ── -->
+    <!-- ---------- FIXED NAVIGATION ---------- -->
     <nav>
         <div class="container">
             <a href="#" class="nav-logo">Dunith<span class="highlight">.</span></a>
-            <ul class="nav-links">
+            <button class="nav-toggle" id="navToggle" aria-label="Toggle navigation">
+                <i class="fas fa-bars"></i>
+            </button>
+            <ul class="nav-links" id="navLinks">
                 <li><a class="active" data-tab="home">Home</a></li>
                 <li><a data-tab="projects">Projects</a></li>
                 <li><a data-tab="skills">Skills</a></li>
@@ -873,18 +976,21 @@
         </div>
     </nav>
 
-    <!-- ── HERO ── -->
+    <!-- ---------- HERO (Profile + Terminal) ---------- -->
     <section class="hero">
         <div class="container">
             <div class="hero-wrapper">
 
-                <!-- Profile Picture (Above Terminal) -->
-                <img src="assets/Dunith.jpeg" alt="Dunith Desitha Athukorala" class="hero-avatar" />
+                <!-- Profile Picture with Math Background -->
+                <div class="profile-wrapper">
+                    <div class="math-bg"></div>
+                    <img src="assets/Dunith.jpeg" alt="Dunith Desitha Athukorala" class="hero-avatar" />
+                </div>
 
-                <!-- Terminal Window -->
+                <!-- Terminal window -->
                 <div class="terminal-window">
 
-                    <!-- Terminal Header -->
+                    <!-- Terminal header -->
                     <div class="terminal-header">
                         <div class="terminal-dots">
                             <span class="dot-red"></span>
@@ -894,10 +1000,10 @@
                         <span class="terminal-title">dunith@portfolio — bash</span>
                     </div>
 
-                    <!-- Terminal Body -->
+                    <!-- Terminal body -->
                     <div class="terminal-body">
 
-                        <!-- Prompt -->
+                        <!-- Prompt line -->
                         <div class="terminal-prompt">
                             <span class="user">dunith@portfolio</span>
                             <span class="host">~</span>
@@ -905,96 +1011,71 @@
                             <span class="arrow">❯</span>
                         </div>
 
-                        <!-- Command: cat ~/.dunith/about -->
-                        <div class="command-line">
+                        <!-- Command line -->
+                        <div class="command-line" id="commandLine">
                             <span class="dollar">$</span>
-                            <span class="cmd">cat <span class="highlight-cmd">~/.dunith/about</span></span>
-                            <span class="cursor-blink"></span>
+                            <span class="cmd" id="cmdText"></span>
+                            <span class="cmd-cursor" id="cmdCursor"></span>
                         </div>
 
-                        <!-- Output -->
-                        <div class="terminal-output">
+                        <!-- Terminal output -->
+                        <div class="terminal-output" id="terminalOutput">
 
+                            <!-- Line 1: Hi, I'm ... -->
                             <div class="output-line">
                                 <span class="icon">📂</span>
                                 <span class="label">Hi, I'm</span>
                                 <span class="value green">Dunith Desitha Athukorala</span>
                             </div>
 
+                            <!-- Line 2: Role -->
                             <div class="output-line">
                                 <span class="icon">🎯</span>
                                 <span class="label">Role</span>
                                 <span class="value purple">Instrumentation &amp; Automation Engineering Technology Undergrad</span>
                             </div>
 
+                            <!-- Line 3: Passion -->
                             <div class="output-line">
                                 <span class="icon">🧠</span>
                                 <span class="label">Passion</span>
                                 <span class="value cyan">AI/ML · Embedded Systems · IIoT</span>
                             </div>
 
-                            <div class="output-line">
-                                <span class="icon">🛠️</span>
-                                <span class="label">Stack</span>
-                                <span class="value">PyTorch · TensorFlow · YOLO · SolidWorks · Arduino</span>
-                            </div>
-
+                            <!-- Dashed divider -->
                             <div class="output-divider"></div>
 
-                            <div class="output-line">
-                                <span class="icon">📌</span>
-                                <span class="label">Currently</span>
-                                <span class="value amber">Final Year Research — AI-Based Adaptive Traffic Signal Optimization</span>
-                            </div>
-
-                            <div class="output-line">
-                                <span class="icon">💼</span>
-                                <span class="label">Internship</span>
-                                <span class="value">Phoenix Industries Ltd. · Feb – Aug 2025</span>
-                            </div>
-
+                            <!-- Line 4: Open to -->
                             <div class="output-line">
                                 <span class="icon">🚀</span>
                                 <span class="label">Open to</span>
                                 <span class="value green">Internships · Collaboration · Tech Talks</span>
                             </div>
 
+                            <!-- Dashed divider -->
                             <div class="output-divider"></div>
 
-                            <!-- Typing effect: What I want to do -->
+                            <!-- Typing goal -->
                             <div class="output-typing">
                                 <span class="prompt-symbol">❯</span>
-                                <span class="typing-text" id="typing-goal"></span>
+                                <span class="typing-text" id="typingGoal"></span>
                                 <span class="cursor"></span>
                             </div>
 
-                        </div>
+                        </div> <!-- end terminal-output -->
 
-                    </div>
-                </div>
+                    </div> <!-- end terminal-body -->
+                </div> <!-- end terminal-window -->
 
-            </div>
-        </div>
+            </div> <!-- end hero-wrapper -->
+        </div> <!-- end container -->
     </section>
 
-    <!-- ── MAIN CONTENT (Tabs) ── -->
+    <!-- ---------- MAIN CONTENT (TABS) ---------- -->
     <div class="main-content">
         <div class="container">
 
-            <!-- Tabs -->
-            <div class="tabs">
-                <button class="tab-btn active" data-tab="home">Home</button>
-                <button class="tab-btn" data-tab="projects">Projects</button>
-                <button class="tab-btn" data-tab="skills">Skills</button>
-                <button class="tab-btn" data-tab="articles">Articles</button>
-                <button class="tab-btn" data-tab="volunteer">Volunteering</button>
-                <button class="tab-btn" data-tab="club">Club</button>
-                <button class="tab-btn" data-tab="art">Artworks</button>
-                <button class="tab-btn" data-tab="workshops">Workshops</button>
-                <button class="tab-btn" data-tab="contact">Contact</button>
-            </div>
-
-            <!-- ── HOME TAB ── -->
+            <!-- ---------- HOME TAB ---------- -->
             <div id="home" class="tab-pane active-pane">
                 <div class="home-grid">
 
@@ -1005,21 +1086,21 @@
                             <div class="edu-item">
                                 <i class="fas fa-graduation-cap"></i>
                                 <div>
-                                    <strong>BSc in Instrumentation & Automation Engineering Technology</strong>
-                                    <span>University of Colombo · 2023 – 2026</span>
+                                    <strong>Bachelor of Engineering Technology (Hons) in Instrumentation and Automation</strong>
+                                    <span>Faculty of Technology, University of Colombo · 2022 – 2026</span>
                                 </div>
                             </div>
                             <div class="edu-item">
                                 <i class="fas fa-laptop-code"></i>
                                 <div>
-                                    <strong>Information Technology (Concurrent)</strong>
-                                    <span>University of Colombo</span>
+                                    <strong>Bachelor of Information Technology</strong>
+                                    <span>University of Colombo School of Computing · 2024 - Present</span>
                                 </div>
                             </div>
                         </div>
                     </div>
 
-                    <!-- Category Explorer -->
+                    <!-- Category Explorer Card -->
                     <div class="card home-card">
                         <div class="card-content">
                             <h3><span class="prompt">⏺</span> Explore My Work</h3>
@@ -1052,11 +1133,10 @@
                 </div>
             </div>
 
-            <!-- ── PROJECTS ── -->
+            <!-- ---------- PROJECTS TAB ---------- -->
             <div id="projects" class="tab-pane">
                 <div class="project-grid">
 
-                    <!-- Traffic Signal -->
                     <div class="card">
                         <div class="card-img"><i class="fas fa-traffic-light"></i></div>
                         <div class="card-content">
@@ -1068,7 +1148,6 @@
                         </div>
                     </div>
 
-                    <!-- Showroom Robot Box -->
                     <div class="card">
                         <div class="card-img"><i class="fas fa-cube"></i></div>
                         <div class="card-content">
@@ -1082,7 +1161,6 @@
                         </div>
                     </div>
 
-                    <!-- GreenHeaven -->
                     <div class="card">
                         <div class="card-img"><i class="fas fa-chart-line"></i></div>
                         <div class="card-content">
@@ -1094,7 +1172,6 @@
                         </div>
                     </div>
 
-                    <!-- Kids Audio -->
                     <div class="card">
                         <div class="card-img"><i class="fas fa-volume-up"></i></div>
                         <div class="card-content">
@@ -1105,7 +1182,6 @@
                         </div>
                     </div>
 
-                    <!-- Centrifugal Feeder -->
                     <div class="card">
                         <div class="card-img"><i class="fas fa-cogs"></i></div>
                         <div class="card-content">
@@ -1116,7 +1192,6 @@
                         </div>
                     </div>
 
-                    <!-- Ionosphere -->
                     <div class="card">
                         <div class="card-img"><i class="fas fa-brain"></i></div>
                         <div class="card-content">
@@ -1127,7 +1202,6 @@
                         </div>
                     </div>
 
-                    <!-- RAG -->
                     <div class="card">
                         <div class="card-img"><i class="fas fa-file-pdf"></i></div>
                         <div class="card-content">
@@ -1139,7 +1213,6 @@
                         </div>
                     </div>
 
-                    <!-- EV Price -->
                     <div class="card">
                         <div class="card-img"><i class="fas fa-car-side"></i></div>
                         <div class="card-content">
@@ -1154,7 +1227,7 @@
                 </div>
             </div>
 
-            <!-- ── SKILLS ── -->
+            <!-- ---------- SKILLS TAB ---------- -->
             <div id="skills" class="tab-pane">
                 <div class="skill-grid">
                     <div class="card">
@@ -1220,7 +1293,7 @@
                 </div>
             </div>
 
-            <!-- ── ARTICLES ── -->
+            <!-- ---------- ARTICLES TAB ---------- -->
             <div id="articles" class="tab-pane">
                 <div class="article-grid">
                     <div class="card">
@@ -1234,7 +1307,7 @@
                 </div>
             </div>
 
-            <!-- ── VOLUNTEERING ── -->
+            <!-- ---------- VOLUNTEERING TAB ---------- -->
             <div id="volunteer" class="tab-pane">
                 <div class="volunteer-grid">
                     <div class="card">
@@ -1264,7 +1337,7 @@
                 </div>
             </div>
 
-            <!-- ── CLUB ── -->
+            <!-- ---------- CLUB TAB ---------- -->
             <div id="club" class="tab-pane">
                 <div class="club-grid">
                     <div class="card">
@@ -1302,7 +1375,7 @@
                 </div>
             </div>
 
-            <!-- ── ARTWORKS ── -->
+            <!-- ---------- ARTWORKS TAB ---------- -->
             <div id="art" class="tab-pane">
                 <div class="art-grid">
                     <div class="card">
@@ -1344,7 +1417,7 @@
                 </div>
             </div>
 
-            <!-- ── WORKSHOPS ── -->
+            <!-- ---------- WORKSHOPS TAB ---------- -->
             <div id="workshops" class="tab-pane">
                 <div class="workshop-grid">
                     <div class="card">
@@ -1377,7 +1450,7 @@
                 </div>
             </div>
 
-            <!-- ── CONTACT ── -->
+            <!-- ---------- CONTACT TAB ---------- -->
             <div id="contact" class="tab-pane">
                 <div class="contact-box">
                     <h2><span class="highlight">$</span> Let's Connect</h2>
@@ -1390,10 +1463,10 @@
                 </div>
             </div>
 
-        </div>
-    </div>
+        </div> <!-- end container -->
+    </div> <!-- end main-content -->
 
-    <!-- ── FOOTER ── -->
+    <!-- ---------- FOOTER ---------- -->
     <footer>
         <p>
             <span class="prompt">$</span> © <span id="year"></span> Dunith Desitha Athukorala. All rights reserved
@@ -1401,59 +1474,69 @@
         </p>
     </footer>
 
-    <!-- ── SCRIPTS ── -->
+    <!-- ============================================================
+    JAVASCRIPT
+    ============================================================ -->
     <script>
-        // ── Auto-update year ──
+        // ── Auto-update the year ──
         document.getElementById('year').textContent = new Date().getFullYear();
 
-        // ── Typing Effect for "What I want to do" ──
+        // ── Typing effect for the command ──
+        const cmdTextEl = document.getElementById('cmdText');
+        const cmdCursor = document.getElementById('cmdCursor');
+        const outputContainer = document.getElementById('terminalOutput');
+        const commandString = 'cat ~/.dunith/about';
+
+        let charIndexCmd = 0;
+
+        function typeCommand() {
+            if (charIndexCmd < commandString.length) {
+                const char = commandString.charAt(charIndexCmd);
+                cmdTextEl.textContent += char;
+                charIndexCmd++;
+                setTimeout(typeCommand, 60);
+            } else {
+                setTimeout(() => {
+                    cmdCursor.classList.add('hidden');
+                    outputContainer.classList.add('visible');
+                    setTimeout(typeGoal, 2200);
+                }, 400);
+            }
+        }
+
+        // ── Typing effect for the goal ──
         const goalText = 'Build intelligent systems that bridge hardware and software to solve real-world problems.';
-        const typingGoal = document.getElementById('typing-goal');
-        let charIndex = 0;
+        const typingGoalEl = document.getElementById('typingGoal');
+        let goalIndex = 0;
 
         function typeGoal() {
-            if (charIndex < goalText.length) {
-                typingGoal.textContent += goalText.charAt(charIndex);
-                charIndex++;
+            if (goalIndex < goalText.length) {
+                typingGoalEl.textContent += goalText.charAt(goalIndex);
+                goalIndex++;
                 setTimeout(typeGoal, 40);
             }
         }
-        setTimeout(typeGoal, 3800);
 
-        // ── Tab Switching ──
-        const tabBtns = document.querySelectorAll('.tab-btn');
+        // ── TAB SWITCHING ──
         const navLinks = document.querySelectorAll('.nav-links a');
         const panes = document.querySelectorAll('.tab-pane');
         const categoryItems = document.querySelectorAll('.category-item');
+        const navToggle = document.getElementById('navToggle');
+        const navLinksContainer = document.getElementById('navLinks');
 
         function switchTab(tabId) {
-            // Update tab buttons
-            tabBtns.forEach(b => {
-                b.classList.remove('active');
-                if (b.dataset.tab === tabId) b.classList.add('active');
-            });
-            // Update nav links
             navLinks.forEach(l => {
                 l.classList.remove('active');
                 if (l.dataset.tab === tabId) l.classList.add('active');
             });
-            // Update panes
             panes.forEach(p => {
                 p.classList.remove('active-pane');
                 if (p.id === tabId) p.classList.add('active-pane');
             });
-            // Scroll to tabs
-            document.querySelector('.tabs').scrollIntoView({ behavior: 'smooth', block: 'start' });
+            navLinksContainer.classList.remove('open');
+            document.querySelector('.main-content').scrollIntoView({ behavior: 'smooth', block: 'start' });
         }
 
-        // Tab buttons click
-        tabBtns.forEach(btn => {
-            btn.addEventListener('click', () => {
-                switchTab(btn.dataset.tab);
-            });
-        });
-
-        // Nav links click
         navLinks.forEach(link => {
             link.addEventListener('click', (e) => {
                 e.preventDefault();
@@ -1461,17 +1544,24 @@
             });
         });
 
-        // Category items click (Home tab explorer)
         categoryItems.forEach(item => {
             item.addEventListener('click', () => {
                 const tabId = item.dataset.tab;
-                if (tabId) {
-                    switchTab(tabId);
-                }
+                if (tabId) switchTab(tabId);
             });
         });
 
-        // ── Highlight nav link based on active tab pane on load ──
+        navToggle.addEventListener('click', () => {
+            navLinksContainer.classList.toggle('open');
+        });
+
+        document.addEventListener('click', (e) => {
+            if (!e.target.closest('nav')) {
+                navLinksContainer.classList.remove('open');
+            }
+        });
+
+        // ── On load ──
         document.addEventListener('DOMContentLoaded', () => {
             const activePane = document.querySelector('.tab-pane.active-pane');
             if (activePane) {
@@ -1480,11 +1570,8 @@
                     l.classList.remove('active');
                     if (l.dataset.tab === id) l.classList.add('active');
                 });
-                tabBtns.forEach(b => {
-                    b.classList.remove('active');
-                    if (b.dataset.tab === id) b.classList.add('active');
-                });
             }
+            setTimeout(typeCommand, 800);
         });
     </script>
 
