@@ -3,16 +3,13 @@
 <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Dunith | My Portfolio</title>
-
+    <title>Dunith | Terminal Portfolio</title>
     <!-- Font Awesome 6 -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" />
-
     <!-- Google Font: JetBrains Mono -->
     <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@300;400;500;600;700;800&display=swap" rel="stylesheet" />
-
     <style>
-        /* ---------- RESET & BASE ---------- */
+        /* ── Reset & Base ── */
         * {
             margin: 0;
             padding: 0;
@@ -21,7 +18,7 @@
 
         body {
             font-family: 'JetBrains Mono', monospace;
-            background: #0b1120; /* Deep blue/black */
+            background: #0a0e14;
             color: #c9d1d9;
             line-height: 1.6;
             scroll-behavior: smooth;
@@ -39,14 +36,13 @@
             border-radius: 10px;
         }
 
-        /* ---------- CONTAINER ---------- */
         .container {
             max-width: 1240px;
             margin: 0 auto;
             padding: 0 24px;
         }
 
-        /* ---------- ANIMATED BACKGROUND (ORBS) ---------- */
+        /* ── Animated Background ── */
         .bg-orbs {
             position: fixed;
             inset: 0;
@@ -72,7 +68,7 @@
         .bg-orbs span:nth-child(2) {
             width: 500px;
             height: 500px;
-            background: #58a6ff; /* Blue accent */
+            background: #ffb000;
             bottom: -10%;
             right: -10%;
             animation-duration: 25s;
@@ -81,7 +77,7 @@
         .bg-orbs span:nth-child(3) {
             width: 400px;
             height: 400px;
-            background: #ffb000;
+            background: #00ccff;
             top: 40%;
             left: 40%;
             animation-duration: 35s;
@@ -95,7 +91,7 @@
             100% { transform: translate(20px, -20px) scale(1.05); }
         }
 
-        /* ---------- NAVIGATION (FIXED TOP BAR + HAMBURGER) ---------- */
+        /* ── Navigation ── */
         nav {
             position: fixed;
             top: 0;
@@ -103,7 +99,7 @@
             width: 100%;
             z-index: 1000;
             padding: 10px 0;
-            background: rgba(11, 17, 32, 0.85);
+            background: rgba(10, 14, 20, 0.85);
             backdrop-filter: blur(14px);
             border-bottom: 1px solid rgba(255, 255, 255, 0.04);
         }
@@ -114,7 +110,6 @@
             flex-wrap: wrap;
             gap: 10px;
         }
-
         .nav-logo {
             font-weight: 700;
             font-size: 1.1rem;
@@ -125,27 +120,11 @@
         .nav-logo .highlight {
             color: #00ff41;
         }
-
-        .nav-toggle {
-            display: none;
-            background: none;
-            border: none;
-            color: #c9d1d9;
-            font-size: 1.5rem;
-            cursor: pointer;
-            padding: 4px 8px;
-            transition: color 0.2s;
-        }
-        .nav-toggle:hover {
-            color: #00ff41;
-        }
-
         .nav-links {
             display: flex;
             gap: 2px;
             flex-wrap: wrap;
             list-style: none;
-            transition: all 0.3s ease;
         }
         .nav-links a {
             padding: 5px 14px;
@@ -177,7 +156,7 @@
             opacity: 1;
         }
 
-        /* ---------- HERO SECTION ---------- */
+        /* ── Hero ── */
         .hero {
             min-height: 100vh;
             display: flex;
@@ -192,77 +171,28 @@
             display: flex;
             flex-direction: column;
             align-items: center;
-            gap: 40px;
+            gap: 32px;
             max-width: 860px;
             width: 100%;
         }
 
-        /* ---------- PROFILE PICTURE WRAPPER (Math Background) ---------- */
-        .profile-wrapper {
-            position: relative;
-            display: inline-block;
-            border-radius: 50%;
-            padding: 4px;
-            background: #0b1120;
-            box-shadow: 0 0 60px rgba(0, 255, 65, 0.08);
-        }
-
-        .math-bg {
-            position: absolute;
-            top: 50%;
-            left: 50%;
-            transform: translate(-50%, -50%);
-            width: calc(100% + 40px);
-            height: calc(100% + 40px);
-            border-radius: 50%;
-            z-index: 0;
-            background-image:
-                radial-gradient(circle, rgba(0, 255, 65, 0.15) 1px, transparent 1px),
-                linear-gradient(rgba(88, 166, 255, 0.05) 1px, transparent 1px),
-                linear-gradient(90deg, rgba(88, 166, 255, 0.05) 1px, transparent 1px);
-            background-size: 20px 20px, 40px 40px, 40px 40px;
-            background-position: center center;
-            animation: spinGrid 30s linear infinite;
-            pointer-events: none;
-        }
-
-        .math-bg::after {
-            content: '';
-            position: absolute;
-            top: 50%;
-            left: 50%;
-            transform: translate(-50%, -50%);
-            width: 70%;
-            height: 70%;
-            border-radius: 50%;
-            background:
-                linear-gradient(90deg, transparent 48%, rgba(255, 176, 0, 0.15) 48%, rgba(255, 176, 0, 0.15) 52%, transparent 52%),
-                linear-gradient(0deg, transparent 48%, rgba(255, 176, 0, 0.15) 48%, rgba(255, 176, 0, 0.15) 52%, transparent 52%);
-            pointer-events: none;
-        }
-
-        @keyframes spinGrid {
-            to { transform: translate(-50%, -50%) rotate(360deg); }
-        }
-
+        /* ── Profile Picture ── */
         .hero-avatar {
-            width: 180px;
-            height: 180px;
+            width: 160px;
+            height: 160px;
             border-radius: 50%;
             object-fit: cover;
-            border: 2px solid rgba(0, 255, 65, 0.3);
+            border: 3px solid #00ff41;
             background: #0d1117;
             padding: 4px;
-            position: relative;
-            z-index: 2;
+            box-shadow: 0 0 60px rgba(0, 255, 65, 0.08);
             transition: transform 0.3s ease;
-            display: block;
         }
         .hero-avatar:hover {
             transform: scale(1.04);
         }
 
-        /* ---------- TERMINAL WINDOW ---------- */
+        /* ── Terminal Window ── */
         .terminal-window {
             width: 100%;
             background: #0d1117;
@@ -272,6 +202,7 @@
             overflow: hidden;
         }
 
+        /* ── Terminal Header ── */
         .terminal-header {
             padding: 14px 20px;
             background: #161b22;
@@ -291,10 +222,13 @@
             display: inline-block;
             transition: opacity 0.2s;
         }
-        .terminal-dots span:hover { opacity: 0.7; }
+        .terminal-dots span:hover {
+            opacity: 0.7;
+        }
         .dot-red { background: #ff5f56; }
         .dot-yellow { background: #ffbd2e; }
         .dot-green { background: #27c93f; }
+
         .terminal-title {
             font-size: 0.75rem;
             color: #484f58;
@@ -302,7 +236,7 @@
             letter-spacing: 0.02em;
         }
 
-        /* ---------- TERMINAL BODY ---------- */
+        /* ── Terminal Body ── */
         .terminal-body {
             padding: 28px 32px 32px;
         }
@@ -316,11 +250,22 @@
             flex-wrap: wrap;
             margin-bottom: 4px;
         }
-        .terminal-prompt .user { color: #00ff41; font-weight: 600; }
-        .terminal-prompt .host { color: #ffb000; }
-        .terminal-prompt .path { color: #58a6ff; }
-        .terminal-prompt .arrow { color: #00ff41; font-weight: 700; }
+        .terminal-prompt .user {
+            color: #00ff41;
+            font-weight: 600;
+        }
+        .terminal-prompt .host {
+            color: #ffb000;
+        }
+        .terminal-prompt .path {
+            color: #58a6ff;
+        }
+        .terminal-prompt .arrow {
+            color: #00ff41;
+            font-weight: 700;
+        }
 
+        /* ── Command Line ── */
         .command-line {
             display: flex;
             align-items: center;
@@ -353,14 +298,16 @@
             border-radius: 2px;
             margin-left: 2px;
         }
-        .command-line .cmd-cursor.hidden { display: none; }
+        .command-line .cmd-cursor.hidden {
+            display: none;
+        }
 
         @keyframes blink {
             0%, 100% { opacity: 1; }
             50% { opacity: 0; }
         }
 
-        /* ---------- TERMINAL OUTPUT ---------- */
+        /* ── Terminal Output ── */
         .terminal-output {
             margin-top: 16px;
             display: none;
@@ -380,6 +327,7 @@
             transform: translateY(6px);
             animation: fadeInUp 0.4s ease forwards;
         }
+
         .terminal-output.visible .output-line:nth-child(1) { animation-delay: 0.1s; }
         .terminal-output.visible .output-line:nth-child(2) { animation-delay: 0.3s; }
         .terminal-output.visible .output-line:nth-child(3) { animation-delay: 0.5s; }
@@ -389,51 +337,116 @@
         .terminal-output.visible .output-line:nth-child(7) { animation-delay: 1.3s; }
         .terminal-output.visible .output-line:nth-child(8) { animation-delay: 1.5s; }
         .terminal-output.visible .output-line:nth-child(9) { animation-delay: 1.7s; }
+        .terminal-output.visible .output-line:nth-child(10) { animation-delay: 1.9s; }
 
         @keyframes fadeInUp {
             to { opacity: 1; transform: translateY(0); }
         }
 
+        .output-line .icon {
+            color: #00ff41;
+            min-width: 22px;
+            font-size: 0.9rem;
+        }
+        .output-line .label {
+            color: #ffb000;
+            font-weight: 600;
+        }
         .output-line .value {
             color: #f0f6fc;
         }
         .output-line .value.green {
             color: #00ff41;
         }
-        .output-line .value .highlight-name {
-            color: #00ff41;
-            font-weight: 600;
+        .output-line .value.cyan {
+            color: #58a6ff;
         }
-        .output-line .value .highlight-role {
-            color: #d2a8ff; /* purple */
+        .output-line .value.purple {
+            color: #d2a8ff;
         }
-        .output-line .value .highlight-passion {
-            color: #58a6ff; /* cyan/blue */
+        .output-line .value.amber {
+            color: #ffb000;
         }
-        .output-line .value .highlight-open {
-            color: #00ff41;
+        .output-divider {
+            border-top: 1px dashed rgba(255, 255, 255, 0.06);
+            margin: 10px 0;
         }
 
-        /* ---------- TYPING GOAL (inside output-line) ---------- */
-        .output-line .typing-text {
-            color: #f0f6fc;
+        /* ── Typing Goal ── */
+        .output-typing {
+            display: flex;
+            align-items: center;
+            gap: 6px;
+            font-size: 0.92rem;
+            color: #8b949e;
+            opacity: 0;
+            animation: fadeInUp 0.4s ease 2.6s forwards;
         }
-        .output-line .typing-cursor {
+        .output-typing .prompt-symbol {
+            color: #00ff41;
+        }
+        .output-typing .typing-text {
+            color: #00ff41;
+        }
+        .output-typing .cursor {
             display: inline-block;
             width: 3px;
             height: 1em;
             background: #00ff41;
             animation: blink 0.7s step-end infinite;
             border-radius: 2px;
-            margin-left: 2px;
-            vertical-align: text-bottom;
         }
 
-        /* ---------- MAIN CONTENT (Tabs) ---------- */
+        /* ── Tabs ── */
         .main-content {
             position: relative;
             z-index: 1;
             padding: 30px 0 80px;
+        }
+
+        .tabs {
+            display: flex;
+            justify-content: center;
+            gap: 4px;
+            flex-wrap: wrap;
+            margin-bottom: 48px;
+            background: rgba(255, 255, 255, 0.02);
+            border-radius: 8px;
+            padding: 6px;
+            border: 1px solid rgba(255, 255, 255, 0.04);
+            max-width: fit-content;
+            margin-left: auto;
+            margin-right: auto;
+        }
+        .tab-btn {
+            background: transparent;
+            border: none;
+            padding: 8px 18px;
+            font-size: 0.78rem;
+            font-weight: 500;
+            cursor: pointer;
+            color: #8b949e;
+            transition: all 0.3s ease;
+            border-radius: 4px;
+            font-family: 'JetBrains Mono', monospace;
+            white-space: nowrap;
+        }
+        .tab-btn::before {
+            content: '$ ';
+            color: #00ff41;
+            opacity: 0;
+            transition: opacity 0.3s ease;
+        }
+        .tab-btn:hover {
+            color: #f0f6fc;
+        }
+        .tab-btn.active {
+            background: rgba(0, 255, 65, 0.06);
+            color: #00ff41;
+            border: 1px solid rgba(0, 255, 65, 0.1);
+        }
+        .tab-btn.active::before {
+            opacity: 1;
         }
 
         .tab-pane {
@@ -449,7 +462,7 @@
             to { opacity: 1; transform: translateY(0); }
         }
 
-        /* ---------- CARDS ---------- */
+        /* ── Cards ── */
         .project-grid,
         .skill-grid,
         .article-grid,
@@ -562,9 +575,11 @@
             color: #66ff88;
             border-bottom-color: #00ff41;
         }
-        .card-link i { font-size: 0.7rem; }
+        .card-link i {
+            font-size: 0.7rem;
+        }
 
-        /* ---------- SKILL TAGS ---------- */
+        /* ── Skill Tags ── */
         .skill-tag {
             display: inline-block;
             background: rgba(0, 255, 65, 0.05);
@@ -590,7 +605,7 @@
             font-weight: 700;
         }
 
-        /* ---------- CONTACT ---------- */
+        /* ── Contact ── */
         .contact-box {
             max-width: 600px;
             margin: 0 auto;
@@ -606,7 +621,9 @@
             color: #f0f6fc;
             margin-bottom: 8px;
         }
-        .contact-box h2 .highlight { color: #00ff41; }
+        .contact-box h2 .highlight {
+            color: #00ff41;
+        }
         .contact-box p {
             color: #8b949e;
             margin: 12px 0 28px;
@@ -643,14 +660,19 @@
             color: #00ff41;
         }
 
-        /* ---------- HOME TAB ---------- */
+        /* ── Home Tab ── */
         .home-grid {
             display: grid;
             grid-template-columns: 1fr 1fr;
             gap: 24px;
         }
-        .home-card .card-content { padding: 24px 26px; }
-        .home-card h3 { margin-bottom: 16px; }
+
+        .home-card .card-content {
+            padding: 24px 26px;
+        }
+        .home-card h3 {
+            margin-bottom: 16px;
+        }
 
         .edu-item {
             display: flex;
@@ -659,7 +681,9 @@
             padding: 10px 0;
             border-bottom: 1px solid rgba(255, 255, 255, 0.04);
         }
-        .edu-item:last-child { border-bottom: none; }
+        .edu-item:last-child {
+            border-bottom: none;
+        }
         .edu-item i {
             color: #00ff41;
             font-size: 1.2rem;
@@ -682,6 +706,7 @@
             grid-template-columns: 1fr 1fr;
             gap: 10px;
         }
+
         .category-item {
             display: flex;
             align-items: center;
@@ -707,7 +732,7 @@
             min-width: 28px;
         }
 
-        /* ---------- FOOTER ---------- */
+        /* ── Footer ── */
         footer {
             position: relative;
             z-index: 1;
@@ -718,82 +743,137 @@
             font-size: 0.78rem;
             font-family: 'JetBrains Mono', monospace;
         }
-        footer i { color: #00ff41; }
-        footer .prompt { color: #00ff41; }
+        footer i {
+            color: #00ff41;
+        }
+        footer .prompt {
+            color: #00ff41;
+        }
 
-        /* ---------- RESPONSIVE ---------- */
+        /* ── Responsive ── */
         @media (max-width: 768px) {
-            .nav-toggle { display: block; }
-            .nav-links {
-                display: none;
+            nav .container {
                 flex-direction: column;
-                width: 100%;
-                padding: 10px 0 6px 0;
-                gap: 4px;
-                border-top: 1px solid rgba(255, 255, 255, 0.04);
-                margin-top: 6px;
+                align-items: center;
             }
-            .nav-links.open { display: flex; }
+            .nav-links {
+                justify-content: center;
+            }
             .nav-links a {
-                padding: 8px 14px;
-                width: 100%;
-                text-align: center;
-                font-size: 0.85rem;
+                padding: 4px 10px;
+                font-size: 0.7rem;
             }
-            .hero-avatar { width: 150px; height: 150px; }
-            .math-bg { width: calc(100% + 30px); height: calc(100% + 30px); }
-            .terminal-body { padding: 20px 18px 24px; }
-            .terminal-header { padding: 10px 16px; }
-            .terminal-dots span { width: 12px; height: 12px; }
-            .terminal-title { font-size: 0.65rem; }
-            .output-line { font-size: 0.82rem; flex-wrap: wrap; }
-            .command-line .cmd { font-size: 0.9rem; }
-            .card-content { padding: 16px 16px 20px; }
+            .hero-avatar {
+                width: 130px;
+                height: 130px;
+            }
+            .terminal-body {
+                padding: 20px 18px 24px;
+            }
+            .terminal-header {
+                padding: 10px 16px;
+            }
+            .terminal-dots span {
+                width: 12px;
+                height: 12px;
+            }
+            .terminal-title {
+                font-size: 0.65rem;
+            }
+            .output-line {
+                font-size: 0.82rem;
+                flex-wrap: wrap;
+            }
+            .command-line .cmd {
+                font-size: 0.9rem;
+            }
+            .tabs {
+                border-radius: 6px;
+                padding: 4px;
+                gap: 2px;
+                max-width: 100%;
+            }
+            .tab-btn {
+                padding: 6px 12px;
+                font-size: 0.68rem;
+            }
+            .tab-btn::before {
+                content: '';
+            }
+            .card-content {
+                padding: 16px 16px 20px;
+            }
             .project-grid,
             .skill-grid,
             .article-grid,
             .volunteer-grid,
             .club-grid,
             .art-grid,
-            .workshop-grid { grid-template-columns: 1fr; }
-            .contact-box { padding: 28px 20px; }
-            .contact-links a { padding: 8px 16px; font-size: 0.78rem; }
-            .hero { padding: 80px 0 30px; }
-            .home-grid { grid-template-columns: 1fr; }
-            .category-grid { grid-template-columns: 1fr 1fr; }
-            .hero-wrapper { gap: 30px; }
+            .workshop-grid {
+                grid-template-columns: 1fr;
+            }
+            .contact-box {
+                padding: 28px 20px;
+            }
+            .contact-links a {
+                padding: 8px 16px;
+                font-size: 0.78rem;
+            }
+            .hero {
+                padding: 80px 0 30px;
+            }
+            .home-grid {
+                grid-template-columns: 1fr;
+            }
+            .category-grid {
+                grid-template-columns: 1fr 1fr;
+            }
+            .hero-wrapper {
+                gap: 24px;
+            }
         }
 
         @media (max-width: 480px) {
-            .hero-avatar { width: 130px; height: 130px; }
-            .math-bg { width: calc(100% + 20px); height: calc(100% + 20px); }
-            .terminal-body { padding: 16px 14px 20px; }
-            .output-line { font-size: 0.75rem; }
-            .command-line .cmd { font-size: 0.8rem; }
-            .terminal-prompt { font-size: 0.7rem; }
-            .category-grid { grid-template-columns: 1fr; }
-            .nav-links a { font-size: 0.78rem; padding: 6px 12px; }
+            .hero-avatar {
+                width: 110px;
+                height: 110px;
+            }
+            .terminal-body {
+                padding: 16px 14px 20px;
+            }
+            .output-line {
+                font-size: 0.75rem;
+            }
+            .command-line .cmd {
+                font-size: 0.8rem;
+            }
+            .terminal-prompt {
+                font-size: 0.7rem;
+            }
+            .tab-btn {
+                padding: 4px 10px;
+                font-size: 0.62rem;
+            }
+            .category-grid {
+                grid-template-columns: 1fr;
+            }
         }
     </style>
 </head>
-
 <body>
 
-    <!-- ---------- ANIMATED BACKGROUND ORBS ---------- -->
+    <!-- ── Animated Background ── -->
     <div class="bg-orbs">
         <span></span>
         <span></span>
         <span></span>
     </div>
 
-    <!-- ---------- FIXED NAVIGATION ---------- -->
+    <!-- ── Navigation ── -->
     <nav>
         <div class="container">
             <a href="#" class="nav-logo">Dunith<span class="highlight">.</span></a>
-            <button class="nav-toggle" id="navToggle" aria-label="Toggle navigation">
-                <i class="fas fa-bars"></i>
-            </button>
-            <ul class="nav-links" id="navLinks">
+            <ul class="nav-links">
                 <li><a class="active" data-tab="home">Home</a></li>
                 <li><a data-tab="projects">Projects</a></li>
                 <li><a data-tab="skills">Skills</a></li>
@@ -807,21 +887,18 @@
         </div>
     </nav>
 
-    <!-- ---------- HERO (Profile + Terminal) ---------- -->
+    <!-- ── HERO ── -->
     <section class="hero">
         <div class="container">
             <div class="hero-wrapper">
 
-                <!-- Profile Picture with Math Background -->
-                <div class="profile-wrapper">
-                    <div class="math-bg"></div>
-                    <img src="assets/Dunith.jpeg" alt="Dunith Desitha Athukorala" class="hero-avatar" />
-                </div>
+                <!-- Profile Picture -->
+                <img src="assets/Dunith.jpeg" alt="Dunith Desitha Athukorala" class="hero-avatar" />
 
-                <!-- Terminal window -->
+                <!-- Terminal Window -->
                 <div class="terminal-window">
 
-                    <!-- Terminal header -->
+                    <!-- Terminal Header -->
                     <div class="terminal-header">
                         <div class="terminal-dots">
                             <span class="dot-red"></span>
@@ -831,10 +908,10 @@
                         <span class="terminal-title">dunith@portfolio — bash</span>
                     </div>
 
-                    <!-- Terminal body -->
+                    <!-- Terminal Body -->
                     <div class="terminal-body">
 
-                        <!-- Prompt line -->
+                        <!-- Prompt -->
                         <div class="terminal-prompt">
                             <span class="user">dunith@portfolio</span>
                             <span class="host">~</span>
@@ -842,68 +919,87 @@
                             <span class="arrow">❯</span>
                         </div>
 
-                        <!-- Command line -->
+                        <!-- Command Line -->
                         <div class="command-line" id="commandLine">
                             <span class="dollar">$</span>
                             <span class="cmd" id="cmdText"></span>
                             <span class="cmd-cursor" id="cmdCursor"></span>
                         </div>
 
-                        <!-- Terminal output -->
+                        <!-- Terminal Output -->
                         <div class="terminal-output" id="terminalOutput">
 
-                            <!-- Line 1: Hi, I'm ... -->
                             <div class="output-line">
-                                <span class="value">Hi, I'm <span class="highlight-name">Dunith Desitha Athukorala</span>.</span>
+                                <span class="icon">📂</span>
+                                <span class="label">Hi, I'm</span>
+                                <span class="value green">Dunith Desitha Athukorala</span>
                             </div>
 
-                            <!-- Blank line -->
                             <div class="output-line">
-                                <span class="value">&nbsp;</span>
+                                <span class="icon"></span>
+                                <span class="value purple">Instrumentation &amp; Automation Engineering Technology Undergrad</span>
                             </div>
 
-                            <!-- Line 2: Role -->
                             <div class="output-line">
-                                <span class="value">Role: <span class="highlight-role">Instrumentation &amp; Automation Engineering Technology Undergrad</span></span>
+                                <span class="icon"></span>
+                                <span class="value purple">Information Technology Undergrad</span>
                             </div>
 
-                            <!-- Line 3: Passion -->
                             <div class="output-line">
-                                <span class="value">Passion: <span class="highlight-passion">AI/ML · Embedded Systems · IIoT</span></span>
+                                <span class="icon"></span>
+                                <span class="value cyan">AI/ML Enthusiast</span>
                             </div>
 
-                            <!-- Line 4: Open to -->
                             <div class="output-line">
-                                <span class="value">Open to: <span class="highlight-open">Internships · Collaboration · Tech Talks</span></span>
+                                <span class="icon">🧠</span>
+                                <span class="label">Passion</span>
+                                <span class="value cyan">AI/ML · Embedded Systems · IIoT</span>
                             </div>
 
-                            <!-- Blank line -->
+                            <div class="output-divider"></div>
+
                             <div class="output-line">
-                                <span class="value">&nbsp;</span>
+                                <span class="icon">🚀</span>
+                                <span class="label">Open to</span>
+                                <span class="value green">Internships · Collaboration · Tech Talks</span>
                             </div>
 
-                            <!-- Typing goal line (will be typed) -->
-                            <div class="output-line">
-                                <span class="value">
-                                    <span id="typingGoal" class="typing-text"></span>
-                                    <span class="typing-cursor" id="typingCursor"></span>
-                                </span>
+                            <div class="output-divider"></div>
+
+                            <!-- Typing Goal -->
+                            <div class="output-typing">
+                                <span class="prompt-symbol">❯</span>
+                                <span class="typing-text" id="typingGoal"></span>
+                                <span class="cursor"></span>
                             </div>
 
-                        </div> <!-- end terminal-output -->
+                        </div>
 
-                    </div> <!-- end terminal-body -->
-                </div> <!-- end terminal-window -->
+                    </div>
+                </div>
 
-            </div> <!-- end hero-wrapper -->
-        </div> <!-- end container -->
+            </div>
+        </div>
     </section>
 
-    <!-- ---------- MAIN CONTENT (TABS) ---------- -->
+    <!-- ── MAIN CONTENT ── -->
     <div class="main-content">
         <div class="container">
 
-            <!-- ---------- HOME TAB ---------- -->
+            <!-- Tabs -->
+            <div class="tabs">
+                <button class="tab-btn active" data-tab="home">Home</button>
+                <button class="tab-btn" data-tab="projects">Projects</button>
+                <button class="tab-btn" data-tab="skills">Skills</button>
+                <button class="tab-btn" data-tab="articles">Articles</button>
+                <button class="tab-btn" data-tab="volunteer">Volunteering</button>
+                <button class="tab-btn" data-tab="club">Club</button>
+                <button class="tab-btn" data-tab="art">Artworks</button>
+                <button class="tab-btn" data-tab="workshops">Workshops</button>
+                <button class="tab-btn" data-tab="contact">Contact</button>
+            </div>
+
+            <!-- ── HOME TAB ── -->
             <div id="home" class="tab-pane active-pane">
                 <div class="home-grid">
 
@@ -914,21 +1010,21 @@
                             <div class="edu-item">
                                 <i class="fas fa-graduation-cap"></i>
                                 <div>
-                                    <strong>Bachelor of Engineering Technology (Hons) in Instrumentation and Automation</strong>
-                                    <span>Faculty of Technology, University of Colombo · 2022 – 2026</span>
+                                    <strong>BSc in Instrumentation &amp; Automation Engineering Technology</strong>
+                                    <span>University of Colombo · 2023 – 2026</span>
                                 </div>
                             </div>
                             <div class="edu-item">
                                 <i class="fas fa-laptop-code"></i>
                                 <div>
-                                    <strong>Bachelor of Information Technology</strong>
-                                    <span>University of Colombo School of Computing · 2024 - Present</span>
+                                    <strong>Information Technology (Concurrent)</strong>
+                                    <span>University of Colombo</span>
                                 </div>
                             </div>
                         </div>
                     </div>
 
-                    <!-- Category Explorer Card -->
+                    <!-- Category Explorer -->
                     <div class="card home-card">
                         <div class="card-content">
                             <h3><span class="prompt">⏺</span> Explore My Work</h3>
@@ -961,13 +1057,14 @@
                 </div>
             </div>
 
-            <!-- ---------- PROJECTS TAB ---------- -->
+            <!-- ── PROJECTS TAB ── -->
             <div id="projects" class="tab-pane">
                 <div class="project-grid">
+
                     <div class="card">
                         <div class="card-img"><i class="fas fa-traffic-light"></i></div>
                         <div class="card-content">
-                            <h3><span class="prompt">⏺</span> AI-Based Adaptive Traffic Signal Optimization under Irregular Traffic Conditions</h3>
+                            <h3><span class="prompt">⏺</span> AI-Based Adaptive Traffic Signal Optimization</h3>
                             <div class="card-meta"><i class="fas fa-calendar-alt"></i> Oct 2025 – July 2026 · Final Year Research</div>
                             <p>Dueling Double DQN with CNN + SE-attention + LSTM, trained in SUMO. ~40% reduction in vehicle delay. Deployed with YOLO detection and ESP32 controllers.</p>
                             <a href="https://tinyurl.com/2s3erf35" class="card-link">Insights →</a> &nbsp;|&nbsp;
@@ -979,8 +1076,8 @@
                         <div class="card-img"><i class="fas fa-cube"></i></div>
                         <div class="card-content">
                             <h3><span class="prompt">⏺</span> Showroom Robot Upper Box – Design &amp; Fabrication</h3>
-                            <div class="card-meta"><i class="fas fa-calendar-alt"></i> Feb – Aug 2025 · Internship (Phoenix Industries)</div>
-                            <p>Designed upper enclosure in SolidWorks for Perspex fabrication. Programmed CNC router with HSMWorks G-code, achieving tight tolerances. Oversaw toolpath generation, machining, and assembly.</p>
+                            <div class="card-meta"><i class="fas fa-calendar-alt"></i> Feb – Aug 2025 · Internship</div>
+                            <p>Designed upper enclosure in SolidWorks for Perspex fabrication. Programmed CNC router with HSMWorks G-code. Oversaw toolpath generation, machining, and assembly.</p>
                             <span class="skill-tag">SolidWorks</span>
                             <span class="skill-tag">Perspex</span>
                             <span class="skill-tag">CNC Router</span>
@@ -1050,10 +1147,11 @@
                             <a href="https://github.com/Dunith-Code/EV-Price-Predictor" class="card-link">GitHub →</a>
                         </div>
                     </div>
+
                 </div>
             </div>
 
-            <!-- ---------- SKILLS TAB ---------- -->
+            <!-- ── SKILLS TAB ── -->
             <div id="skills" class="tab-pane">
                 <div class="skill-grid">
                     <div class="card">
@@ -1119,7 +1217,7 @@
                 </div>
             </div>
 
-            <!-- ---------- ARTICLES TAB ---------- -->
+            <!-- ── ARTICLES TAB ── -->
             <div id="articles" class="tab-pane">
                 <div class="article-grid">
                     <div class="card">
@@ -1133,7 +1231,7 @@
                 </div>
             </div>
 
-            <!-- ---------- VOLUNTEERING TAB ---------- -->
+            <!-- ── VOLUNTEERING TAB ── -->
             <div id="volunteer" class="tab-pane">
                 <div class="volunteer-grid">
                     <div class="card">
@@ -1163,7 +1261,7 @@
                 </div>
             </div>
 
-            <!-- ---------- CLUB TAB ---------- -->
+            <!-- ── CLUB TAB ── -->
             <div id="club" class="tab-pane">
                 <div class="club-grid">
                     <div class="card">
@@ -1201,7 +1299,7 @@
                 </div>
             </div>
 
-            <!-- ---------- ARTWORKS TAB ---------- -->
+            <!-- ── ARTWORKS TAB ── -->
             <div id="art" class="tab-pane">
                 <div class="art-grid">
                     <div class="card">
@@ -1243,7 +1341,7 @@
                 </div>
             </div>
 
-            <!-- ---------- WORKSHOPS TAB ---------- -->
+            <!-- ── WORKSHOPS TAB ── -->
             <div id="workshops" class="tab-pane">
                 <div class="workshop-grid">
                     <div class="card">
@@ -1276,7 +1374,7 @@
                 </div>
             </div>
 
-            <!-- ---------- CONTACT TAB ---------- -->
+            <!-- ── CONTACT TAB ── -->
             <div id="contact" class="tab-pane">
                 <div class="contact-box">
                     <h2><span class="highlight">$</span> Let's Connect</h2>
@@ -1289,25 +1387,23 @@
                 </div>
             </div>
 
-        </div> <!-- end container -->
-    </div> <!-- end main-content -->
+        </div>
+    </div>
 
-    <!-- ---------- FOOTER ---------- -->
+    <!-- ── FOOTER ── -->
     <footer>
         <p>
-            <span class="prompt">$</span> © <span id="year"></span> Dunith Desitha Athukorala. All rights reserved.
-            <br> Built with <i class="fas fa-heart"></i> on GitHub Pages
+            <span class="prompt">$</span> © <span id="year"></span> Dunith Desitha Athukorala. All rights reserved
+            &nbsp;·&nbsp; Built with <i class="fas fa-heart"></i> on GitHub Pages
         </p>
     </footer>
 
-    <!-- ============================================================
-    JAVASCRIPT
-    ============================================================ -->
+    <!-- ── SCRIPTS ── -->
     <script>
-        // ── Auto-update the year ──
+        // ── Auto-update year ──
         document.getElementById('year').textContent = new Date().getFullYear();
 
-        // ── Typing effect for the command ──
+        // ── Command Typing ──
         const cmdTextEl = document.getElementById('cmdText');
         const cmdCursor = document.getElementById('cmdCursor');
         const outputContainer = document.getElementById('terminalOutput');
@@ -1325,15 +1421,14 @@
                 setTimeout(() => {
                     cmdCursor.classList.add('hidden');
                     outputContainer.classList.add('visible');
-                    setTimeout(typeGoal, 2200);
+                    setTimeout(typeGoal, 2800);
                 }, 400);
             }
         }
 
-        // ── Typing effect for the goal (last line) ──
+        // ── Goal Typing ──
         const goalText = 'Build intelligent systems that bridge hardware and software to solve real-world problems.';
         const typingGoalEl = document.getElementById('typingGoal');
-        const typingCursor = document.getElementById('typingCursor');
         let goalIndex = 0;
 
         function typeGoal() {
@@ -1341,20 +1436,20 @@
                 typingGoalEl.textContent += goalText.charAt(goalIndex);
                 goalIndex++;
                 setTimeout(typeGoal, 40);
-            } else {
-                // Hide cursor when done
-                typingCursor.style.display = 'none';
             }
         }
 
-        // ── TAB SWITCHING ──
+        // ── Tab Switching ──
+        const tabBtns = document.querySelectorAll('.tab-btn');
         const navLinks = document.querySelectorAll('.nav-links a');
         const panes = document.querySelectorAll('.tab-pane');
         const categoryItems = document.querySelectorAll('.category-item');
-        const navToggle = document.getElementById('navToggle');
-        const navLinksContainer = document.getElementById('navLinks');
 
         function switchTab(tabId) {
+            tabBtns.forEach(b => {
+                b.classList.remove('active');
+                if (b.dataset.tab === tabId) b.classList.add('active');
+            });
             navLinks.forEach(l => {
                 l.classList.remove('active');
                 if (l.dataset.tab === tabId) l.classList.add('active');
@@ -1363,9 +1458,14 @@
                 p.classList.remove('active-pane');
                 if (p.id === tabId) p.classList.add('active-pane');
             });
-            navLinksContainer.classList.remove('open');
-            document.querySelector('.main-content').scrollIntoView({ behavior: 'smooth', block: 'start' });
+            document.querySelector('.tabs').scrollIntoView({ behavior: 'smooth', block: 'start' });
         }
+
+        tabBtns.forEach(btn => {
+            btn.addEventListener('click', () => {
+                switchTab(btn.dataset.tab);
+            });
+        });
 
         navLinks.forEach(link => {
             link.addEventListener('click', (e) => {
@@ -1381,17 +1481,7 @@
             });
         });
 
-        navToggle.addEventListener('click', () => {
-            navLinksContainer.classList.toggle('open');
-        });
-
-        document.addEventListener('click', (e) => {
-            if (!e.target.closest('nav')) {
-                navLinksContainer.classList.remove('open');
-            }
-        });
-
-        // ── On load ──
+        // ── Init ──
         document.addEventListener('DOMContentLoaded', () => {
             const activePane = document.querySelector('.tab-pane.active-pane');
             if (activePane) {
@@ -1399,6 +1489,10 @@
                 navLinks.forEach(l => {
                     l.classList.remove('active');
                     if (l.dataset.tab === id) l.classList.add('active');
+                });
+                tabBtns.forEach(b => {
+                    b.classList.remove('active');
+                    if (b.dataset.tab === id) b.classList.add('active');
                 });
             }
             setTimeout(typeCommand, 800);
