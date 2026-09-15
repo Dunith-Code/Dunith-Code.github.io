@@ -3,7 +3,7 @@
 <h3 align="center">Instrumentation &amp; Automation | AI/ML | Full-Stack Developer</h3>
 
 <p align="center">
-  <img src="assets/Dunith.jpeg" alt="Dunith Desitha Athukorala" width="150" height="150" style="border-radius: 50%; border: 3px solid #4a9eff;" />
+  <img src="https://github.com/Dunith-Code.png" alt="Dunith Desitha Athukorala" width="150" height="150" style="border-radius: 50%; border: 3px solid #4a9eff;" />
 </p>
 
 <p align="center">
@@ -18,7 +18,7 @@
 <a href="https://github.com/Dunith-Code" target="blank"><img align="center" src="https://raw.githubusercontent.com/rahuldkjain/github-profile-readme-generator/master/src/images/icons/Social/github.svg" alt="Dunith-Code" height="30" width="40" /></a>
 <a href="https://medium.com/@Dunith-Write" target="blank"><img align="center" src="https://raw.githubusercontent.com/rahuldkjain/github-profile-readme-generator/master/src/images/icons/Social/medium.svg" alt="@Dunith-Write" height="30" width="40" /></a>
 <a href="https://behance.net/dunith" target="blank"><img align="center" src="https://raw.githubusercontent.com/rahuldkjain/github-profile-readme-generator/master/src/images/icons/Social/behance.svg" alt="dunith" height="30" width="40" /></a>
-<a href="mailto:dunithofficial@gmail.com" target="blank"><img align="center" src="https://raw.githubusercontent.com/rahuldkjain/github-profile-readme-generator/master/src/images/icons/Social/gmail.svg" alt="email" height="30" width="40" /></a>
+<a href="mailto:dunithofficial@gmail.com" target="blank"><img align="center" src="https://cdn.simpleicons.org/gmail/EA4335" alt="email" height="30" width="30" /></a>
 </p>
 
 ---
@@ -46,27 +46,6 @@
   <a href="https://www.raspberrypi.org/" target="_blank" rel="noreferrer"><img src="https://raw.githubusercontent.com/devicons/devicon/master/icons/raspberrypi/raspberrypi-original.svg" alt="raspberrypi" width="40" height="40"/></a>
   <a href="https://git-scm.com/" target="_blank" rel="noreferrer"><img src="https://www.vectorlogo.zone/logos/git-scm/git-scm-icon.svg" alt="git" width="40" height="40"/></a>
   <a href="https://www.linux.org/" target="_blank" rel="noreferrer"><img src="https://raw.githubusercontent.com/devicons/devicon/master/icons/linux/linux-original.svg" alt="linux" width="40" height="40"/></a>
-</p>
-
----
-
-<h3 align="center">📊 GitHub Stats:</h3>
-
-<p align="center">
-  <img src="https://github-readme-stats.vercel.app/api?username=Dunith-Code&show_icons=true&theme=tokyonight&hide_border=true&count_private=true&include_all_commits=true" alt="Dunith's GitHub Stats" height="180" />
-  <img src="https://github-readme-stats.vercel.app/api/top-langs/?username=Dunith-Code&layout=compact&theme=tokyonight&hide_border=true&langs_count=8" alt="Top Languages" height="180" />
-</p>
-
-<p align="center">
-  <img src="https://github-readme-streak-stats.herokuapp.com/?user=Dunith-Code&theme=tokyonight&hide_border=true" alt="Dunith's Streak" />
-</p>
-
-<p align="center">
-  <img src="https://github-readme-activity-graph.vercel.app/graph?username=Dunith-Code&theme=tokyo-night&hide_border=true&area=true" alt="Contribution Graph" />
-</p>
-
-<p align="center">
-  <img src="https://github-profile-trophy.vercel.app/?username=Dunith-Code&theme=tokyonight&no-frame=true&no-bg=true&row=1&column=6" alt="Trophies" />
 </p>
 
 ---
