@@ -108,22 +108,13 @@
   <a href="https://git-scm.com/" target="_blank" rel="noreferrer"><img src="https://www.vectorlogo.zone/logos/git-scm/git-scm-icon.svg" alt="git" width="40" height="40"/></a>
   <a href="https://github.com/" target="_blank" rel="noreferrer"><img src="https://cdn.simpleicons.org/github/ffffff" alt="github" width="40" height="40"/></a>
   <a href="https://www.linux.org/" target="_blank" rel="noreferrer"><img src="https://raw.githubusercontent.com/devicons/devicon/master/icons/linux/linux-original.svg" alt="linux" width="40" height="40"/></a>
-  <a href="https://code.visualstudio.com/" target="_blank" rel="noreferrer"><img src="https://cdn.simpleicons.org/visualstudiocode/007ACC" alt="vscode" width="40" height="40"/></a>
+  <a href="https://code.visualstudio.com/" target="_blank" rel="noreferrer"><img src="https://cdn.simpleicons.org/visualstudiocode" alt="vscode" width="40" height="40"/></a>
   <a href="https://jupyter.org/" target="_blank" rel="noreferrer"><img src="https://cdn.simpleicons.org/jupyter/F37626" alt="jupyter" width="40" height="40"/></a>
 </p>
 
 ---
 
-<h3 align="center">📌 Featured Projects</h3>
-
-<p align="center">
-  <a href="https://github.com/Dunith-Code">
-    <img src="https://github-readme-stats.vercel.app/api/pin/?username=Dunith-Code&repo=GreenHeavenDAQ&theme=tokyonight&hide_border=true" />
-  </a>
-  <a href="https://github.com/Dunith-Code">
-    <img src="https://github-readme-stats.vercel.app/api/pin/?username=Dunith-Code&repo=RAG-Application&theme=tokyonight&hide_border=true" />
-  </a>
-</p>
+<h3 align="center">📌 Projects</h3>
 
 <p align="center">
   <em>🔗 See all projects on my <a href="https://dunith-code.github.io"><strong>portfolio</strong></a></em>
