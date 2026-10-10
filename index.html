@@ -148,7 +148,6 @@
         .command-line { display: flex; align-items: center; gap: 10px; flex-wrap: wrap; min-height: 2.4rem; }
         .command-line .dollar { color: #4a9eff; font-weight: 700; font-size: 1rem; }
         .command-line .cmd { color: #f0f6fc; font-weight: 500; font-size: 1rem; display: inline-flex; align-items: center; gap: 2px; }
-        .command-line .cmd .highlight-cmd { color: #8b5cf6; }
         .command-line .cmd-cursor {
             display: inline-block; width: 8px; height: 1.1em; background: #00d4ff;
             animation: blink 0.8s step-end infinite; border-radius: 2px; margin-left: 2px;
@@ -283,17 +282,74 @@
             border-color: rgba(139, 92, 246, 0.08);
             color: #8b949e; font-style: italic;
         }
+        .skill-tag.qa {
+            background: rgba(0, 212, 255, 0.05);
+            border-color: rgba(0, 212, 255, 0.12);
+            color: #00d4ff;
+        }
         .skill-tag::before { content: '› '; color: #4a9eff; font-weight: 700; }
+        .skill-tag.qa::before { color: #00d4ff; }
 
         /* ---------- CONTACT ---------- */
         .contact-box {
-            max-width: 600px; margin: 0 auto; text-align: center;
+            max-width: 720px; margin: 0 auto; text-align: center;
             background: #0d1117; border-radius: 8px;
             padding: 48px 40px; border: 1px solid rgba(255, 255, 255, 0.04);
         }
         .contact-box h2 { font-size: 1.8rem; font-weight: 700; color: #f0f6fc; margin-bottom: 8px; }
         .contact-box h2 .highlight { color: #4a9eff; }
-        .contact-box p { color: #8b949e; margin: 12px 0 28px; font-size: 0.92rem; }
+        .contact-box > p { color: #8b949e; margin: 12px 0 24px; font-size: 0.92rem; }
+
+        /* Focus Areas */
+        .focus-areas {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
+            gap: 12px;
+            margin: 24px 0 28px;
+        }
+        .focus-item {
+            background: rgba(74, 158, 255, 0.04);
+            border: 1px solid rgba(74, 158, 255, 0.1);
+            border-radius: 8px;
+            padding: 14px 12px;
+            transition: all 0.3s ease;
+            text-align: center;
+        }
+        .focus-item:hover {
+            background: rgba(74, 158, 255, 0.08);
+            border-color: rgba(74, 158, 255, 0.25);
+            transform: translateY(-3px);
+        }
+        .focus-item .focus-icon {
+            font-size: 1.4rem;
+            color: #4a9eff;
+            margin-bottom: 8px;
+            display: block;
+        }
+        .focus-item .focus-label {
+            font-size: 0.78rem;
+            font-weight: 600;
+            color: #f0f6fc;
+            display: block;
+            letter-spacing: 0.02em;
+            margin-bottom: 3px;
+        }
+        .focus-item .focus-desc {
+            font-size: 0.65rem;
+            color: #8b949e;
+            letter-spacing: 0.01em;
+            line-height: 1.4;
+        }
+        .focus-item.qa {
+            background: rgba(0, 212, 255, 0.04);
+            border-color: rgba(0, 212, 255, 0.15);
+        }
+        .focus-item.qa:hover {
+            background: rgba(0, 212, 255, 0.08);
+            border-color: rgba(0, 212, 255, 0.3);
+        }
+        .focus-item.qa .focus-icon { color: #00d4ff; }
+
         .contact-links { display: flex; justify-content: center; gap: 16px; flex-wrap: wrap; }
         .contact-links a {
             display: inline-flex; align-items: center; gap: 8px;
@@ -479,6 +535,14 @@
             color: #4a9eff; border-color: #4a9eff;
             background: rgba(74, 158, 255, 0.1);
             box-shadow: 0 0 12px rgba(74, 158, 255, 0.1);
+        }
+        .filter-btn.qa-filter.active {
+            color: #00d4ff; border-color: #00d4ff;
+            background: rgba(0, 212, 255, 0.1);
+            box-shadow: 0 0 12px rgba(0, 212, 255, 0.15);
+        }
+        .filter-btn.qa-filter:hover {
+            color: #00d4ff; border-color: rgba(0, 212, 255, 0.3);
         }
         .sort-select {
             background: rgba(255, 255, 255, 0.03);
@@ -700,10 +764,10 @@
                                 <span class="value"><span class="highlight-role">Information Technology Undergrad</span></span>
                             </div>
                             <div class="output-line">
-                                <span class="value"><span class="highlight-role">AI/Machine Learning | Software Engineering | Data Science | Embedded Systems</span></span>
+                                <span class="value"><span class="highlight-role">AI/ML | Software Engineering | QA Engineering | Data Science | Embedded Systems</span></span>
                             </div>
                             <div class="output-line">
-                                <span class="value">Passion: <span class="highlight-passion">AI/ML · Software Engineering · Data Science · Embedded Systems · IIoT</span></span>
+                                <span class="value">Passion: <span class="highlight-passion">AI/ML · Software Engineering · QA · Data Science · Embedded Systems · IIoT</span></span>
                             </div>
                             <div class="output-line">
                                 <span class="value">Open to: <span class="highlight-open">Internships · Collaboration · Tech Talks</span></span>
@@ -771,7 +835,6 @@
                             <h3><span class="prompt">⏺</span> 📊 GitHub Analytics</h3>
 
                             <div class="analytics-grid">
-                                <!-- Language Breakdown -->
                                 <div class="analytics-card">
                                     <h4>Most Used Languages</h4>
                                     <div class="lang-list">
@@ -867,7 +930,6 @@
                                     </div>
                                 </div>
 
-                                <!-- Right Column: Stats + Activity -->
                                 <div class="analytics-card">
                                     <h4>Contribution Activity</h4>
 
@@ -877,7 +939,7 @@
                                             <span class="qs-label">Contributions</span>
                                         </div>
                                         <div class="quick-stat">
-                                            <span class="qs-value">13</span>
+                                            <span class="qs-value">14</span>
                                             <span class="qs-label">Repositories</span>
                                         </div>
                                         <div class="quick-stat">
@@ -893,11 +955,9 @@
                                     <div class="stats-grid" style="margin-top: 16px;">
                                         <img src="https://github-readme-stats.vercel.app/api?username=Dunith-Code&show_icons=true&theme=tokyonight&hide_border=true&count_private=true&include_all_commits=true&bg_color=0d1117&title_color=4a9eff&icon_color=00d4ff&text_color=c9d1d9" alt="GitHub Stats" height="160" />
                                     </div>
-
                                 </div>
                             </div>
 
-                            <!-- Full Width Contribution Graph -->
                             <div class="stats-grid" style="margin-top: 20px;">
                                 <img src="https://ghchart.rshah.org/4a9eff/Dunith-Code" alt="Contribution Graph" style="width: 100%; max-width: 800px;" />
                             </div>
@@ -920,9 +980,9 @@
                         <button class="filter-btn active" data-filter="all">All</button>
                         <button class="filter-btn" data-filter="fullstack">🚀 Full Stack</button>
                         <button class="filter-btn" data-filter="ai-ml">🤖 AI/ML</button>
+                        <button class="filter-btn qa-filter" data-filter="qa">🧪 QA / Testing</button>
                         <button class="filter-btn" data-filter="analytics">📊 Analytics</button>
                         <button class="filter-btn" data-filter="automation">🔧 Automation</button>
-                        <button class="filter-btn" data-filter="bugs">🐞 Bug Fixes</button>
                     </div>
                     <div class="filter-group">
                         <span class="filter-label">Sort:</span>
@@ -939,18 +999,19 @@
                 <div class="project-grid" id="projectGrid">
 
                     <!-- ⭐ PINNED: AI Traffic Signal -->
-                    <div class="card project-card pinned" data-pinned="true" data-category="ai-ml" data-date="2026-07" data-title="AI-Based Adaptive Traffic Signal Optimization">
+                    <div class="card project-card pinned" data-pinned="true" data-category="ai-ml qa" data-date="2026-07" data-title="AI-Based Adaptive Traffic Signal Optimization">
                         <div class="card-img"><i class="fas fa-traffic-light"></i></div>
                         <div class="card-content">
                             <h3><span class="prompt">⏺</span> 🚦 AI-Based Adaptive Traffic Signal Optimization under Irregular Traffic Conditions</h3>
-                            <div class="card-meta"><i class="fas fa-calendar-alt"></i> Oct 2025 – July 2026 · Final Year Research</div>
-                            <p>Final year research implementing a <strong>Dueling Double DQN</strong> traffic-signal controller with a <strong>CNN + SE-attention + LSTM</strong> architecture in PyTorch, trained in the SUMO simulator via TraCI. Integrated <strong>YOLO vehicle detection</strong> with multi-class recognition and emergency-vehicle override, plus prioritized experience replay and attention mechanisms for lane-level adaptation. Achieved <strong>~40% reduction in average vehicle delay</strong> compared to fixed-time signals across multiple scenarios, then deployed on a physical prototype with a 4-camera setup and dual ESP32 controllers.</p>
+                            <div class="card-meta"><i class="fas fa-calendar-alt"></i> Oct 2025 – Jul 2026 · Final Year Research</div>
+                            <p>Evaluated <strong>YOLO-based vehicle detection</strong> and <strong>Dueling Double DQN</strong> traffic optimization in SUMO simulation to assess system performance under irregular traffic conditions. Integrated the trained model with ESP32 hardware and tested the end-to-end system across simulation and physical deployment stages.</p>
                             <span class="skill-tag">PyTorch</span>
                             <span class="skill-tag">Dueling DQN</span>
-                            <span class="skill-tag">CNN · LSTM</span>
                             <span class="skill-tag">YOLOv11</span>
                             <span class="skill-tag">SUMO / TraCI</span>
                             <span class="skill-tag">ESP32</span>
+                            <span class="skill-tag qa">System Testing</span>
+                            <span class="skill-tag qa">Simulation Validation</span>
                             <a href="https://tinyurl.com/2s3erf35" class="card-link">Insights →</a> &nbsp;|&nbsp;
                             <a href="#" class="card-link">GitHub →</a><br/>
                             <a href="https://tinyurl.com/4fkdyben" class="card-link">Demo Day →</a> &nbsp;|&nbsp;
@@ -958,15 +1019,79 @@
                         </div>
                     </div>
 
+                    <!-- EduPulse Multi-Tenant SaaS -->
+                    <div class="card project-card" data-category="fullstack qa" data-date="2026-10" data-title="EduPulse Multi-Tenant SaaS Tuition Institutes">
+                        <div class="card-img"><i class="fas fa-graduation-cap"></i></div>
+                        <div class="card-content">
+                            <h3><span class="prompt">⏺</span> 🎓 EduPulse – Multi-Tenant SaaS for Tuition Institutes</h3>
+                            <div class="card-meta"><i class="fas fa-calendar-alt"></i> Oct 2026 – Present · Self-Learning</div>
+                            <p>Tested <strong>JWT authentication</strong>, <strong>role-based access control</strong>, and <strong>tenant isolation</strong>, with six passing automated authentication tests and <strong>PostgreSQL Testcontainers</strong> validation. Implementing Spring Boot and PostgreSQL features with a focus on secure data access, tenant separation, and reliable backend behaviour.</p>
+                            <span class="skill-tag">Spring Boot</span>
+                            <span class="skill-tag">PostgreSQL</span>
+                            <span class="skill-tag">JWT</span>
+                            <span class="skill-tag">Multi-Tenancy</span>
+                            <span class="skill-tag qa">Testcontainers</span>
+                            <span class="skill-tag qa">Auth Testing</span>
+                            <span class="skill-tag qa">Integration Tests</span>
+                            <a href="#" class="card-link">GitHub →</a>
+                        </div>
+                    </div>
+
                     <!-- PetalPure E-Commerce -->
-                    <div class="card project-card" data-category="fullstack" data-date="2026-11" data-title="PetalPure Full Stack E-Commerce Platform">
+                    <div class="card project-card" data-category="fullstack qa" data-date="2026-11" data-title="PetalPure Full Stack E-Commerce Platform">
                         <div class="card-img"><i class="fas fa-spa"></i></div>
                         <div class="card-content">
                             <h3><span class="prompt">⏺</span> 🌸 PetalPure – Full-Stack E-Commerce Platform</h3>
                             <div class="card-meta"><i class="fas fa-calendar-alt"></i> Nov 2026 · Cosmetics Store (Deployed)</div>
-                            <p>Production-ready cosmetics store built with Next.js and a normalized PostgreSQL schema (<strong>size variants with per-variant price &amp; stock</strong>, order-item price snapshots). Features a REST API, admin panel for products, Cloudinary image uploads, inventory, and order status workflow. <strong>Reserved stock in atomic transactions</strong> to prevent overselling. Integrated <strong>PayHere Sandbox payments</strong> with server-side request signing and signature- &amp; amount-verified callbacks, plus a WhatsApp ordering flow. Secured with Argon2 hashing, httpOnly JWT sessions, two-layer admin auth, Zod validation, and rate limiting. Unit tested with GitHub Actions CI.</p>
+                            <p>Tested e-commerce workflows involving <strong>product inventory, order processing, authentication, and payment integration</strong>, including validation and error-handling scenarios. Implemented server-side validation, role-based access control, and <strong>atomic inventory transactions</strong> to improve application security and prevent concurrent stock overselling.</p>
+                            <span class="skill-tag">Next.js</span>
+                            <span class="skill-tag">TypeScript</span>
+                            <span class="skill-tag">Prisma</span>
+                            <span class="skill-tag">PayHere API</span>
+                            <span class="skill-tag">Argon2 · JWT</span>
+                            <span class="skill-tag qa">Workflow Testing</span>
+                            <span class="skill-tag qa">Error Handling</span>
+                            <span class="skill-tag qa">CI (GitHub Actions)</span>
                             <a href="https://github.com/Dunith-Code/PetalPure" class="card-link">GitHub →</a> &nbsp;|&nbsp;
                             <a href="https://petalpure.vercel.app" class="card-link">Live app →</a>
+                        </div>
+                    </div>
+
+                    <!-- POS & E-Commerce (QA FOCUSED) -->
+                    <div class="card project-card" data-category="fullstack qa" data-date="2026-09" data-title="POS and E-Commerce Order Payment System">
+                        <div class="card-img"><i class="fas fa-cash-register"></i></div>
+                        <div class="card-content">
+                            <h3><span class="prompt">⏺</span> 🛒 POS &amp; E-Commerce Order/Payment System</h3>
+                            <div class="card-meta"><i class="fas fa-calendar-alt"></i> Sep 2026 · Software Engineering Assignment</div>
+                            <p>Developed and executed <strong>automated tests for order and payment expiry, failures, timeouts, idempotency, cancellation, and refund simulation</strong>, achieving <strong>11 passing tests</strong>. Tested concurrency-safe inventory reservation using <strong>20 simultaneous requests</strong> and atomic SQL updates to verify stock consistency under concurrent access.</p>
+                            <span class="skill-tag">Node.js</span>
+                            <span class="skill-tag">TypeScript</span>
+                            <span class="skill-tag">PostgreSQL</span>
+                            <span class="skill-tag">Prisma</span>
+                            <span class="skill-tag qa">11 Automated Tests</span>
+                            <span class="skill-tag qa">Concurrency Testing</span>
+                            <span class="skill-tag qa">Idempotency Testing</span>
+                            <span class="skill-tag qa">Vitest</span>
+                            <a href="https://drive.google.com/file/d/1fk1vHiz9ar_B5NGYI4MxX47fn_FXH7Qr/view?usp=drive_link" class="card-link">Walkthrough →</a> &nbsp;|&nbsp;
+                            <a href="https://github.com/Dunith-Code/pos-and-ecommerce-system" class="card-link">GitHub →</a><br/>
+                            <a href="https://pos-ecommerce-section02.netlify.app/" class="card-link">POS System →</a>
+                        </div>
+                    </div>
+
+                    <!-- Weather Analytics -->
+                    <div class="card project-card" data-category="fullstack qa" data-date="2026-09" data-title="Weather Analytics Web Application">
+                        <div class="card-img"><i class="fas fa-cloud-sun"></i></div>
+                        <div class="card-content">
+                            <h3><span class="prompt">⏺</span> ☀️ Weather Analytics Web Application</h3>
+                            <div class="card-meta"><i class="fas fa-calendar-alt"></i> Sep 2026 · Self-Learning</div>
+                            <p>Integrated weather REST APIs into a React and TypeScript dashboard and implemented <strong>Auth0 authentication</strong>. Used <strong>Jest for automated testing</strong> and <strong>Docker Compose</strong> to support a consistent application environment.</p>
+                            <span class="skill-tag">React</span>
+                            <span class="skill-tag">TypeScript</span>
+                            <span class="skill-tag">Auth0</span>
+                            <span class="skill-tag">REST APIs</span>
+                            <span class="skill-tag qa">Jest</span>
+                            <span class="skill-tag qa">Docker Compose</span>
+                            <a href="https://github.com/Dunith-Code/weather-analytics-application" class="card-link">GitHub →</a>
                         </div>
                     </div>
 
@@ -981,38 +1106,13 @@
                         </div>
                     </div>
 
-                    <!-- POS & E-Commerce -->
-                    <div class="card project-card" data-category="fullstack" data-date="2026-09" data-title="POS and E-Commerce Order Payment System">
-                        <div class="card-img"><i class="fas fa-cash-register"></i></div>
-                        <div class="card-content">
-                            <h3><span class="prompt">⏺</span> 🛒 POS &amp; E-Commerce Order/Payment System</h3>
-                            <div class="card-meta"><i class="fas fa-calendar-alt"></i> Sep 2026 · Full-Stack Monorepo (72hr Assessment)</div>
-                            <p>Two concurrency-safe order systems (Point-of-Sale + E-Commerce) sharing a single domain core via npm workspaces. Prevents overselling under simultaneous purchase requests using <strong>atomic conditional SQL updates</strong> — verified with an automated test firing 20 parallel requests against 5 units of stock. Full order lifecycle with reservation expiry, mock payment gateway (success/failure/timeout + idempotency), and cancellation/refund handling enforced by a strict state machine.</p>
-                            <a href="https://drive.google.com/file/d/1fk1vHiz9ar_B5NGYI4MxX47fn_FXH7Qr/view?usp=drive_link" class="card-link">Screen Walkthrough →</a> &nbsp;|&nbsp;
-                            <a href="https://github.com/Dunith-Code/pos-and-ecommerce-system" class="card-link">GitHub →</a><br/>
-                            <a href="https://pos-ecommerce-section02.netlify.app/" class="card-link">POS Order &amp; Inventory System →</a><br/>
-                            <a href="#" class="card-link">E-Commerce Checkout &amp; Payment System →</a>
-                        </div>
-                    </div>
-
-                    <!-- Weather Analytics -->
-                    <div class="card project-card" data-category="fullstack" data-date="2026-08" data-title="Weather Analytics Application">
-                        <div class="card-img"><i class="fas fa-cloud-sun"></i></div>
-                        <div class="card-content">
-                            <h3><span class="prompt">⏺</span> ☀️ Weather Analytics Application</h3>
-                            <div class="card-meta"><i class="fas fa-calendar-alt"></i> Aug 2026 · Full-Stack Assignment (Fidenz)</div>
-                            <p>Full-stack platform ranking 10 cities by a custom <strong>Comfort Index</strong> grounded in Thom's Discomfort Index (1959) with a temperature-dependent wind-chill interaction and Magnus-Tetens dew point. Backend fetches and scores cities concurrently via <code>Task.WhenAll</code>, with a two-tier caching layer (raw weather + computed rankings) and a HIT/MISS debug endpoint. Secured with Auth0 (email MFA, whitelist-only signups) and JWT-validated API endpoints. Includes xUnit tests, dark mode, sortable rankings, and a 24-hour temperature trend chart per city.</p>
-                            <a href="https://github.com/Dunith-Code/weather-analytics-application" class="card-link">GitHub →</a>
-                        </div>
-                    </div>
-
                     <!-- HR Analytics -->
                     <div class="card project-card" data-category="analytics" data-date="2026-06" data-title="HR Analytics Dashboard Employee Attrition">
                         <div class="card-img"><i class="fas fa-users-gear"></i></div>
                         <div class="card-content">
                             <h3><span class="prompt">⏺</span> 📊 HR Analytics Dashboard — Employee Attrition Analysis</h3>
                             <div class="card-meta"><i class="fas fa-calendar-alt"></i> 2026 · End-to-End Data Analytics Project</div>
-                            <p>End-to-end analytics pipeline analyzing attrition patterns across <strong>1,470 employee records</strong>. Cleaned and transformed raw HR data in Python (pandas), engineered derived features (age/income bands, satisfaction labels), and loaded structured data into PostgreSQL. Built a 3-page interactive Power BI dashboard with custom DAX measures (attrition rate, average tenure, headcount) and drill-through analysis. Key finding: <strong>employees working overtime leave at nearly 3× the rate</strong> of those who don't.</p>
+                            <p>End-to-end analytics pipeline analyzing attrition patterns across <strong>1,470 employee records</strong>. Cleaned and transformed raw HR data in Python (pandas), engineered derived features, and loaded structured data into PostgreSQL. Built a 3-page interactive Power BI dashboard with custom DAX measures. Key finding: <strong>employees working overtime leave at nearly 3× the rate</strong> of those who don't.</p>
                             <a href="https://github.com/Dunith-Code/HR-Analytics-Dashboard" class="card-link">GitHub →</a>
                         </div>
                     </div>
@@ -1023,18 +1123,24 @@
                         <div class="card-content">
                             <h3><span class="prompt">⏺</span> 📊 Retail Business Performance Dashboard</h3>
                             <div class="card-meta"><i class="fas fa-calendar-alt"></i> 2026 · End-to-End Data Analytics Project</div>
-                            <p>End-to-end analytics pipeline on a 10,000-row retail sales dataset — cleaned and validated across Excel (Power Query) and Python (pandas), then modeled in Power BI as a star schema (1 fact + 4 dimension tables) with custom DAX KPIs. Delivered a 3-page interactive dashboard (Executive Summary, Product Analysis, Ad Hoc) that surfaced a <strong>discount strategy actively losing money</strong> on a key product line, documented in a written stakeholder memo.</p>
+                            <p>End-to-end analytics pipeline on a 10,000-row retail sales dataset — cleaned and validated across Excel (Power Query) and Python (pandas), then modeled in Power BI as a star schema (1 fact + 4 dimension tables) with custom DAX KPIs. Delivered a 3-page interactive dashboard that surfaced a <strong>discount strategy actively losing money</strong> on a key product line.</p>
                             <a href="https://github.com/Dunith-Code/retail-business-performance-dashboard" class="card-link">GitHub →</a>
                         </div>
                     </div>
 
-                    <!-- Workshop Registration -->
-                    <div class="card project-card" data-category="bugs fullstack" data-date="2026-09" data-title="Workshop Registration System Bug Fix">
+                    <!-- Workshop Registration (QA FOCUSED) -->
+                    <div class="card project-card" data-category="qa fullstack" data-date="2026-09" data-title="Workshop Registration System Bug Fix">
                         <div class="card-img"><i class="fas fa-bug"></i></div>
                         <div class="card-content">
                             <h3><span class="prompt">⏺</span> 🐞 Workshop Registration System – Bug Fix &amp; Security Assessment</h3>
                             <div class="card-meta"><i class="fas fa-calendar-alt"></i> Sep 2026 · Full-Stack Technical Assessment</div>
-                            <p>Diagnosed and resolved <strong>7 defects</strong> in a deliberately bug-seeded PHP/MySQL application — including a <strong>SQL injection vulnerability</strong>, a request validation logic error, and silent database failure handling. Implemented a <strong>concurrency-safe seat capacity check</strong> using transactional row-level locking (<code>SELECT ... FOR UPDATE</code>) to prevent overselling under simultaneous registrations. Migrated raw SQL string concatenation to parameterized prepared statements across all write operations.</p>
+                            <p>Diagnosed and resolved <strong>7 defects</strong> in a deliberately bug-seeded PHP/MySQL application — including a <strong>SQL injection vulnerability</strong>, a request validation logic error, and silent database failure handling. Implemented a <strong>concurrency-safe seat capacity check</strong> using transactional row-level locking (<code>SELECT ... FOR UPDATE</code>) to prevent overselling under simultaneous registrations.</p>
+                            <span class="skill-tag">PHP 8.2</span>
+                            <span class="skill-tag">MySQL 8.0</span>
+                            <span class="skill-tag qa">Bug Diagnosis</span>
+                            <span class="skill-tag qa">SQL Injection Fix</span>
+                            <span class="skill-tag qa">Row-Level Locking</span>
+                            <span class="skill-tag qa">Failure-Path Testing</span>
                             <a href="#" class="card-link">GitHub →</a>
                         </div>
                     </div>
@@ -1096,13 +1202,18 @@
                         </div>
                     </div>
 
-                    <!-- GreenHeavenDAQ -->
-                    <div class="card project-card" data-category="fullstack automation" data-date="2025-11" data-title="GreenHeavenDAQ">
+                    <!-- GreenHeavenDAQ (QA FOCUSED) -->
+                    <div class="card project-card" data-category="automation qa" data-date="2024-11" data-title="Smart Home Garden DAQ System GreenHeaven">
                         <div class="card-img"><i class="fas fa-chart-line"></i></div>
                         <div class="card-content">
-                            <h3><span class="prompt">⏺</span> 🌿 GreenHeavenDAQ</h3>
-                            <div class="card-meta"><i class="fas fa-calendar-alt"></i> Nov 2025 · DAQ Mini Project</div>
-                            <p>ESP32-based IoT system for environmental monitoring and automated irrigation control. Streamlit dashboard with live data visualization.</p>
+                            <h3><span class="prompt">⏺</span> 🌿 Smart Home Garden DAQ System (GreenHeaven)</h3>
+                            <div class="card-meta"><i class="fas fa-calendar-alt"></i> Oct – Nov 2024 · DAQ Mini Project</div>
+                            <p>Integrated <strong>ESP32-based sensors</strong> and a real-time data pipeline with a web dashboard for environmental monitoring. Implemented and tested <strong>threshold-based automation</strong> and <strong>real-time alerts</strong> using embedded C++ and connected sensors.</p>
+                            <span class="skill-tag">ESP32</span>
+                            <span class="skill-tag">Embedded C++</span>
+                            <span class="skill-tag">Streamlit</span>
+                            <span class="skill-tag qa">Sensor Validation</span>
+                            <span class="skill-tag qa">Automation Testing</span>
                             <a href="https://tinyurl.com/greenheaven24" class="card-link">Live Demo →</a> &nbsp;|&nbsp;
                             <a href="https://github.com/Dunith-Code/GreenHeavenDAQ" class="card-link">GitHub →</a>
                         </div>
@@ -1138,6 +1249,28 @@
                 <div class="skill-grid">
                     <div class="card">
                         <div class="card-content">
+                            <h3><span class="prompt">⏺</span> 🧪 QA &amp; Software Testing</h3>
+                            <div>
+                                <span class="skill-tag qa">Automated Testing (Vitest, Jest, PyTest, JUnit)</span>
+                                <span class="skill-tag qa">Unit Testing</span>
+                                <span class="skill-tag qa">Integration Testing</span>
+                                <span class="skill-tag qa">Concurrency Testing</span>
+                                <span class="skill-tag qa">API Testing</span>
+                                <span class="skill-tag qa">Auth Testing (JWT)</span>
+                                <span class="skill-tag qa">Testcontainers</span>
+                                <span class="skill-tag qa">Postman</span>
+                                <span class="skill-tag qa">Test Case Design</span>
+                                <span class="skill-tag qa">Bug Diagnosis &amp; Root Cause Analysis</span>
+                                <span class="skill-tag qa">Failure-Path Testing</span>
+                                <span class="skill-tag qa">Error Handling Validation</span>
+                                <span class="skill-tag qa">Regression Testing</span>
+                                <span class="skill-tag qa">CI Testing (GitHub Actions)</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="card">
+                        <div class="card-content">
                             <h3><span class="prompt">⏺</span> 🧠 AI &amp; Data Science</h3>
                             <div>
                                 <span class="skill-tag">PyTorch / TensorFlow</span>
@@ -1151,6 +1284,7 @@
                             </div>
                         </div>
                     </div>
+
                     <div class="card">
                         <div class="card-content">
                             <h3><span class="prompt">⏺</span> 📈 Data Analytics &amp; Statistics</h3>
@@ -1166,20 +1300,20 @@
                                 <span class="skill-tag">One-Way ANOVA</span>
                                 <span class="skill-tag">Independent Samples T-Test</span>
                                 <span class="skill-tag">Cronbach's Alpha</span>
-                                <span class="skill-tag">Survey Design &amp; Sampling</span>
                                 <span class="skill-tag">SPSS</span>
                                 <span class="skill-tag">Hypothesis Testing</span>
-                                <span class="skill-tag">Business Insights &amp; Recommendations</span>
                             </div>
                         </div>
                     </div>
+
                     <div class="card">
                         <div class="card-content">
                             <h3><span class="prompt">⏺</span> 💻 IT &amp; Full Stack</h3>
                             <div>
-                                <span class="skill-tag">Python · C++ · JavaScript · TypeScript</span>
+                                <span class="skill-tag">Python · C++ · JavaScript · TypeScript · Java</span>
                                 <span class="skill-tag">React · Next.js · Vite · Tailwind CSS</span>
                                 <span class="skill-tag">Node.js · Express · Flask · FastAPI</span>
+                                <span class="skill-tag">Spring Boot</span>
                                 <span class="skill-tag">PostgreSQL · SQLite · SQLAlchemy</span>
                                 <span class="skill-tag">Prisma ORM</span>
                                 <span class="skill-tag">REST APIs · WebSockets</span>
@@ -1190,6 +1324,7 @@
                             </div>
                         </div>
                     </div>
+
                     <div class="card">
                         <div class="card-content">
                             <h3><span class="prompt">⏺</span> 🛠️ Software Engineering</h3>
@@ -1198,7 +1333,6 @@
                                 <span class="skill-tag">Data Structures &amp; Algorithms</span>
                                 <span class="skill-tag">System Design &amp; Scalability</span>
                                 <span class="skill-tag">Clean Code &amp; SOLID</span>
-                                <span class="skill-tag">Unit &amp; Integration Testing (Vitest, Jest, PyTest, xUnit)</span>
                                 <span class="skill-tag">Atomic SQL Transactions</span>
                                 <span class="skill-tag">State Machine Design</span>
                                 <span class="skill-tag">Auth Security (Argon2, JWT, httpOnly)</span>
@@ -1208,6 +1342,7 @@
                             </div>
                         </div>
                     </div>
+
                     <div class="card">
                         <div class="card-content">
                             <h3><span class="prompt">⏺</span> 📡 Instrumentation</h3>
@@ -1223,6 +1358,7 @@
                             </div>
                         </div>
                     </div>
+
                     <div class="card">
                         <div class="card-content">
                             <h3><span class="prompt">⏺</span> 🏭 Industrial Automation</h3>
@@ -1415,11 +1551,36 @@
                 </div>
             </div>
 
-            <!-- ---------- CONTACT TAB ---------- -->
+            <!-- ---------- CONTACT TAB (UPDATED) ---------- -->
             <div id="contact" class="tab-pane">
                 <div class="contact-box">
                     <h2><span class="highlight">$</span> Let's Connect</h2>
-                    <p>I'm open to internship opportunities, collaboration, or just a chat about automation and AI.</p>
+                    <p>I'm open to internship opportunities across <strong>Software Engineering, Full-Stack, AI/ML, and QA Engineering</strong> — or just a chat about building reliable systems.</p>
+
+                    <!-- Focus Areas -->
+                    <div class="focus-areas">
+                        <div class="focus-item">
+                            <span class="focus-icon"><i class="fas fa-code"></i></span>
+                            <span class="focus-label">Software Engineering</span>
+                            <span class="focus-desc">System design · architecture · clean code</span>
+                        </div>
+                        <div class="focus-item">
+                            <span class="focus-icon"><i class="fas fa-layer-group"></i></span>
+                            <span class="focus-label">Full Stack</span>
+                            <span class="focus-desc">React · Next.js · Node · Spring Boot</span>
+                        </div>
+                        <div class="focus-item">
+                            <span class="focus-icon"><i class="fas fa-brain"></i></span>
+                            <span class="focus-label">AI / ML</span>
+                            <span class="focus-desc">Deep RL · CV · LLMs · MLOps</span>
+                        </div>
+                        <div class="focus-item qa">
+                            <span class="focus-icon"><i class="fas fa-vial"></i></span>
+                            <span class="focus-label">QA Engineering</span>
+                            <span class="focus-desc">Automated testing · concurrency · CI</span>
+                        </div>
+                    </div>
+
                     <div class="contact-links">
                         <a href="mailto:dunithofficial@gmail.com"><i class="fas fa-envelope"></i> Email</a>
                         <a href="https://www.linkedin.com/in/dunith/"><i class="fab fa-linkedin"></i> LinkedIn</a>
@@ -1559,7 +1720,6 @@
         let currentSort = 'newest';
 
         function applyFilterAndSort() {
-            // Filter
             let visibleCount = 0;
             projectCards.forEach(card => {
                 const categories = (card.dataset.category || '').split(' ');
@@ -1568,12 +1728,10 @@
                 if (matches) visibleCount++;
             });
 
-            // Sort visible cards (pinned always first)
             const visibleCards = Array.from(projectCards).filter(c => !c.classList.contains('project-card-hidden'));
             visibleCards.sort((a, b) => {
                 const pinnedA = a.dataset.pinned === 'true' ? 1 : 0;
                 const pinnedB = b.dataset.pinned === 'true' ? 1 : 0;
-
                 if (pinnedA !== pinnedB) return pinnedB - pinnedA;
 
                 const dateA = a.dataset.date || '';
