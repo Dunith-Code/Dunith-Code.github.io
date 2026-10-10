@@ -56,36 +56,6 @@
 <h3 align="center">Languages and Tools:</h3>
 
 <p align="center">
-  <strong>🧪 QA &amp; Testing</strong><br>
-  <a href="https://vitest.dev/" target="_blank" rel="noreferrer"><img src="https://cdn.simpleicons.org/vitest/6E9F18" alt="vitest" width="40" height="40"/></a>
-  <a href="https://jestjs.io/" target="_blank" rel="noreferrer"><img src="https://cdn.simpleicons.org/jest/C21325" alt="jest" width="40" height="40"/></a>
-  <a href="https://docs.pytest.org/" target="_blank" rel="noreferrer"><img src="https://cdn.simpleicons.org/pytest/0A9EDC" alt="pytest" width="40" height="40"/></a>
-  <a href="https://junit.org/" target="_blank" rel="noreferrer"><img src="https://cdn.simpleicons.org/junit/25A162" alt="junit" width="40" height="40"/></a>
-  <a href="https://testcontainers.com/" target="_blank" rel="noreferrer"><img src="https://cdn.simpleicons.org/testcontainers/2496ED" alt="testcontainers" width="40" height="40"/></a>
-  <a href="https://www.postman.com/" target="_blank" rel="noreferrer"><img src="https://cdn.simpleicons.org/postman/FF6C37" alt="postman" width="40" height="40"/></a>
-  <a href="https://github.com/features/actions" target="_blank" rel="noreferrer"><img src="https://cdn.simpleicons.org/githubactions/2088FF" alt="github actions" width="40" height="40"/></a>
-</p>
-
-<p align="center">
-  <strong>🤖 AI / ML</strong><br>
-  <a href="https://www.python.org" target="_blank" rel="noreferrer"><img src="https://raw.githubusercontent.com/devicons/devicon/master/icons/python/python-original.svg" alt="python" width="40" height="40"/></a>
-  <a href="https://pytorch.org/" target="_blank" rel="noreferrer"><img src="https://raw.githubusercontent.com/devicons/devicon/master/icons/pytorch/pytorch-original.svg" alt="pytorch" width="40" height="40"/></a>
-  <a href="https://www.tensorflow.org" target="_blank" rel="noreferrer"><img src="https://raw.githubusercontent.com/devicons/devicon/master/icons/tensorflow/tensorflow-original.svg" alt="tensorflow" width="40" height="40"/></a>
-  <a href="https://opencv.org/" target="_blank" rel="noreferrer"><img src="https://raw.githubusercontent.com/devicons/devicon/master/icons/opencv/opencv-original.svg" alt="opencv" width="40" height="40"/></a>
-  <a href="https://scikit-learn.org/" target="_blank" rel="noreferrer"><img src="https://upload.wikimedia.org/wikipedia/commons/0/05/Scikit_learn_logo_small.svg" alt="scikit-learn" width="40" height="40"/></a>
-  <a href="https://langchain.com/" target="_blank" rel="noreferrer"><img src="https://cdn.simpleicons.org/langchain/1C3C3C" alt="langchain" width="40" height="40"/></a>
-</p>
-
-<p align="center">
-  <strong>📈 Data Analytics &amp; BI</strong><br>
-  <a href="https://powerbi.microsoft.com/" target="_blank" rel="noreferrer"><img src="https://upload.wikimedia.org/wikipedia/commons/c/cf/New_Power_BI_Logo.svg" alt="powerbi" width="40" height="40"/></a>
-  <a href="https://www.microsoft.com/en-us/microsoft-365/excel" target="_blank" rel="noreferrer"><img src="https://upload.wikimedia.org/wikipedia/commons/3/34/Microsoft_Office_Excel_%282019%E2%80%93present%29.svg" alt="excel" width="40" height="40"/></a>
-  <a href="https://pandas.pydata.org/" target="_blank" rel="noreferrer"><img src="https://raw.githubusercontent.com/devicons/devicon/2ae2a900d2f041da66e950e4d48052658d850630/icons/pandas/pandas-original.svg" alt="pandas" width="40" height="40"/></a>
-  <a href="https://numpy.org/" target="_blank" rel="noreferrer"><img src="https://raw.githubusercontent.com/devicons/devicon/master/icons/numpy/numpy-original.svg" alt="numpy" width="40" height="40"/></a>
-  <a href="https://www.ibm.com/analytics/spss-statistics-software" target="_blank" rel="noreferrer"><img src="https://cdn.simpleicons.org/ibm/052FAD" alt="spss" width="40" height="40"/></a>
-</p>
-
-<p align="center">
   <strong>💻 Full-Stack</strong><br>
   <a href="https://www.cprogramming.com/" target="_blank" rel="noreferrer"><img src="https://raw.githubusercontent.com/devicons/devicon/master/icons/cplusplus/cplusplus-original.svg" alt="cplusplus" width="40" height="40"/></a>
   <a href="https://learn.microsoft.com/en-us/dotnet/csharp/" target="_blank" rel="noreferrer"><img src="https://raw.githubusercontent.com/devicons/devicon/master/icons/csharp/csharp-original.svg" alt="csharp" width="40" height="40"/></a>
@@ -109,6 +79,36 @@
   <a href="https://www.mysql.com/" target="_blank" rel="noreferrer"><img src="https://raw.githubusercontent.com/devicons/devicon/master/icons/mysql/mysql-original-wordmark.svg" alt="mysql" width="40" height="40"/></a>
   <a href="https://www.sqlite.org/" target="_blank" rel="noreferrer"><img src="https://raw.githubusercontent.com/devicons/devicon/master/icons/sqlite/sqlite-original.svg" alt="sqlite" width="40" height="40"/></a>
   <a href="https://www.prisma.io/" target="_blank" rel="noreferrer"><img src="https://cdn.simpleicons.org/prisma/2D3748" alt="prisma" width="40" height="40"/></a>
+</p>
+
+<p align="center">
+  <strong>🤖 AI / ML</strong><br>
+  <a href="https://www.python.org" target="_blank" rel="noreferrer"><img src="https://raw.githubusercontent.com/devicons/devicon/master/icons/python/python-original.svg" alt="python" width="40" height="40"/></a>
+  <a href="https://pytorch.org/" target="_blank" rel="noreferrer"><img src="https://raw.githubusercontent.com/devicons/devicon/master/icons/pytorch/pytorch-original.svg" alt="pytorch" width="40" height="40"/></a>
+  <a href="https://www.tensorflow.org" target="_blank" rel="noreferrer"><img src="https://raw.githubusercontent.com/devicons/devicon/master/icons/tensorflow/tensorflow-original.svg" alt="tensorflow" width="40" height="40"/></a>
+  <a href="https://opencv.org/" target="_blank" rel="noreferrer"><img src="https://raw.githubusercontent.com/devicons/devicon/master/icons/opencv/opencv-original.svg" alt="opencv" width="40" height="40"/></a>
+  <a href="https://scikit-learn.org/" target="_blank" rel="noreferrer"><img src="https://upload.wikimedia.org/wikipedia/commons/0/05/Scikit_learn_logo_small.svg" alt="scikit-learn" width="40" height="40"/></a>
+  <a href="https://langchain.com/" target="_blank" rel="noreferrer"><img src="https://cdn.simpleicons.org/langchain/1C3C3C" alt="langchain" width="40" height="40"/></a>
+</p>
+
+<p align="center">
+  <strong>🧪 QA &amp; Testing</strong><br>
+  <a href="https://vitest.dev/" target="_blank" rel="noreferrer"><img src="https://cdn.simpleicons.org/vitest/6E9F18" alt="vitest" width="40" height="40"/></a>
+  <a href="https://jestjs.io/" target="_blank" rel="noreferrer"><img src="https://cdn.simpleicons.org/jest/C21325" alt="jest" width="40" height="40"/></a>
+  <a href="https://docs.pytest.org/" target="_blank" rel="noreferrer"><img src="https://cdn.simpleicons.org/pytest/0A9EDC" alt="pytest" width="40" height="40"/></a>
+  <a href="https://junit.org/" target="_blank" rel="noreferrer"><img src="https://cdn.simpleicons.org/junit/25A162" alt="junit" width="40" height="40"/></a>
+  <a href="https://testcontainers.com/" target="_blank" rel="noreferrer"><img src="https://cdn.simpleicons.org/testcontainers/2496ED" alt="testcontainers" width="40" height="40"/></a>
+  <a href="https://www.postman.com/" target="_blank" rel="noreferrer"><img src="https://cdn.simpleicons.org/postman/FF6C37" alt="postman" width="40" height="40"/></a>
+  <a href="https://github.com/features/actions" target="_blank" rel="noreferrer"><img src="https://cdn.simpleicons.org/githubactions/2088FF" alt="github actions" width="40" height="40"/></a>
+</p>
+
+<p align="center">
+  <strong>📈 Data Analytics &amp; BI</strong><br>
+  <a href="https://powerbi.microsoft.com/" target="_blank" rel="noreferrer"><img src="https://upload.wikimedia.org/wikipedia/commons/c/cf/New_Power_BI_Logo.svg" alt="powerbi" width="40" height="40"/></a>
+  <a href="https://www.microsoft.com/en-us/microsoft-365/excel" target="_blank" rel="noreferrer"><img src="https://upload.wikimedia.org/wikipedia/commons/3/34/Microsoft_Office_Excel_%282019%E2%80%93present%29.svg" alt="excel" width="40" height="40"/></a>
+  <a href="https://pandas.pydata.org/" target="_blank" rel="noreferrer"><img src="https://raw.githubusercontent.com/devicons/devicon/2ae2a900d2f041da66e950e4d48052658d850630/icons/pandas/pandas-original.svg" alt="pandas" width="40" height="40"/></a>
+  <a href="https://numpy.org/" target="_blank" rel="noreferrer"><img src="https://raw.githubusercontent.com/devicons/devicon/master/icons/numpy/numpy-original.svg" alt="numpy" width="40" height="40"/></a>
+  <a href="https://www.ibm.com/analytics/spss-statistics-software" target="_blank" rel="noreferrer"><img src="https://cdn.simpleicons.org/ibm/052FAD" alt="spss" width="40" height="40"/></a>
 </p>
 
 <p align="center">
