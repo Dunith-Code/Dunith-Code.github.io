@@ -1041,7 +1041,7 @@
                         <div class="card-img"><i class="fas fa-calendar-check"></i></div>
                         <div class="card-content">
                             <h3><span class="prompt">⏺</span> 📅 ReservaCore – Resource Reservation Management System</h3>
-                            <div class="card-meta"><i class="fas fa-calendar-alt"></i> Oct 2026 · Full-Stack Booking Platform (Deployed)</div>
+                            <div class="card-meta"><i class="fas fa-calendar-alt"></i> Oct 2026 · Full-Stack Booking Platform</div>
                             <p>Full-stack platform for booking shared <strong>rooms, equipment, and vehicles</strong> with role-based access (bcrypt + signed HttpOnly session cookies), a live dashboard, per-resource availability timelines, filtered reservation management, in-place rescheduling, and enforced booking rules (operating hours, max duration). Rejected bookings suggest the nearest free slots and alternative free resources of the same type. Eliminated <strong>double-booking at the database level</strong> using a PostgreSQL <strong>exclusion constraint on <code>tstzrange</code></strong> (GiST index) instead of check-then-insert — proven with <strong>31 automated Vitest tests</strong>, including 8 simultaneous requests for one slot where exactly one succeeds. Times stored in UTC (<code>timestamptz</code>) and displayed in Sri Lanka time.</p>
                             <span class="skill-tag">Next.js 16</span>
                             <span class="skill-tag">TypeScript</span>
